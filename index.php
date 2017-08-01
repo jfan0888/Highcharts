@@ -2,9 +2,6 @@
 ##### IN PRODUCTION 6/12/17 #####
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,19 +111,19 @@
 		    padding-top: 0px;
 		}
 
-	.well { background-color:#fafafa; }
+		.well { background-color:#fafafa; }
 
-     #wordcloud {
-        width: 270px;
-        height: 500px;
-        max-height: 320px;
-        border: none;
-      }
-      #wordcloud span.w10, #wordcloud span.w9, #wordcloud span.w8, #wordcloud span.w7 {
-        text-shadow: 0px 1px 1px #ccc;
-      }
-      #wordcloud span.w3, #wordcloud span.w2, #wordcloud span.w1 {
-        text-shadow: 0px 1px 1px #fff;
+    	#wordcloud {
+	        width: 270px;
+	        height: 500px;
+	        max-height: 320px;
+	        border: none;
+      	}
+      	#wordcloud span.w10, #wordcloud span.w9, #wordcloud span.w8, #wordcloud span.w7 {
+        	text-shadow: 0px 1px 1px #ccc;
+      	}
+      	#wordcloud span.w3, #wordcloud span.w2, #wordcloud span.w1 {
+        	text-shadow: 0px 1px 1px #fff;
     	}
 
 		@media (min-width: 1200px) {
@@ -139,6 +136,7 @@
 			.caret { transform: rotate(270deg); }
 			.filterdropdown { margin-top:20px; }
 		}
+		
 		.searchimage { width:200px; float:none; margin: 0 auto; }
 		.socialicon { width:200px; color:#4099FF; width:250px; float:none; margin: 0 auto; }
 		.youtube-large, .dailymotion-large { background-color:transparent; max-width:300px; }
@@ -192,9 +190,7 @@
 			-ms-transform: scale(1, 2); /* IE 9+ */
 			-o-transform: scale(1, 2); /* Opera */
 		}
-		</style>
-
-
+	</style>
 </head>
 
 <body>
@@ -1163,9 +1159,9 @@ $(document).ready(function() {
 					$('#sparktrend').text(sparktrend);
 					sentiment_spark(spark_data);
 				
-				if(sidebarstate == "open") {
-			    	sidebarCharts();
-				}
+					if(sidebarstate == "open") {
+				    	sidebarCharts();
+					}
 				
 				};
 				
@@ -1546,16 +1542,17 @@ $(document).ready(function() {
 			$(this).text(text);
 		});  					
 
-    			$('.datefilter').on('apply.daterangepicker', function(ev, picker) {
+		$('.datefilter').on('apply.daterangepicker', function(ev, picker) {
 			startdate = picker.startDate.format('YYYY-MM-DD');
-  					enddate = picker.endDate.format('YYYY-MM-DD');
+				enddate = picker.endDate.format('YYYY-MM-DD');
 			if (q.length > 0) { 
 				$('#results').empty(); p = 1; // Clear text and reset pagecount
 				$('.spinner').show();
 				$('#lazyload').hide(); 
 				$('#search').trigger('input');
 				console.log('trigger in 1563');  
-			} // Rerun filter, but only if there is a query
+			}
+			// Rerun filter, but only if there is a query
       		$(".datefilter span").each(function() {
 				var text = $(this).text();
 				text = text.replace("1946-06-14 - 2017-06-12", "All Dates");
@@ -1620,8 +1617,7 @@ $(document).ready(function() {
 	// arrowoffset = arrowoffset.replace("px", "");
 	// arrowoffset = (Number(arrowoffset));
 	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
-	function openCloseNav() {
-	////////////////////////////////////////////////////////////////////////////////////////
+
 		function sidebarCharts() {
 
 			console.log("sidebarcharts function called");
@@ -1730,7 +1726,7 @@ $(document).ready(function() {
 			        },
 			        turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
 			    }]
-						});
+			});
 			// Grade Level
 			chart_gauge_gradelevel = Highcharts.chart('gradelevelgauge', {
 				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150
@@ -1766,16 +1762,16 @@ $(document).ready(function() {
 			    min: 0,
 			    max: 12
 			},
-			series: [{
-				name: 'Grade Level',
-				data: [gradelevel_gauge_data],
-				dataLabels: {
-				format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
-							((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-							'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
-				},
-			}]
-		 });
+				series: [{
+					name: 'Grade Level',
+					data: [gradelevel_gauge_data],
+					dataLabels: {
+					format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
+								((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+								'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
+					},
+				}]
+		 	});
 		 		
 			
 			// Positive/Negative
@@ -1837,14 +1833,19 @@ $(document).ready(function() {
 						
 		};
 
-	   if (sidebarstate == "closed") {
+	function openCloseNav() {
+	////////////////////////////////////////////////////////////////////////////////////////
+		sidebarCharts();
+	   	if (sidebarstate == "closed") {
 			$(function() {
+				$("#big5wordcloud").empty();
+				$("#topicswordcloud").empty();
 				$("html, body").animate({ scrollTop: 0 }, "slow");
 				$("#full-dashboard").show();
 				$("#full-dashboard").css('display','inline-block');
 				$(".sidebarfade").fadeIn();
 	    	    $("body").css("overflow", "hidden");
-	    	    $("#sidebarWrapper").animate({left:'-950px'},{duration: 1000, queue: false});
+	    	    $("#sidebarWrapper").animate({left: '-' + resultswidth + 'px'},{duration: 1000, queue: false});
 	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
 	    			$("#full-dashboard").css('display', 'flexbox')
 	    			$("#full-dashboard").css('width', resultswidth+"px")
@@ -1855,11 +1856,13 @@ $(document).ready(function() {
 			});
 	    } else if (sidebarstate == "open") {
 			$(function() {
+				$("#big5wordcloud").empty();
+				$("#topicswordcloud").empty();
 				$("#full-dashboard").hide()
 				$(".sidebarfade").hide();
 	    	    $("body").css("overflow", "scroll");
-	    	    $("#sidebarWrapper").animate({left:'20px'},{duration: 500, queue: false}); 	    
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 100, queue: false, complete: function(){
+	    	    $("#sidebarWrapper").animate({left:'25px'},{duration: 1000, queue: false}); 	    
+	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
 			    	$(".rotate").toggleClass("down");
 					sidebarstate = "closed"; 
 				}});
@@ -1902,6 +1905,7 @@ $(document).ready(function() {
 			qclean = qclean.trim();
 			$('#search').attr('placeholder', qclean);
 			$('#search').val(qclean);
+			// Fixing the first issue
 			// $('#search').trigger('input');
 			console.log('trigger in 1915');
 			if (sidebarstate == "open") {
