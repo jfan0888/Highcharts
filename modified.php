@@ -2,12 +2,6 @@
 ##### IN PRODUCTION 6/12/17 #####
 ?>
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
