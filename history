@@ -1,0 +1,11 @@
+1. div sidebar style change
+
+- width 300px has been removed
+- left-margin 20px has been removed
+
+2. $.get("/json/json?mr=1", function(data) 
+
+- add comment
+- 'data' assign value fomally '1501411059'
+- tabarrow button was inserted in the navsidebar(overflow:visisble) 351
+- animation effect tabarrow remove
