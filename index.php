@@ -101,7 +101,6 @@
 	.sidenav {
     height: 100%;
     width: 300px;
-    position: absolute;
     z-index: 1;
     top: 0;
     right:0;
@@ -159,7 +158,7 @@
 @media screen and (max-width: 768px) { }
 @media screen and (max-width: 640px) { }
 
-#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-44px; }
+#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-25px; }
 #tabarrow-glyph { opacity:0.5; }
 #tabarrow-glyph:hover { opacity:1; }
 .rotate{
@@ -336,9 +335,11 @@
 				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
 				<div class="col-lg-3 hide-1200" id="sidebar" style="min-height:600px; height:100%; /* width:300px; */ padding-top:0px; /*margin-left: 20px;*/ padding-left:20px; z-index:inherit;">
 	
-					<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
+				<div id= "sidebarWrapper" style="position:absolute; width:100%; hight:100%; display:block;">
 
-						<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
+					<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
+
+					<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
 
 						<div class="pull-left" style="min-width:280px;">
 							<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
@@ -397,6 +398,7 @@
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 	</div>
@@ -1846,7 +1848,8 @@ $(document).ready(function() {
 				$("#full-dashboard").css('display','inline-block');
 				$(".sidebarfade").fadeIn();
 	    	    $("body").css("overflow", "hidden");
-	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 300, queue: false, complete: function(){
+	    	    $("#sidebarWrapper").animate({left:'-950px'},{duration: 500, queue: false});
+	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 500, queue: false, complete: function(){
 	    			$("#full-dashboard").css('display', 'flexbox')
 	    			$("#full-dashboard").css('width', resultswidth+"px")
 					$(".rotate").toggleClass("down");
@@ -1859,7 +1862,8 @@ $(document).ready(function() {
 				$("#full-dashboard").hide()
 				$(".sidebarfade").hide();
 	    	    $("body").css("overflow", "scroll");
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 300, queue: false, complete: function(){
+	    	    $("#sidebarWrapper").animate({left:'20px'},{duration: 500, queue: false}); 	    
+	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 500, queue: false, complete: function(){
 			    	$(".rotate").toggleClass("down");
 					sidebarstate = "closed"; 
 				}});
