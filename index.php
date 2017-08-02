@@ -96,7 +96,7 @@
 		.show-1200 {display:none; }
 
 		.sidenav {
-		    height: 600px; /*sidebar scroll enabled*/
+		    min-height: 600px;
 		    width: 300px;
 		    z-index: 1;
 		    top: 0;
@@ -327,7 +327,7 @@
 				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
 				<div class="col-lg-3 hide-1200" id="sidebar" style="min-height:600px; height:100%; /* width:300px; */ padding-top:0px; /*margin-left: 20px;*/ padding-left:20px; z-index:inherit;">
 	
-				<div id= "sidebarWrapper" style="position:absolute; width:100%; hight:600px; display:block;">
+				<div id= "sidebarWrapper" style="position:absolute; width:100%; hight:100%; display:block;">
 
 					<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
 
@@ -535,8 +535,7 @@ function youtubeIframe() {
 	this.parentNode.replaceChild(iframe, this);
 };
 function renderyoutube() {
-	var div, n,
-		v = document.getElementsByClassName("youtube-large");
+	var div, n, v = document.getElementsByClassName("youtube-large");
 	for (n = 0; n < v.length; n++) {
 		div = document.createElement("div");
 		div.setAttribute("data-id", v[n].dataset.id);
@@ -595,10 +594,10 @@ $(document).ready(function() {
 
 	console.log("reload");
 	console.log("ok");
-
 	// Handle Show/Hide of Dashboard
-	var mainheight = $(window).height()-205;
-	$("#sidebar").css("height", mainheight+"px");
+	var mainheight = $(window).height() - 235;
+	$("#mySidenav").css("height", mainheight+"px");
+
 	var topicpage = "search";
 	$("#search").focus();
 
@@ -625,7 +624,6 @@ $(document).ready(function() {
 	function lasttweettime() {
 		console.log(Date.now());
 		$.get("https://factba.se/json/json?mr=1", function(data) {
-			data = '1501411059';
 			Number(data);
 			var rightnow = Math.round(Date.now() / 1000);
 			timesince = rightnow - data;
@@ -651,7 +649,6 @@ $(document).ready(function() {
 	lasttweettime();
 	setInterval(update, 1000);
 	setInterval(lasttweettime, 60000);
-
 
 	// Get the Hash out of the URL
 	var hash = window.location.hash.substr(1);
@@ -685,6 +682,26 @@ $(document).ready(function() {
 		console.log(value);
 		console.log("search on");
 		console.log("case1");
+
+		if(sidebarstate == "open") {
+	    	
+	    	q = $("#search").val();
+
+	    	if(q.length == 0){
+				$('.pull-left').empty();
+				$("#full-dashboard").css('display','none');				    	
+	    		console.log("remove function called");
+	    	}
+	    	else{
+
+				$("#full-dashboard").show();
+				$("#full-dashboard").css('display','inline-block');				    	
+    			$("#full-dashboard").css('width', resultswidth+"px")
+
+		    	sidebarCharts();
+	    	}
+	    	console.log("In openning search function called");
+		}
 
 		$('.spinner').show();
 		window.clearTimeout($(this).data("timeout"));
@@ -1160,9 +1177,21 @@ $(document).ready(function() {
 					sentiment_spark(spark_data);
 				
 					if(sidebarstate == "open") {
-				    	sidebarCharts();
+				    	
+				    	q = $("#search").val();
+
+				    	if(q.length == 0){
+							$("#full-dashboard").css('display','none');				    	
+				    	}
+				    	else{
+							$("#full-dashboard").show();
+							$("#full-dashboard").css('display','inline-block');				    	
+			    			$("#full-dashboard").css('width', resultswidth+"px")
+
+					    	sidebarCharts();
+				    	}
+				    	console.log("In openning search function called");
 					}
-				
 				};
 				
 		// Get charts to clear and refresh properly on new search, fix formatting, make mobile-ized and push the f*** out	
@@ -1835,22 +1864,28 @@ $(document).ready(function() {
 
 	function openCloseNav() {
 	////////////////////////////////////////////////////////////////////////////////////////
-		sidebarCharts();
+		q = $('#search').val();
+		console.log(q.length);
+				
 	   	if (sidebarstate == "closed") {
 			$(function() {
 				$("#big5wordcloud").empty();
 				$("#topicswordcloud").empty();
 				$("html, body").animate({ scrollTop: 0 }, "slow");
-				$("#full-dashboard").show();
-				$("#full-dashboard").css('display','inline-block');
+				if(q.length > 0){
+					$("#full-dashboard").show();
+					$("#full-dashboard").css('display','inline-block');
+				}
 				$(".sidebarfade").fadeIn();
 	    	    $("body").css("overflow", "hidden");
 	    	    $("#sidebarWrapper").animate({left: '-' + resultswidth + 'px'},{duration: 1000, queue: false});
-	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
-	    			$("#full-dashboard").css('display', 'flexbox')
-	    			$("#full-dashboard").css('width', resultswidth+"px")
+	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 1000, queue: false, complete: function(){
+		    		if(q.length > 0){
+		    			$("#full-dashboard").css('display', 'flexbox')
+		    			$("#full-dashboard").css('width', resultswidth+"px")
+				    	sidebarCharts();
+					}
 					$(".rotate").toggleClass("down");
-			    	sidebarCharts();
 	    			sidebarstate = "open";
 				}});
 			});
@@ -1909,6 +1944,7 @@ $(document).ready(function() {
 			// $('#search').trigger('input');
 			console.log('trigger in 1915');
 			if (sidebarstate == "open") {
+				console.log("When search in open, hashchange function callled");
 				chart_twitter_heatmap.destroy();
 				chart_timeline_chart.destroy();
 				chart_gauge_gradelevel.destroy();
