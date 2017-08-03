@@ -97,7 +97,7 @@
 
 		.sidenav {
 		    min-height: 600px;
-		    width: 300px;
+		    width: 100%;
 		    z-index: 1;
 		    top: 0;
 		    right:0;
@@ -158,9 +158,9 @@
 		#tabarrow-glyph { opacity:0.5; }
 		#tabarrow-glyph:hover { opacity:1; }
 		.rotate{
-		    -moz-transition: all 0.6s linear;
-		    -webkit-transition: all 0.6s linear;
-		    transition: all 0.6s linear;
+		    -moz-transition: all 0.5s linear;
+		    -webkit-transition: all 0.5s linear;
+		    transition: all 0.5s linear;
 		}
 
 		.rotate.down{
@@ -307,6 +307,11 @@
 					</div>
 				</div>
 			</div>
+
+
+
+
+
 				</div>
 			</div>
 			<div class="row-fluid resultsblock" id="mainbar">
@@ -320,10 +325,8 @@
 				</div>
 
 				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
-				<div class="col-lg-3 hide-1200" id="sidebar" style="min-height:600px; height:100%; /* width:300px; */ padding-top:0px; /*margin-left: 20px;*/ padding-left:20px; z-index:inherit;">
+				<div class="col-lg-3 hide-1200" id="sidebar">
 	
-				<div id= "sidebarWrapper" style="position:absolute; width:auto; hight:100%; display:block; right:25px;">
-
 					<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
 
 					<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
@@ -342,7 +345,6 @@
 								<div id="sparkline" class="clear-visible" style="text-align:center; width:100%; height:90px; display:block;"></div>
 								<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
 							</div>
-							
 						</div>
 						<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
 							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
@@ -385,7 +387,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
 			</div>
 		</div>
 	</div>
@@ -579,19 +580,37 @@ function renderdailymotion() {
 	}
 };
 
+// Style sidebar area
+
+function createSidebar(){
+	
+	var sidebar = $("#sidebar");
+	var resultswidth = ($("#results-block").outerWidth())+20;
+
+	sidebar.css({"transition-timing-function": "linear", "overflow":"hidden","position": "absolute","min-height": "600px","height": "100%","width": "350px","padding-top":"0px","padding-left":"25px", "left":$(window).width()-443,"transition": "width 2s, left 2s"});
+
+}
 
 // CLEAN UP, CONSOLIDATE CONCEPT OF NEW SEARCH. ONLY TRIGGER DATA ON NEW SEARCH, LEAVE ALL ELSE ALONE
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Now the Doc Read Part
+
 $(document).ready(function() {
+
+	createSidebar();
 
 	console.log("reload");
 	console.log("ok");
+	
 	// Handle Show/Hide of Dashboard
+	
 	var mainheight = $(window).height() - 235;
-	$("#mySidenav").css("height", mainheight+"px");
+	var mwidth = $(window).width();
+
+	$(".sidenav").css('height',mainheight);
+	console.log(mwidth);
 
 	var topicpage = "search";
 	$("#search").focus();
@@ -665,8 +684,6 @@ $(document).ready(function() {
 	var rpp = 40;
 	l = rpp;
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////	
 	// Now handle the search stuff
 	$('#search').on('input', function(value) {
@@ -678,23 +695,25 @@ $(document).ready(function() {
 		console.log("search on");
 		console.log("case1");
 
-   	
+		if(sidebarstate == "open") {
+	    	
 	    	q = $("#search").val();
 
 	    	if(q.length == 0){
-				$('.pull-left').css('display', 'none');
+				$('.pull-left').empty();
 				$("#full-dashboard").css('display','none');				    	
 	    		console.log("remove function called");
 	    	}
 	    	else{
-				if(sidebarstate == "open"){
-					$('.pull-left').css('display', 'block');
-					$("#full-dashboard").show();
-					$("#full-dashboard").css('display','inline-block');				    	
-	    			$("#full-dashboard").css('width', resultswidth+"px")
-	    		}
+
+				$("#full-dashboard").show();
+				$("#full-dashboard").css('display','inline-block');				    	
+    			$("#full-dashboard").css('width', resultswidth+"px")
+
+		    	sidebarCharts();
 	    	}
 	    	console.log("In openning search function called");
+		}
 
 		$('.spinner').show();
 		window.clearTimeout($(this).data("timeout"));
@@ -1235,7 +1254,7 @@ $(document).ready(function() {
 				// $('#lazyload').hide();
 
 			});
-		}, 2500));
+		}, 5000));
 	});
 
 
@@ -1862,24 +1881,31 @@ $(document).ready(function() {
 				
 	   	if (sidebarstate == "closed") {
 			$(function() {
+
+	    	    $("#sidebar").css({"width": $(window).width() - 144, "left": "60px"});
+
 				$("#big5wordcloud").empty();
 				$("#topicswordcloud").empty();
+
 				$("html, body").animate({ scrollTop: 0 }, "slow");
+				
 				if(q.length > 0){
 					$("#full-dashboard").show();
 					$("#full-dashboard").css('display','inline-block');
 				}
+				
 				$(".sidebarfade").fadeIn();
 	    	    $("body").css("overflow", "hidden");
-	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 1000, queue: false, complete: function(){
-		    		if(q.length > 0){
-		    			$("#full-dashboard").css('display', 'flexbox')
-		    			$("#full-dashboard").css('width', resultswidth+"px")
-				    	sidebarCharts();
-					}
-					$(".rotate").toggleClass("down");
-	    			sidebarstate = "open";
-				}});
+	    		
+	    		if(q.length > 0){
+	    			$("#full-dashboard").css('display', 'flexbox');
+	    			$("#full-dashboard").css('width', resultswidth+"px");
+	    			console.log(resultswidth);
+			    	sidebarCharts();
+				}
+				
+				$(".rotate").toggleClass("down");
+	    		sidebarstate = "open";
 			});
 	    } else if (sidebarstate == "open") {
 			$(function() {
@@ -1888,6 +1914,11 @@ $(document).ready(function() {
 				$("#full-dashboard").hide()
 				$(".sidebarfade").hide();
 	    	    $("body").css("overflow", "scroll");
+
+	    	    $("#sidebar").css("left", $(window).width()-447);
+	    	    $("#sidebar").css("width", "350px");
+
+	    	    $("#sidebarWrapper").animate({left:'25px'},{duration: 1000, queue: false}); 	    
 	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
 			    	$(".rotate").toggleClass("down");
 					sidebarstate = "closed"; 
@@ -1947,12 +1978,7 @@ $(document).ready(function() {
 			}	
 		};
 	};
-	
-	
-	
 });	
-
-
 
 </script>
 </body></html>
