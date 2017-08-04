@@ -102,7 +102,9 @@
 
 		.sidenav {
 		    min-height: 600px;
-		    min-width: 280px;
+		    min-width: 300px;
+		    padding-left: 10px;
+		    padding-right: 10px;
 		    width: 100%;
 		    z-index: 1;
 		    top: 0;
@@ -335,7 +337,7 @@
 						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
 
 							<div class="pull-left" style="min-width:280px;">
-								<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
+								<div class="total-matches" style="padding-top:15px;"></div>
 								<div id="categorychart" class="clear-visible"></div><p>
 								<div id="dom_emo" style="display:block;">
 									<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>

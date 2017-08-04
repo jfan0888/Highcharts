@@ -1004,9 +1004,6 @@ input:focus {
 .grit {
     -webkit-mask-image: url("/img/grit.png");
 }
-.total-matches {
-    margin-left: -20px;
-}
 #copyright {
     position: absolute;
     bottom: 0;
