@@ -1897,7 +1897,7 @@ $(document).ready(function() {
 			qclean = qclean.trim();
 			$('#search').attr('placeholder', qclean);
 			$('#search').val(qclean);
-			$('#search').trigger('input');
+			// $('#search').trigger('input');
 			if (sidebarstate == "open") {
 				chart_twitter_heatmap.destroy();
 				chart_timeline_chart.destroy();

@@ -45,7 +45,7 @@
 	
 	<!-- // JSON-LD markup -->
 
-	<?php include( 'includes/scripts.inc'); ?>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    	<?php include( 'includes/scripts.inc'); ?>
 	<link rel="stylesheet" href="css/wordcloud.css" />
 	<style>
 		body {
@@ -60,6 +60,9 @@
 			color: #303030;
 			height: 100%;
 			padding-bottom: 30px;
+		}
+		#results-block {
+			padding-left: 0px;
 		}
 		.row {
 			-moz-column-width: 100%;
@@ -105,7 +108,6 @@
 		    min-width: 300px;
 		    padding-left: 10px;
 		    padding-right: 10px;
-		    width: 100%;
 		    z-index: 1;
 		    top: 0;
 		    right:0;
@@ -195,6 +197,11 @@
 			-moz-transform: scale(1, 2); /* Firefox */
 			-ms-transform: scale(1, 2); /* IE 9+ */
 			-o-transform: scale(1, 2); /* Opera */
+		}
+		.sidebar_slide {
+			position: absolute;
+			right: 0px;
+			width: auto;
 		}
 	</style>
 </head>
@@ -330,11 +337,12 @@
 
 				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
 				<div class="col-lg-3" style="padding-left: 0;">
-					<div class="hide-1200" id="sidebar" style="position: relative; right: 0;">
 		
+					<div class = 'sidebar_slide'>
+
 						<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
 
-						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
+						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit; width: 100%;">
 
 							<div class="pull-left" style="min-width:280px;">
 								<div class="total-matches" style="padding-top:15px;"></div>
@@ -1659,16 +1667,16 @@ $(document).ready(function() {
 	var resultswidth = ($("#results-block").outerWidth())+20;
 	var sidewidth = $("#mySidenav").outerWidth();
 	var mainwidth = ($("#results-block").width()+75)+sidewidth;
-	// var arrowoffset = $('#tabarrow').css('margin-left');
-	// arrowoffset = arrowoffset.replace("px", "");
-	// arrowoffset = (Number(arrowoffset));
-	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
+	var arrowoffset = $('#tabarrow').css('margin-left');
+	arrowoffset = arrowoffset.replace("px", "");
+	arrowoffset = (Number(arrowoffset));
+	var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 
 		function sidebarCharts() {
 
 			console.log("sidebarcharts function called");
 
-		//Charts
+			//Charts
 			// Large Timeline
 			chart_timeline_chart = Highcharts.chart('timelinechart', {
 				chart: { 	
@@ -1886,33 +1894,24 @@ $(document).ready(function() {
 				
 	   	if (sidebarstate == "closed") {
 			$(function() {
-
-	    	    $("#sidebar").css({"width": $(window).width() - 144});
-
-				$("#big5wordcloud").empty();
-				$("#topicswordcloud").empty();
-
 				$("html, body").animate({ scrollTop: 0 }, "slow");
-				
-				if(q.length > 0){
 					$("#full-dashboard").show();
 					$("#full-dashboard").css('display','inline-block');
-				}
-				
-				$(".sidebarfade").fadeIn();
-	    	    $("body").css("overflow", "hidden");
-	    		
-	    		if(q.length > 0){
-	    			$("#full-dashboard").css('display', 'flexbox');
-	    			$("#full-dashboard").css('width', resultswidth+"px");
-	    			console.log(resultswidth);
-			    	sidebarCharts();
-				}
-				
-				$(".rotate").toggleClass("down");
-	    		sidebarstate = "open";
-			});
-	    } else if (sidebarstate == "open") {
+					
+					$("#big5wordcloud").empty();
+					$("#topicswordcloud").empty();
+					
+					$(".sidebarfade").fadeIn();
+		    	    $("body").css("overflow", "hidden");
+		    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
+		    			$("#full-dashboard").css('display', 'flexbox')
+		    			$("#full-dashboard").css('width', resultswidth+"px")
+						$(".rotate").toggleClass("down");
+				    	sidebarCharts();
+		    			sidebarstate = "open";
+					}});
+				});
+	    }else if (sidebarstate == "open") {
 			$(function() {
 				$("#big5wordcloud").empty();
 				$("#topicswordcloud").empty();
