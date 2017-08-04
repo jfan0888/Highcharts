@@ -1,7 +1,6 @@
 <?php
 ##### IN PRODUCTION 6/12/17 #####
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +26,7 @@
 	<meta name="twitter:site" content="@wxbase">
 	<meta name="twitter:creator" content="@wxbase">
 	<!-- JSON-LD markup -->
+	
 	<script type="application/ld+json">
 	{	"@context" : "http://schema.org",
 		"@type" : "Article",
@@ -38,7 +38,6 @@
 	</script>
 	
 	<!-- // JSON-LD markup -->
-
 
 	<?php include( '/usr/home/frisch/public_html/fact/includes/scripts.inc'); ?>
 	<link rel="stylesheet" href="/css/wordcloud.css" />
@@ -72,45 +71,72 @@
 			margin-bottom:0px;
 			padding-bottom:0px;
 		}
-		.filterdrop { color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px; }
-		.filterdrop:link, a.filterdrop:visited, a.filterdrop:hover, a.filterdrop:active  { text-decoration:none; cursor:pointer; }
-		li.mr:hover { color: #777777; }
-		.filterdropmenu { margin-top:3px; margin-left:10px; border-radius:0px; box-shadow: 0 2px 4px rgba(0,0,0,0.16); border: 1px solid #d6d6d6; }
-		.ddtype { min-width:240px; }
-		.highcharts-title { font-family: 'Univers LT 65', Arial, sans-serif; font-size:1.1em; }
-	li.mr { padding-left:30px; cursor:pointer; }
-	li.ck { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important;}
-	.z { display:inline-block; }
-	.ranges ul { padding-top:5px; padding-bottom:5px; margin-top:2px;  }
-	.ranges li { font-size:14px; color: #222222; 'Univers LT 45', Arial, sans-serif; background-color:#fff; border:none; border-radius:0px; margin:0px; padding:0px; margin-left:30px; }
-	.ranges li:hover { color: #777777; background-color:#fff; border:none; border-radius:0px; }
-	.ranges li.active { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important; background-color:#fff; color:#222222; border:0px; }
-	.range_inputs { display:none; }
-	.daterangepicker { margin-top:3px; margin-left:10px; border-radius:0px; box-shadow: 0 2px 4px rgba(0,0,0,0.16); border: 1px solid #d6d6d6; }
-	.daterangepicker::before { display:none; }
-	.daterangepicker::after { display:none; }
-	.highcharts-credits { display:none; }
-	.highcharts-background { background:transparent !important; }
-	.datefilter { background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px; }
-	.sortlist { margin-left:50px; }
-	.show-1200 {display:none; }
+		.filterdrop {
+			color: #222222;
+			'Univers LT 45', Arial, sans-serif;
+			font-size:13px;
+		}
+		.filterdrop:link, a.filterdrop:visited, a.filterdrop:hover, a.filterdrop:active {
+			text-decoration:none;
+			cursor:pointer;
+		}
+		li.mr:hover {
+			color: #777777;
+		}
+		.filterdropmenu { 
+			margin-top:3px; 
+			margin-left:10px; 
+			border-radius:0px; 
+			box-shadow: 0 2px 4px rgba(0,0,0,0.16); 
+			border: 1px solid #d6d6d6; 
+		}
+		.ddtype { 
+			min-width:240px; 
+		}
+		.highcharts-title { 
+			font-family: 'Univers LT 65', Arial, sans-serif; 
+			font-size:1.1em; 
+		}
+		li.mr {
+			padding-left:30px; 
+			cursor:pointer; 
+		}
+		li.ck { 
+			background-image:url("/img/checkmark.png"); 
+			background-position:left center; 
+			background-repeat:no-repeat; 
+			margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important;}
+		.z { display:inline-block; }
+		.ranges ul { padding-top:5px; padding-bottom:5px; margin-top:2px;  }
+		.ranges li { font-size:14px; color: #222222; 'Univers LT 45', Arial, sans-serif; background-color:#fff; border:none; border-radius:0px; margin:0px; padding:0px; margin-left:30px; }
+		.ranges li:hover { color: #777777; background-color:#fff; border:none; border-radius:0px; }
+		.ranges li.active { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important; background-color:#fff; color:#222222; border:0px; }
+		.range_inputs { display:none; }
+		.daterangepicker { margin-top:3px; margin-left:10px; border-radius:0px; box-shadow: 0 2px 4px rgba(0,0,0,0.16); border: 1px solid #d6d6d6; }
+		.daterangepicker::before { display:none; }
+		.daterangepicker::after { display:none; }
+		.highcharts-credits { display:none; }
+		.highcharts-background { background:transparent !important; }
+		.datefilter { background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px; }
+		.sortlist { margin-left:50px; }
+		.show-1200 {display:none; }
 
-	.sidenav {
-    height: 100%;
-    width: 300px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right:0;
-    padding-left:15px;
-    background-color: #f0f0f0;
-    border: 1px solid #cfcfcf;
-    border-radius: 4px;
-    color:#fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 0px;
-}
+			.sidenav {
+		    height: 100%;
+		    width: 300px;
+		    position: absolute;
+		    z-index: 1;
+		    top: 0;
+		    right:0;
+		    padding-left:15px;
+		    background-color: #f0f0f0;
+		    border: 1px solid #cfcfcf;
+		    border-radius: 4px;
+		    color:#fff;
+		    overflow-x: hidden;
+		    transition: 0.5s;
+		    padding-top: 0px;
+		}
 .well { background-color:#fafafa; }
 
 
@@ -722,6 +748,7 @@ $(document).ready(function() {
 			var jsonurl = "/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
 
 			// Analytics on query
+			console.log("newload" + newload);
 			var tclean = q.replace("+", "%20"); tclean = decodeURIComponent(tclean);
 			if (newload == 1) {	newload = 0; ga('send', 'event', 'search', 'searchpage', tclean, 1, {'NonInteraction': 0}); }
 			else {  ga('send', 'event', 'search', 'searchbox', tclean, 1, {'NonInteraction': 0}); }
@@ -1230,6 +1257,7 @@ $(document).ready(function() {
 	// Filters - Media Type
 	// Video
 	$(".filter-media-video").on('click', function() {
+		console.log('on filter-mdeia-vidw/')
 		if ($(this).hasClass("ck")) { } else {
 		ga('send', 'event', 'internal', 'search', 'filter-media-video', 1, {'NonInteraction': 0});
 		fmedia = "video";
