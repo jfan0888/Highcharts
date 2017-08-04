@@ -754,9 +754,6 @@ textarea:focus,
 input:focus {
     outline: none;
 }
-.counter {
-    margin-right: 20px;
-}
 .countermobile {
     display: none;
 }
@@ -958,7 +955,6 @@ input:focus {
     background: none;
     border: none;
     border-bottom: 1px solid #c0c0c0;
-    margin-left: -20px;
     color: #a0a0a0;
     font-family: 'Univers LT 65', Arial, sans-serif;
     border-radius: 3px;
@@ -1055,10 +1051,6 @@ input:focus {
 	font-weight:normal;
 	font-style:italic;
 	padding-top:5px;
-}
-.resultsblock {
-    display: block;
-    padding-top: 180px;
 }
 #mobilemenu {
     display: none;
@@ -1312,9 +1304,6 @@ body {
     
     .fixedwhitebox {
         height: 100px;
-    }
-    .resultsblock {
-        padding-top: 140px;
     }
     .infinite {
         padding-right: 30px;

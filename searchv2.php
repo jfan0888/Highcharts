@@ -2,12 +2,6 @@
 ##### IN PRODUCTION 6/12/17 #####
 ?>
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,12 +9,16 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	
 	<title>Donald Trump Complete - Search Tweets, Speeches, Policies | Factbase</title>
+	
 	<meta name="description" content="A fully-searchable full-text search of Donald Trump interviews, speeches, tweets from twitter (including deleted tweets) and more. Bias-free. Skip the spin. Instantly access." />
 	<meta name="keywords" content="donald j. trump, search, donald trump, wife, president, net worth, speech, education, hair, twitter, deleted tweets, campaign, children, latest news, bankruptcy, political views, interview, wives, religion, birthday, quotes, republican, tweet, video, biography, book, shirts, bankrupt, obama, election, business, show, worth, bankruptcies, clinton, pictures, hotel, wealth, money, presidency, networth" />
 	<meta name="author" content="Factbase" />
+	
 	<link rel="canonical" href="https://factba.se/search">
 	<link rel="shortcut icon" href="https://factba.se/img/favicon.png">
+	
 	<meta property="og:title" content="Donald Trump Complete - Search Tweets, Speeches, Policies | Factbase">
 	<meta property="og:image" content="https://factba.se/img/social/index-fb-image.jpg?1">
 	<meta property="og:description" content="A fully-searchable collection of Donald Trump interviews, speeches, tweets -- including deleted tweets -- and more. Bias-free.">
@@ -32,7 +30,9 @@
 	<meta name="twitter:image" content="https://factba.se/img/social/index-tw-image.jpg?1">
 	<meta name="twitter:site" content="@wxbase">
 	<meta name="twitter:creator" content="@wxbase">
+	
 	<!-- JSON-LD markup -->
+	
 	<script type="application/ld+json">
 	{	"@context" : "http://schema.org",
 		"@type" : "Article",
@@ -44,7 +44,6 @@
 	</script>
 	
 	<!-- // JSON-LD markup -->
-
 
 	<?php include( '/usr/home/frisch/public_html/fact/includes/scripts.inc'); ?>
 	<link rel="stylesheet" href="/css/wordcloud.css" />
@@ -84,323 +83,307 @@
 		.filterdropmenu { margin-top:3px; margin-left:10px; border-radius:0px; box-shadow: 0 2px 4px rgba(0,0,0,0.16); border: 1px solid #d6d6d6; }
 		.ddtype { min-width:240px; }
 		.highcharts-title { font-family: 'Univers LT 65', Arial, sans-serif; font-size:1.1em; }
-	li.mr { padding-left:30px; cursor:pointer; }
-	li.ck { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important;}
-	.z { display:inline-block; }
-	.ranges ul { padding-top:5px; padding-bottom:5px; margin-top:2px;  }
-	.ranges li { font-size:14px; color: #222222; 'Univers LT 45', Arial, sans-serif; background-color:#fff; border:none; border-radius:0px; margin:0px; padding:0px; margin-left:30px; }
-	.ranges li:hover { color: #777777; background-color:#fff; border:none; border-radius:0px; }
-	.ranges li.active { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important; background-color:#fff; color:#222222; border:0px; }
-	.range_inputs { display:none; }
-	.daterangepicker { margin-top:3px; margin-left:10px; border-radius:0px; box-shadow: 0 2px 4px rgba(0,0,0,0.16); border: 1px solid #d6d6d6; }
-	.daterangepicker::before { display:none; }
-	.daterangepicker::after { display:none; }
-	.highcharts-credits { display:none; }
-	.highcharts-background { background:transparent !important; }
-	.datefilter { background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px; }
-	.sortlist { margin-left:50px; }
-	.show-1200 {display:none; }
+		li.mr { padding-left:30px; cursor:pointer; }
+		li.ck { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important;}
+		.z { display:inline-block; }
+		.ranges ul { padding-top:5px; padding-bottom:5px; margin-top:2px;  }
+		.ranges li { font-size:14px; color: #222222; 'Univers LT 45', Arial, sans-serif; background-color:#fff; border:none; border-radius:0px; margin:0px; padding:0px; margin-left:30px; }
+		.ranges li:hover { color: #777777; background-color:#fff; border:none; border-radius:0px; }
+		.ranges li.active { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important; background-color:#fff; color:#222222; border:0px; }
+		.range_inputs { display:none; }
+		.daterangepicker { margin-top:3px; margin-left:10px; border-radius:0px; box-shadow: 0 2px 4px rgba(0,0,0,0.16); border: 1px solid #d6d6d6; }
+		.daterangepicker::before { display:none; }
+		.daterangepicker::after { display:none; }
+		.highcharts-credits { display:none; }
+		.highcharts-background { background:transparent !important; }
+		.datefilter { background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px; }
+		.sortlist { margin-left:50px; }
+		.show-1200 {display:none; }
 
-	.sidenav {
-    height: 100%;
-    width: 300px;
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    right:0;
-    padding-left:15px;
-    background-color: #f0f0f0;
-    border: 1px solid #cfcfcf;
-    border-radius: 4px;
-    color:#fff;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 0px;
-}
-.well { background-color:#fafafa; }
+		.sidenav {
+		    min-height: 600px;
+		    min-width: 280px;
+		    width: 100%;
+		    z-index: 1;
+		    top: 0;
+		    right:0;
+		    background-color: #f0f0f0;
+		    border: 1px solid #cfcfcf;
+		    border-radius: 4px;
+		    color:#fff;
+		    overflow-x: hidden;
+		    transition: 0.5s;
+		    padding-top: 0px;
+		}
 
+		.well { background-color:#fafafa; }
 
-
-     #wordcloud {
-        width: 270px;
-        height: 500px;
-        max-height: 320px;
-        border: none;
-      }
-      #wordcloud span.w10, #wordcloud span.w9, #wordcloud span.w8, #wordcloud span.w7 {
-        text-shadow: 0px 1px 1px #ccc;
-      }
-      #wordcloud span.w3, #wordcloud span.w2, #wordcloud span.w1 {
-        text-shadow: 0px 1px 1px #fff;
+    	#wordcloud {
+	        width: 270px;
+	        height: 500px;
+	        max-height: 320px;
+	        border: none;
+      	}
+      	#wordcloud span.w10, #wordcloud span.w9, #wordcloud span.w8, #wordcloud span.w7 {
+        	text-shadow: 0px 1px 1px #ccc;
+      	}
+      	#wordcloud span.w3, #wordcloud span.w2, #wordcloud span.w1 {
+        	text-shadow: 0px 1px 1px #fff;
     	}
 
-   
-@media (min-width: 1200px) {
-	.mediaside { max-width:280px; }
-}
-@media screen and (max-width: 800px) {
-	.z { display: inline-block !important; }
-	.datefilter { margin-left:0px; }
-	.sortlist { margin-left:0px; }
-	.caret { transform: rotate(270deg); }
-	.filterdropdown { margin-top:20px; }
-}
-.searchimage { width:200px; float:none; margin: 0 auto; }
-.socialicon { width:200px; color:#4099FF; width:250px; float:none; margin: 0 auto; }
-.youtube-large, .dailymotion-large { background-color:transparent; max-width:300px; }
-@media screen and (max-width: 13677px) { 
-	.searchimage { width:175px; }
-	.socialicon { width:175px; }
+		@media (min-width: 1200px) {
+			.mediaside { max-width:280px; }
+		}
+		@media screen and (max-width: 800px) {
+			.z { display: inline-block !important; }
+			.datefilter { margin-left:0px; }
+			.sortlist { margin-left:0px; }
+			.caret { transform: rotate(270deg); }
+			.filterdropdown { margin-top:20px; }
+		}
+		
+		.searchimage { width:200px; float:none; margin: 0 auto; }
+		.socialicon { width:200px; color:#4099FF; width:250px; float:none; margin: 0 auto; }
+		.youtube-large, .dailymotion-large { background-color:transparent; max-width:300px; }
+		@media screen and (max-width: 13677px) { 
+			.searchimage { width:175px; }
+			.socialicon { width:175px; }
 
-}
-@media screen and (max-width: 1200px) { 
-	.youtube-large, .dailymotion-large, .mediaside { margin-left:auto; margin-right:auto; text-align:center; }
-	.hide-1200 { display:none; }
-	.show-1200 {display:inline-block; margin-top:15px; }
-}
-@media screen and (max-width: 1024px) { }
-@media screen and (max-width: 768px) { }
-@media screen and (max-width: 640px) { }
+		}
+		@media screen and (max-width: 1200px) { 
+			.youtube-large, .dailymotion-large, .mediaside { margin-left:auto; margin-right:auto; text-align:center; }
+			.hide-1200 { display:none; }
+			.show-1200 {display:inline-block; margin-top:15px; }
+		}
+		@media screen and (max-width: 1024px) { }
+		@media screen and (max-width: 768px) { }
+		@media screen and (max-width: 640px) { }
 
-#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-44px; }
-#tabarrow-glyph { opacity:0.5; }
-#tabarrow-glyph:hover { opacity:1; }
-.rotate{
-    -moz-transition: all 0.6s linear;
-    -webkit-transition: all 0.6s linear;
-    transition: all 0.6s linear;
-}
+		#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-25px; }
+		#tabarrow-glyph { opacity:0.5; }
+		#tabarrow-glyph:hover { opacity:1; }
+		.rotate{
+		    -moz-transition: all 0.5s linear;
+		    -webkit-transition: all 0.5s linear;
+		    transition: all 0.5s linear;
+		}
 
-.rotate.down{
-    -ms-transform:rotate(180deg);
-    -moz-transform:rotate(180deg);
-    -webkit-transform:rotate(180deg);
-    transform:rotate(180deg);
-}
-.dashbox {
-	background-color: #ffffff;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
-    margin: 5px 10px 10px 10px;
-    padding-top:8px;
-}
-.sidebarfade { width:100%; height:100%; position:absolute; margin-top:0px; margin-left:0px; background-color:#7f7f7f; opacity:0.25; display:none; }
-.resultsblock { padding-top:160px; }
-.side-head, .side-head-visible { font-family:"Univers LT 65", sans-serif; font-size:1.5em; font-weight:bold; color: #222; display:inline-block; display:block; font-variant:small-caps; }
-.side-head-visible { display:none; }
-#full-dashboard { display:none; }
-.side-chart-label { font-family:"Univers LT 65", sans-serif; font-size:0.75em; font-weight:bold; color: #222; display:inline-block;}
-.side-chart-gray { font-family:"Univers LT 55", sans-serif; font-size:0.9em; font-weight:normal; color: #bbb; display:inline-block;}
-.side-chart-stretch { font-family:"Univers LT 65", sans-serif; font-size:2em; font-weight:bold; color: #222; display:inline-block; font-variant:small-caps;
-	transform: scale(1, 2);
-	-webkit-transform: scale(1, 2); /* Safari and Chrome */
-	-moz-transform: scale(1, 2); /* Firefox */
-	-ms-transform: scale(1, 2); /* IE 9+ */
-	-o-transform: scale(1, 2); /* Opera */
-}
-</style>
-
-
+		.rotate.down{
+		    -ms-transform:rotate(180deg);
+		    -moz-transform:rotate(180deg);
+		    -webkit-transform:rotate(180deg);
+		    transform:rotate(180deg);
+		}
+		.dashbox {
+			background-color: #ffffff;
+		    border: 1px solid #e3e3e3;
+		    border-radius: 4px;
+		    margin: 5px 10px 10px 10px;
+		    padding-top:8px;
+		}
+		.sidebarfade { width:100%; height:100%; position:absolute; margin-top:0px; margin-left:0px; background-color:#7f7f7f; opacity:0.25; display:none; }
+		.side-head, .side-head-visible { font-family:"Univers LT 65", sans-serif; font-size:1.5em; font-weight:bold; color: #222; display:inline-block; display:block; font-variant:small-caps; }
+		.side-head-visible { display:none; }
+		#full-dashboard { display:none; }
+		.side-chart-label { font-family:"Univers LT 65", sans-serif; font-size:0.75em; font-weight:bold; color: #222; display:inline-block;}
+		.side-chart-gray { font-family:"Univers LT 55", sans-serif; font-size:0.9em; font-weight:normal; color: #bbb; display:inline-block;}
+		.side-chart-stretch { font-family:"Univers LT 65", sans-serif; font-size:2em; font-weight:bold; color: #222; display:inline-block; font-variant:small-caps;
+			transform: scale(1, 2);
+			-webkit-transform: scale(1, 2); /* Safari and Chrome */
+			-moz-transform: scale(1, 2); /* Firefox */
+			-ms-transform: scale(1, 2); /* IE 9+ */
+			-o-transform: scale(1, 2); /* Opera */
+		}
+	</style>
 </head>
 
 <body>
 
 	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
 
-
-
 	<div class="sidebarfade"></div>
 	<div class="fixedwhitebox" style="margin-top:40px;"></div>
-		<div class="container" style="padding-left:20px; padding-right:20px; width:90vw;">
-			<div class="row-fluid" style="display:block; position: fixed; z-index:1; width:95vw; z-index:2;">
-				<div class="col-lg-12" style="margin-top:50px; padding-right:120px;">
-					<input id="search" type="search" placeholder="Search..." autocomplete="off" />
-					<br>
+		<div>
+			<div class="container">
+				<div class="row" style="display:block; z-index:11;">
+					<div class="col-lg-12" style="margin-top:50px; z-index: 11;">
+						<input id="search" type="search" placeholder="Search..." autocomplete="off" />
+						<br>
+						<div id="filterline" style="width:100%; display:table; padding-top:3px;">
+							<div style="display:table-row;">
+								<div style="display:table-cell; text-align:left;">
+									<div id="mobilemenu"><i class="fa fa-filter fa-border"></i>
+									</div>
+									<!-- Mobile -->
+									<div class="filters-dropdown">
+										<div class="btn-group ">
+											<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
+								  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
+												<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
+												<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
+												<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
+												<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
+											</ul>
+										</div>
+										<br>
+										<div class="btn-group">
+											<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
+									  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
+												<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
+												<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
+												<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
+												<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
+												<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
+												<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
+												<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
+												<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
+												<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
+												<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
+												<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
+											</ul>
+										</div>
+										<br>
+										<div class="btn-group">
+											<div class="datefilter">
+												Date: <span></span> <b class="caret"></b>
+											</div>
+										</div>
+										<br>
+										<div class="btn-group sortlist">
+											<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
+								  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
+												<li class="ck mr sclear sort-relevant">Most Relevant</li>
+												<li class="mr sclear sort-oldest">Oldest First</li>
+												<li class="mr sclear sort-newest">Newest First</li>
+											</ul>
+										</div>
+										<br>
 
-					<div id="filterline" style="width:100%; display:table; padding-top:3px;">
-						<div style="display:table-row;">
-							<div style="display:table-cell; text-align:left;">
-								<div id="mobilemenu"><i class="fa fa-filter fa-border"></i>
+									</div>
+								
+									<div style="float:right;"><div class="countermobile"></div></div>
 								</div>
-								<!-- Mobile -->
-								<div class="filters-dropdown">
-								<div class="btn-group ">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
-										<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
-										<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
-										<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
-										<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
-									</ul>
-								</div>
-								<br>
-								<div class="btn-group">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
-							  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
-										<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
-										<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
-										<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
-										<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
-										<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
-										<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
-										<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
-										<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
-										<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
-										<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
-										<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
-									</ul>
-								</div>
-								<br>
-								<div class="btn-group">
-									<div class="datefilter">
-										Date: <span></span> <b class="caret"></b>
+								<!-- Desktop -->
+								<div style="display:table-cell; text-align:left;">
+									<div class="filters">
+										<div class="filters-desktop">
+											<div class="btn-group">
+												<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
+									  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
+													<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
+													<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
+													<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
+													<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
+												</ul>
+											</div>
+											<div class="btn-group">
+												<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
+										  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
+													<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
+													<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
+													<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
+													<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
+													<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
+													<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
+													<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
+													<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
+													<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
+													<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
+													<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
+												</ul>
+											</div>
+											<div class="btn-group">
+												<div class="datefilter" style="background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px;">
+													Date: <span></span> <b class="caret"></b>
+												</div>
+											</div>
+											<div class="btn-group" style="margin-left:50px;">
+												<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
+									  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
+													<li class="ck mr sclear sort-relevant">Most Relevant</li>
+													<li class="mr sclear sort-oldest">Oldest First</li>
+													<li class="mr sclear sort-newest">Newest First</li>
+												</ul>
+											</div>
+											<div style="float:right;"><div class="counter"></div></div>
+										</div>
 									</div>
 								</div>
-								<br>
-								<div class="btn-group sortlist">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
-										<li class="ck mr sclear sort-relevant">Most Relevant</li>
-										<li class="mr sclear sort-oldest">Oldest First</li>
-										<li class="mr sclear sort-newest">Newest First</li>
-									</ul>
-								</div>
-								<br>
-
-								</div>
-							
-							<div style="float:right;"><div class="countermobile"></div></div>
-							</div>
-							<!-- Desktop -->
-							<div style="display:table-cell; text-align:left;">
-								<div class="filters">
-									<div class="filters-desktop">
-								<div class="btn-group">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
-										<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
-										<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
-										<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
-										<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
-									</ul>
-								</div>
-								<div class="btn-group">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
-							  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
-										<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
-										<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
-										<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
-										<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
-										<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
-										<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
-										<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
-										<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
-										<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
-										<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
-										<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
-									</ul>
-								</div>
-								<div class="btn-group">
-									<div class="datefilter" style="background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px;">
-										Date: <span></span> <b class="caret"></b>
-									</div>
-								</div>
-								<div class="btn-group" style="margin-left:50px;">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
-										<li class="ck mr sclear sort-relevant">Most Relevant</li>
-										<li class="mr sclear sort-oldest">Oldest First</li>
-										<li class="mr sclear sort-newest">Newest First</li>
-									</ul>
-								</div>
-							<div style="float:right;"><div class="counter"></div></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-
-
-
-				</div>
-			</div>
+		</div>
+		<div class="container" style="">
 			<div class="row-fluid resultsblock" id="mainbar">
-
 				<div class="col-lg-9" id="results-block">
 					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="/img/loading.svg" width=50></div>
 					<div class="total-matches show-1200"></div>
 
-					<div class="row infinite" id="results" style="padding-top:20px; margin-left:-20px;"></div>
+					<div class="infinite" id="results" style=""></div>
 					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="/img/loading.svg" width=40></div>
 				</div>
-				
-				
-				
-				
-				
-				
-				
-				
-				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
-				<div class="col-lg-3 hide-1200" id="sidebar" style="min-height:600px; height:100%; width:300px; padding-top:0px; margin-left: 20px; padding-left:20px; z-index:inherit;">
-	
 
-					<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
-					<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit; ">
-						<div class="pull-left" style="min-width:280px;">
-							<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
-							<div id="categorychart" class="clear-visible"></div><p>
-							<div id="dom_emo" style="display:block;">
-								<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>
-								<div id="dom_emotion" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:30px;"></div>
-								
-							</div>
-							<div id="dom_sent" style="display:block;">
-								<div class="side-head-visible" style="margin-bottom:15px;">Overall Sentiment</div>
-								<div id="dom_sentiment" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:2px; display:block;"></div>
-								<div id="sparkline" class="clear-visible" style="text-align:center; width:100%; height:90px; display:block;"></div>
-								<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
-							</div>
-							
-						</div>
-						<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-3 dashbox d4" id="position_one" style="width:22%; min-height:200px;">
-									<div class="side-head">Grade Level</div>
-									<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
+				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
+				<div class="col-lg-3" style="padding-left: 0;">
+					<div class="hide-1200" id="sidebar" style="position: relative; right: 0;">
+		
+						<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
+
+						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
+
+							<div class="pull-left" style="min-width:280px;">
+								<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
+								<div id="categorychart" class="clear-visible"></div><p>
+								<div id="dom_emo" style="display:block;">
+									<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>
+									<div id="dom_emotion" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:30px;"></div>
 								</div>
-								<div class="col-md-3 dashbox d4" id="position_two" style="width:23%; min-height:200px;">
-									<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
-									<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
-									<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
-									
-								</div>
-								<div class="col-md-3 dashbox d4" id="position_three" style="width:23%; min-height:200px;">
-									<div class="side-head">Big 5 Emotion</div>
-									<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
-								</div>
-								<div class="col-md-3 dashbox d4" id="position_four" style="width:22%; min-height:200px;">
-									<div class="side-head">Positive/Negative</div>
-									<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
+								<div id="dom_sent" style="display:block;">
+									<div class="side-head-visible" style="margin-bottom:15px;">Overall Sentiment</div>
+									<div id="dom_sentiment" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:2px; display:block;"></div>
+									<div id="sparkline" class="clear-visible" style="text-align:center; width:100%; height:90px; display:block;"></div>
+									<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
 								</div>
 							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
-									<div class="side-head">Timeline - Records By Year</div><br>
-									<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
-									<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
+							<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-3 dashbox d4" id="position_one" style="width:22%; min-height:200px;">
+										<div class="side-head">Grade Level</div>
+										<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_two" style="width:23%; min-height:200px;">
+										<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
+										<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
+										<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
+										
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_three" style="width:23%; min-height:200px;">
+										<div class="side-head">Big 5 Emotion</div>
+										<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_four" style="width:22%; min-height:200px;">
+										<div class="side-head">Positive/Negative</div>
+										<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
+									</div>
 								</div>
-							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
-									<div class="side-head">Top Related Topics</div>
-									<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
+										<div class="side-head">Timeline - Records By Year</div><br>
+										<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
+										<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
+									</div>
 								</div>
-								<div class="col-md-6 dashbox d6" id="position_seven" style="width:46%; min-height:250px;">
-									<div class="side-head">Twitter By Date/Time</div>
-									<div id="twitterheatmap" class="clear-sidebar"style="width:100%; min-height:200px; margin:0;"></div>
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
+										<div class="side-head">Top Related Topics</div>
+										<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
+									</div>
+									<div class="col-md-6 dashbox d6" id="position_seven" style="width:46%; min-height:250px;">
+										<div class="side-head">Twitter By Date/Time</div>
+										<div id="twitterheatmap" class="clear-sidebar"style="width:100%; min-height:200px; margin:0;"></div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -464,7 +447,6 @@ var current_year = getnewyear.getYear();
 
 // Prepopulate on first load
 var firstpage = 1; 
-
 
 // Scrap
 function placeholder_one() {
@@ -551,8 +533,7 @@ function youtubeIframe() {
 	this.parentNode.replaceChild(iframe, this);
 };
 function renderyoutube() {
-	var div, n,
-		v = document.getElementsByClassName("youtube-large");
+	var div, n, v = document.getElementsByClassName("youtube-large");
 	for (n = 0; n < v.length; n++) {
 		div = document.createElement("div");
 		div.setAttribute("data-id", v[n].dataset.id);
@@ -601,17 +582,38 @@ function renderdailymotion() {
 	}
 };
 
+// Style sidebar area
+
+function createSidebar(){
+	
+	var sidebar = $("#sidebar");
+	var resultswidth = ($("#results-block").outerWidth())+20;
+
+	sidebar.css({"transition-timing-function": "linear", "overflow":"hidden","position": "absolute","min-height": "600px","height": "100%","width": "350px","padding-top":"0px","padding-left":"25px", "left":$(window).width()-443,"transition": "width 2s, left 2s"});
+
+}
 
 // CLEAN UP, CONSOLIDATE CONCEPT OF NEW SEARCH. ONLY TRIGGER DATA ON NEW SEARCH, LEAVE ALL ELSE ALONE
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Now the Doc Read Part
+
 $(document).ready(function() {
 
+	// createSidebar();
+
+	console.log("reload");
+	console.log("ok");
+	
 	// Handle Show/Hide of Dashboard
-	var mainheight = $(window).height()-205;
-	$("#sidebar").css("height", mainheight+"px");
+	
+	var mainheight = $(window).height() - 235;
+	var mwidth = $(window).width();
+
+	$(".sidenav").css('height',mainheight);
+	console.log(mwidth);;
+
 	var topicpage = "search";
 	$("#search").focus();
 
@@ -636,7 +638,8 @@ $(document).ready(function() {
 
 	// Populate the Last Tweet Time Timer
 	function lasttweettime() {
-		$.get('/json/json?mr=1', function(data) {
+		console.log(Date.now());
+		$.get("https://factba.se/json/json?mr=1", function(data) {
 			Number(data);
 			var rightnow = Math.round(Date.now() / 1000);
 			timesince = rightnow - data;
@@ -644,12 +647,14 @@ $(document).ready(function() {
 		});
 	};
 	function daBounce(element, times, distance, speed) {
+		console.log("in daBounce");
 		for (i = 0; i < times; i++) {
 			element.animate({marginTop: '-='+distance},speed)
 			.animate({marginTop: '+='+distance},speed);
 		}
 	}
 	function update() {
+		console.log("in update");
 		timesince = timesince + 1;
 		timesincemobile = timesincemobile + 1;
 		$('.counter').html('Last Tweet: ' + moment.duration(timesince, 'seconds').format("h [hrs], m [min], s [sec]"));
@@ -660,7 +665,6 @@ $(document).ready(function() {
 	lasttweettime();
 	setInterval(update, 1000);
 	setInterval(lasttweettime, 60000);
-
 
 	// Get the Hash out of the URL
 	var hash = window.location.hash.substr(1);
@@ -682,8 +686,6 @@ $(document).ready(function() {
 	var rpp = 40;
 	l = rpp;
 
-
-
 ////////////////////////////////////////////////////////////////////////////////////////	
 	// Now handle the search stuff
 	$('#search').on('input', function(value) {
@@ -691,9 +693,35 @@ $(document).ready(function() {
 		//if (sidebarstate == "open") {
 		//	$("#tabarrow").trigger("click");
 		//}
+		console.log(value);
+		console.log("search on");
+		console.log("case1");
+
+		if(sidebarstate == "open") {
+	    	
+	    	q = $("#search").val();
+
+	    	if(q.length == 0){
+				$('.pull-left').empty();
+				$("#full-dashboard").css('display','none');				    	
+	    		console.log("remove function called");
+	    	}
+	    	else{
+
+				$("#full-dashboard").show();
+				$("#full-dashboard").css('display','inline-block');				    	
+    			$("#full-dashboard").css('width', resultswidth+"px")
+
+		    	sidebarCharts();
+	    	}
+	    	console.log("In openning search function called");
+		}
+
 		$('.spinner').show();
 		window.clearTimeout($(this).data("timeout"));
 		$(this).data("timeout", setTimeout(function() {
+			console.log("timeout on");
+			console.log("case2");			
 			q = $('#search').val();
 			q = q.trim();
 			var qsplit = q.replace(/"/g,"");
@@ -719,18 +747,24 @@ $(document).ready(function() {
 			if (firstload != 0) {
 				$('.clear-visible').empty();
 				$('.clear-sidebar').empty();
+				console.log("firstload");
+				console.log("case3");
 			};
 			firstload = 1;	
 			if (!t) {
 				t = 'se';
 			}
 			lastq = q;
-			var jsonurl = "/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
+			var jsonurl = "https://factba.se/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
+
+			console.log('after-json call');
 
 			// Analytics on query
 			var tclean = q.replace("+", "%20"); tclean = decodeURIComponent(tclean);
 			if (newload == 1) {	newload = 0; ga('send', 'event', 'search', 'searchpage', tclean, 1, {'NonInteraction': 0}); }
 			else {  ga('send', 'event', 'search', 'searchbox', tclean, 1, {'NonInteraction': 0}); }
+
+			console.log('after-newload condition');
 
 			// On Mobile close menu
 			$('.filters-dropdown').hide();
@@ -752,13 +786,19 @@ $(document).ready(function() {
 			}
 			
 
+			console.log('after-configuration');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////			
 			// Getch the JSON and parse
+
+			// console.log(jsonurl);
+			// console.log("outside json call");
+
 			$.getJSON(jsonurl + p, function(json) {
-				$('.mediatypes').empty();
-				$('.recordtypes').empty();
+				console.log(jsonurl);
+				console.log("in json call");
+
 				$('.yeartypes').empty();
 				if (p == 1) {
 					firstpage = 1;
@@ -816,6 +856,7 @@ $(document).ready(function() {
 				
 ////////////////////////////////////////////////////////////////////////////////////////
 				// The parsing part of Get JSON and making blocks on page
+
 					$.each(json.data, function(key, val) {
 					media_type = ''; text = ''; date = ''; document_id = ''; client = '';
 					author = ''; type = ''; media_type = ''; twitter_id = ''; deleted = '';
@@ -970,7 +1011,7 @@ $(document).ready(function() {
 				//Sidebar aggregations
 				//Record Type Counts
 				// Find out where on reload it's clearing
-				if (firstpage == 1) {	
+				if (firstpage == 1) {
 					var recordcounts = "";
 					var typeall = 0;
 					$('.z').empty();
@@ -1150,10 +1191,22 @@ $(document).ready(function() {
 					$('#sparktrend').text(sparktrend);
 					sentiment_spark(spark_data);
 				
-				if(sidebarstate == "open") {
-			    	sidebarCharts();
-				}
-				
+					if(sidebarstate == "open") {
+				    	
+				    	q = $("#search").val();
+
+				    	if(q.length == 0){
+							$("#full-dashboard").css('display','none');				    	
+				    	}
+				    	else{
+							$("#full-dashboard").show();
+							$("#full-dashboard").css('display','inline-block');				    	
+			    			$("#full-dashboard").css('width', resultswidth+"px")
+
+					    	sidebarCharts();
+				    	}
+				    	console.log("In openning search function called");
+					}
 				};
 				
 		// Get charts to clear and refresh properly on new search, fix formatting, make mobile-ized and push the f*** out	
@@ -1187,6 +1240,7 @@ $(document).ready(function() {
 				//Hide Video Embed until clicked. Show in modal for text click
 				var trigger = $("body").find('[class="videomodal"]');
 				trigger.click(function() {
+					console.log('trigger in 1208');
 					var themodal = $(this).data("target"),
 						videosrc = $(this).attr("data-video"),
 						videosrcauto = videosrc + "&autoplay=1";
@@ -1200,10 +1254,10 @@ $(document).ready(function() {
 
 
 				firstpage = "";
-				$('#lazyload').hide();
+				// $('#lazyload').hide();
 
 			});
-		}, 500));
+		}, 5000));
 	});
 
 
@@ -1244,7 +1298,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1267'); 
 		} // Rerun filter, but only if there is a query
 
 	}});
@@ -1258,7 +1313,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1282');			  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Social
@@ -1271,7 +1327,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1296');			  
 		} // Rerun filter, but only if there is a query
 	}});
 	// All
@@ -1285,6 +1342,7 @@ $(document).ready(function() {
 		$('.spinner').show();
 		$('#lazyload').hide(); // Show Spinner, Hide More Spinner
 		$('#search').trigger('input'); // Rerun filter
+		console.log('trigger in 1310');
 	}});
 
 
@@ -1303,7 +1361,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1330');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Debate
@@ -1316,7 +1375,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1344');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Deposition
@@ -1329,7 +1389,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1357');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Interview
@@ -1342,7 +1403,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1372');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Position Paper
@@ -1368,7 +1430,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1399');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Remarks
@@ -1381,7 +1444,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1414');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Speech
@@ -1394,7 +1458,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1427');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Twitter
@@ -1407,7 +1472,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1441');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Deleted Tweets
@@ -1420,7 +1486,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1455');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// All
@@ -1434,6 +1501,7 @@ $(document).ready(function() {
 		$('.spinner').show();
 		$('#lazyload').hide(); // Show Spinner, Hide More Spinner
 		$('#search').trigger('input'); // Rerun filter
+		console.log('trigger in 1469');
 	}});
 
 
@@ -1449,7 +1517,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1486');  
 		} // Rerun filter, but only if there is a query
 	}});
 	$(".sort-newest").on('click', function() {
@@ -1461,7 +1530,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1499');  
 		} // Rerun filter, but only if there is a query
 	}});
 	$(".sort-relevant").on('click', function() {
@@ -1473,7 +1543,8 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');  
+			$('#search').trigger('input');
+			console.log('trigger in 1512');  
 		} // Rerun filter, but only if there is a query
 	}});
 
@@ -1515,15 +1586,17 @@ $(document).ready(function() {
 			$(this).text(text);
 		});  					
 
-    			$('.datefilter').on('apply.daterangepicker', function(ev, picker) {
+		$('.datefilter').on('apply.daterangepicker', function(ev, picker) {
 			startdate = picker.startDate.format('YYYY-MM-DD');
-  					enddate = picker.endDate.format('YYYY-MM-DD');
+				enddate = picker.endDate.format('YYYY-MM-DD');
 			if (q.length > 0) { 
 				$('#results').empty(); p = 1; // Clear text and reset pagecount
 				$('.spinner').show();
 				$('#lazyload').hide(); 
-				$('#search').trigger('input');  
-			} // Rerun filter, but only if there is a query
+				$('#search').trigger('input');
+				console.log('trigger in 1563');  
+			}
+			// Rerun filter, but only if there is a query
       		$(".datefilter span").each(function() {
 				var text = $(this).text();
 				text = text.replace("1946-06-14 - 2017-06-12", "All Dates");
@@ -1544,13 +1617,11 @@ $(document).ready(function() {
 			if (p > maxpage || p == 1) {} else {
 				$('#lazyload').show();
 				$('#search').trigger('input');
+				console.log('trigger in 1584');
 				ga('send', 'event', 'internal', 'search', 'lazyload', 1, {'NonInteraction': 0});
 			}
 		}
 	});
-
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////
 	// Mobile Menu - Handle filtering
@@ -1571,66 +1642,30 @@ $(document).ready(function() {
 		ga('send', 'event', 'internal', 'header', 'navbartoggle', 1, {'NonInteraction': 0});
 		$(this).toggleClass("active");
 	});
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////
 	// Navbar
 	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer-highlight-js.inc'); ?>
-
+	
 	$('#searchbox').prop( "disabled", true );
 	$('#searchbox').attr("placeholder", "↙ Use the search box below");
 	$('.factsearch').css("opacity", "0.4");
 
-
-
-
-
-
-
-
-
 // Handle Sidebar Open and Close + Make Charts
+
 	sidebarstate = "closed";
 	var marginadjust = 26;
 	var resultswidth = ($("#results-block").outerWidth())+20;
 	var sidewidth = $("#mySidenav").outerWidth();
 	var mainwidth = ($("#results-block").width()+75)+sidewidth;
-	var arrowoffset = $('#tabarrow').css('margin-left');
-		arrowoffset = arrowoffset.replace("px", "");
-		arrowoffset = (Number(arrowoffset));
-	var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
-	function openCloseNav() {
-	   if (sidebarstate == "closed") {
-			$(function() {
-				$("html, body").animate({ scrollTop: 0 }, "slow");
-				$("#full-dashboard").show();
-				$("#full-dashboard").css('display','inline-block');
-				$(".sidebarfade").fadeIn();
-	    	    $("body").css("overflow", "hidden");
-	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false});
-	    		$("#tabarrow").animate({left: marginleftarrow+"px"}, {duration: 500, queue: false, complete: function(){
-	    			$("#full-dashboard").css('display', 'flexbox')
-	    			$("#full-dashboard").css('width', resultswidth+"px")
-					$(".rotate").toggleClass("down");
-			    	sidebarCharts();
-	    			sidebarstate = "open";
-				}});
-			});
-	    } else if (sidebarstate == "open") {
-			$(function() {
-				$("#full-dashboard").hide()
-				$(".sidebarfade").hide();
-	    	    $("body").css("overflow", "scroll");
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 200, queue: false});
-	    		$("#tabarrow").animate({left: (arrowoffset*-1)-marginadjust+"px"}, {duration: 500, queue: false, complete: function(){
-			    	$(".rotate").toggleClass("down");
-					sidebarstate = "closed"; 
-				}});
-			});
-		}
-	////////////////////////////////////////////////////////////////////////////////////////
+	// var arrowoffset = $('#tabarrow').css('margin-left');
+	// arrowoffset = arrowoffset.replace("px", "");
+	// arrowoffset = (Number(arrowoffset));
+	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
+
 		function sidebarCharts() {
+
+			console.log("sidebarcharts function called");
+
 		//Charts
 			// Large Timeline
 			chart_timeline_chart = Highcharts.chart('timelinechart', {
@@ -1735,7 +1770,7 @@ $(document).ready(function() {
 			        },
 			        turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
 			    }]
-						});
+			});
 			// Grade Level
 			chart_gauge_gradelevel = Highcharts.chart('gradelevelgauge', {
 				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150
@@ -1771,16 +1806,16 @@ $(document).ready(function() {
 			    min: 0,
 			    max: 12
 			},
-			series: [{
-				name: 'Grade Level',
-				data: [gradelevel_gauge_data],
-				dataLabels: {
-				format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
-							((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-							'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
-				},
-			}]
-		 });
+				series: [{
+					name: 'Grade Level',
+					data: [gradelevel_gauge_data],
+					dataLabels: {
+					format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
+								((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+								'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
+					},
+				}]
+		 	});
 		 		
 			
 			// Positive/Negative
@@ -1841,6 +1876,54 @@ $(document).ready(function() {
 			});
 						
 		};
+
+	function openCloseNav() {
+	////////////////////////////////////////////////////////////////////////////////////////
+		q = $('#search').val();
+		console.log(q.length);
+				
+	   	if (sidebarstate == "closed") {
+			$(function() {
+
+	    	    $("#sidebar").css({"width": $(window).width() - 144});
+
+				$("#big5wordcloud").empty();
+				$("#topicswordcloud").empty();
+
+				$("html, body").animate({ scrollTop: 0 }, "slow");
+				
+				if(q.length > 0){
+					$("#full-dashboard").show();
+					$("#full-dashboard").css('display','inline-block');
+				}
+				
+				$(".sidebarfade").fadeIn();
+	    	    $("body").css("overflow", "hidden");
+	    		
+	    		if(q.length > 0){
+	    			$("#full-dashboard").css('display', 'flexbox');
+	    			$("#full-dashboard").css('width', resultswidth+"px");
+	    			console.log(resultswidth);
+			    	sidebarCharts();
+				}
+				
+				$(".rotate").toggleClass("down");
+	    		sidebarstate = "open";
+			});
+	    } else if (sidebarstate == "open") {
+			$(function() {
+				$("#big5wordcloud").empty();
+				$("#topicswordcloud").empty();
+				$("#full-dashboard").hide()
+				$(".sidebarfade").hide();
+	    	    $("body").css("overflow", "scroll");
+
+	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
+			    	$(".rotate").toggleClass("down");
+					sidebarstate = "closed"; 
+				}});
+			});
+		}
 	};
 	$("#tabarrow").on('click', function() {
 		openCloseNav();	
@@ -1860,13 +1943,16 @@ $(document).ready(function() {
 		$('#search').attr('placeholder', qclean);
 		$('#search').val(qclean);
 		$('#search').trigger('input');
+		console.log('trigger in 1898');
 
 	};
 	window.onhashchange = function() {
 		q = getURLParameter('q');
+		console.log(q);
 		if (!q) {
 			q = window.location.hash.substr(1);
 		}
+		console.log(q);
 		// New Search
 		if (q) {
 			qclean = q.replace("+", "%20");
@@ -1875,8 +1961,11 @@ $(document).ready(function() {
 			qclean = qclean.trim();
 			$('#search').attr('placeholder', qclean);
 			$('#search').val(qclean);
-			$('#search').trigger('input');
+			// Fixing the first issue
+			// $('#search').trigger('input');
+			console.log('trigger in 1915');
 			if (sidebarstate == "open") {
+				console.log("When search in open, hashchange function callled");
 				chart_twitter_heatmap.destroy();
 				chart_timeline_chart.destroy();
 				chart_gauge_gradelevel.destroy();
@@ -1888,13 +1977,7 @@ $(document).ready(function() {
 			}	
 		};
 	};
-	
-	
-	
 });	
 
-
-
 </script>
-<?php include( '/usr/home/frisch/public_html/fact/includes/surveymonkey.inc'); ?>
 </body></html>

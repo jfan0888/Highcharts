@@ -9,12 +9,16 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	
 	<title>Donald Trump Complete - Search Tweets, Speeches, Policies | Factbase</title>
+	
 	<meta name="description" content="A fully-searchable full-text search of Donald Trump interviews, speeches, tweets from twitter (including deleted tweets) and more. Bias-free. Skip the spin. Instantly access." />
 	<meta name="keywords" content="donald j. trump, search, donald trump, wife, president, net worth, speech, education, hair, twitter, deleted tweets, campaign, children, latest news, bankruptcy, political views, interview, wives, religion, birthday, quotes, republican, tweet, video, biography, book, shirts, bankrupt, obama, election, business, show, worth, bankruptcies, clinton, pictures, hotel, wealth, money, presidency, networth" />
 	<meta name="author" content="Factbase" />
+	
 	<link rel="canonical" href="https://factba.se/search">
 	<link rel="shortcut icon" href="https://factba.se/img/favicon.png">
+	
 	<meta property="og:title" content="Donald Trump Complete - Search Tweets, Speeches, Policies | Factbase">
 	<meta property="og:image" content="https://factba.se/img/social/index-fb-image.jpg?1">
 	<meta property="og:description" content="A fully-searchable collection of Donald Trump interviews, speeches, tweets -- including deleted tweets -- and more. Bias-free.">
@@ -26,7 +30,9 @@
 	<meta name="twitter:image" content="https://factba.se/img/social/index-tw-image.jpg?1">
 	<meta name="twitter:site" content="@wxbase">
 	<meta name="twitter:creator" content="@wxbase">
+	
 	<!-- JSON-LD markup -->
+	
 	<script type="application/ld+json">
 	{	"@context" : "http://schema.org",
 		"@type" : "Article",
@@ -38,7 +44,6 @@
 	</script>
 	
 	<!-- // JSON-LD markup -->
-
 
 	<?php include( 'includes/scripts.inc'); ?>
 	<link rel="stylesheet" href="css/wordcloud.css" />
@@ -97,11 +102,11 @@
 
 		.sidenav {
 		    min-height: 600px;
+		    min-width: 280px;
 		    width: 100%;
 		    z-index: 1;
 		    top: 0;
 		    right:0;
-		    padding-left:15px;
 		    background-color: #f0f0f0;
 		    border: 1px solid #cfcfcf;
 		    border-radius: 4px;
@@ -177,7 +182,6 @@
 		    padding-top:8px;
 		}
 		.sidebarfade { width:100%; height:100%; position:absolute; margin-top:0px; margin-left:0px; background-color:#7f7f7f; opacity:0.25; display:none; }
-		.resultsblock { padding-top:160px; }
 		.side-head, .side-head-visible { font-family:"Univers LT 65", sans-serif; font-size:1.5em; font-weight:bold; color: #222; display:inline-block; display:block; font-variant:small-caps; }
 		.side-head-visible { display:none; }
 		#full-dashboard { display:none; }
@@ -199,189 +203,188 @@
 
 	<div class="sidebarfade"></div>
 	<div class="fixedwhitebox" style="margin-top:40px;"></div>
-		<div class="container" style="padding-left:20px; padding-right:20px; width:90vw;">
-			<div class="row-fluid" style="display:block; position: fixed; z-index:1; width:95vw; z-index:2;">
-				<div class="col-lg-12" style="margin-top:50px; padding-right:120px;">
-					<input id="search" type="search" placeholder="Search..." autocomplete="off" />
-					<br>
+		<div>
+			<div class="container">
+				<div class="row" style="display:block; z-index:11;">
+					<div class="col-lg-12" style="margin-top:50px; z-index: 11;">
+						<input id="search" type="search" placeholder="Search..." autocomplete="off" />
+						<br>
 
-					<div id="filterline" style="width:100%; display:table; padding-top:3px;">
-						<div style="display:table-row;">
-							<div style="display:table-cell; text-align:left;">
-								<div id="mobilemenu"><i class="fa fa-filter fa-border"></i>
+						<div id="filterline" style="width:100%; display:table; padding-top:3px;">
+							<div style="display:table-row;">
+								<div style="display:table-cell; text-align:left;">
+									<div id="mobilemenu"><i class="fa fa-filter fa-border"></i>
+									</div>
+									<!-- Mobile -->
+									<div class="filters-dropdown">
+										<div class="btn-group ">
+											<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
+								  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
+												<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
+												<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
+												<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
+												<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
+											</ul>
+										</div>
+										<br>
+										<div class="btn-group">
+											<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
+									  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
+												<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
+												<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
+												<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
+												<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
+												<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
+												<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
+												<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
+												<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
+												<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
+												<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
+												<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
+											</ul>
+										</div>
+										<br>
+										<div class="btn-group">
+											<div class="datefilter">
+												Date: <span></span> <b class="caret"></b>
+											</div>
+										</div>
+										<br>
+										<div class="btn-group sortlist">
+											<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
+								  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
+												<li class="ck mr sclear sort-relevant">Most Relevant</li>
+												<li class="mr sclear sort-oldest">Oldest First</li>
+												<li class="mr sclear sort-newest">Newest First</li>
+											</ul>
+										</div>
+										<br>
+
+									</div>
+								
+									<div style="float:right;"><div class="countermobile"></div></div>
 								</div>
-								<!-- Mobile -->
-								<div class="filters-dropdown">
-								<div class="btn-group ">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
-										<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
-										<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
-										<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
-										<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
-									</ul>
-								</div>
-								<br>
-								<div class="btn-group">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
-							  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
-										<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
-										<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
-										<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
-										<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
-										<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
-										<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
-										<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
-										<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
-										<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
-										<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
-										<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
-									</ul>
-								</div>
-								<br>
-								<div class="btn-group">
-									<div class="datefilter">
-										Date: <span></span> <b class="caret"></b>
+								<!-- Desktop -->
+								<div style="display:table-cell; text-align:left;">
+									<div class="filters">
+										<div class="filters-desktop">
+											<div class="btn-group">
+												<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
+									  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
+													<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
+													<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
+													<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
+													<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
+												</ul>
+											</div>
+											<div class="btn-group">
+												<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
+										  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
+													<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
+													<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
+													<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
+													<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
+													<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
+													<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
+													<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
+													<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
+													<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
+													<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
+													<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
+												</ul>
+											</div>
+											<div class="btn-group">
+												<div class="datefilter" style="background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px;">
+													Date: <span></span> <b class="caret"></b>
+												</div>
+											</div>
+											<div class="btn-group" style="margin-left:50px;">
+												<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
+									  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
+													<li class="ck mr sclear sort-relevant">Most Relevant</li>
+													<li class="mr sclear sort-oldest">Oldest First</li>
+													<li class="mr sclear sort-newest">Newest First</li>
+												</ul>
+											</div>
+											<div style="float:right;"><div class="counter"></div></div>
+										</div>
 									</div>
 								</div>
-								<br>
-								<div class="btn-group sortlist">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
-										<li class="ck mr sclear sort-relevant">Most Relevant</li>
-										<li class="mr sclear sort-oldest">Oldest First</li>
-										<li class="mr sclear sort-newest">Newest First</li>
-									</ul>
-								</div>
-								<br>
-
-								</div>
-							
-							<div style="float:right;"><div class="countermobile"></div></div>
-							</div>
-							<!-- Desktop -->
-							<div style="display:table-cell; text-align:left;">
-								<div class="filters">
-									<div class="filters-desktop">
-								<div class="btn-group">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="media">Media <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="media">
-										<li class="ck mr fmclear filter-media-all">All <div class="fma-num z"></div></li>
-										<li class="mr fmclear filter-media-text">Text <div class="fmt-num z"></div></li>
-										<li class="mr fmclear filter-media-social">Social <div class="fms-num z"></div></li>
-										<li class="mr fmclear filter-media-video">Video <div class="fmv-num z"></div></li>
-									</ul>
-								</div>
-								<div class="btn-group">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="type">Type <span class="caret"></span></a>
-							  		<ul class="dropdown-menu filterdropmenu ddtype" aria-labelledby="type">
-										<li class="ck mr ftclear filter-type-all">All <div class="ftall-num z"></div></li>
-										<li class="mr ftclear filter-type-assets">Assets <div class="fta-num z"></div></li>
-										<li class="mr ftclear filter-type-debate">Debate <div class="ftd-num z"></div></li>
-										<li class="mr ftclear filter-type-deposition">Deposition/Testimony <div class="ftdt-num z"></div></li>
-										<li class="mr ftclear filter-type-interview">Interview <div class="fti-num z"></div></li>
-										<li class="mr ftclear filter-type-position-paper">Position Paper <div class="ftpp-num z"></div></li>
-										<li class="mr ftclear filter-type-press-conference">Press Conference <div class="ftpc-num z"></div></li>
-										<li class="mr ftclear filter-type-remarks">Remarks <div class="ftr-num z"></div></li>
-										<li class="mr ftclear filter-type-speech">Speech <div class="fts-num z"></div></li>
-										<li class="mr ftclear filter-type-twitter">Twitter <div class="fttw-num z"></div></li>
-										<li class="mr ftclear filter-type-deleted-tweets">Twitter - Deleted Tweets <div class="ftdt-num z"></div></li>
-									</ul>
-								</div>
-								<div class="btn-group">
-									<div class="datefilter" style="background:#fff; cursor:pointer; width:100%; margin-top:3px; margin-left:15px; color: #222222; 'Univers LT 45', Arial, sans-serif; font-size:13px;">
-										Date: <span></span> <b class="caret"></b>
-									</div>
-								</div>
-								<div class="btn-group" style="margin-left:50px;">
-									<a class="dropdown-toggle filterdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="sort">Sort <span class="caret" style="margin-right:15px;"></span></a>
-						  			<ul class="dropdown-menu filterdropmenu ddmedia" aria-labelledby="sort">
-										<li class="ck mr sclear sort-relevant">Most Relevant</li>
-										<li class="mr sclear sort-oldest">Oldest First</li>
-										<li class="mr sclear sort-newest">Newest First</li>
-									</ul>
-								</div>
-							<div style="float:right;"><div class="counter"></div></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-
-
-
-				</div>
-			</div>
+		</div>
+		<div class="container" style="">
 			<div class="row-fluid resultsblock" id="mainbar">
-
 				<div class="col-lg-9" id="results-block">
 					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img/loading.svg" width=50></div>
 					<div class="total-matches show-1200"></div>
 
-					<div class="row infinite" id="results" style="padding-top:20px; margin-left:-20px;"></div>
+					<div class="infinite" id="results" style=""></div>
 					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="img/loading.svg" width=40></div>
 				</div>
 
 				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
-				<div class="col-lg-3 hide-1200" id="sidebar">
-	
-					<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
+				<div class="col-lg-3" style="padding-left: 0;">
+					<div class="hide-1200" id="sidebar" style="position: relative; right: 0;">
+		
+						<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
 
-					<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
+						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
 
-						<div class="pull-left" style="min-width:280px;">
-							<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
-							<div id="categorychart" class="clear-visible"></div><p>
-							<div id="dom_emo" style="display:block;">
-								<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>
-								<div id="dom_emotion" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:30px;"></div>
-								
-							</div>
-							<div id="dom_sent" style="display:block;">
-								<div class="side-head-visible" style="margin-bottom:15px;">Overall Sentiment</div>
-								<div id="dom_sentiment" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:2px; display:block;"></div>
-								<div id="sparkline" class="clear-visible" style="text-align:center; width:100%; height:90px; display:block;"></div>
-								<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
-							</div>
-						</div>
-						<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-3 dashbox d4" id="position_one" style="width:22%; min-height:200px;">
-									<div class="side-head">Grade Level</div>
-									<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
+							<div class="pull-left" style="min-width:280px;">
+								<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
+								<div id="categorychart" class="clear-visible"></div><p>
+								<div id="dom_emo" style="display:block;">
+									<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>
+									<div id="dom_emotion" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:30px;"></div>
 								</div>
-								<div class="col-md-3 dashbox d4" id="position_two" style="width:23%; min-height:200px;">
-									<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
-									<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
-									<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
-									
-								</div>
-								<div class="col-md-3 dashbox d4" id="position_three" style="width:23%; min-height:200px;">
-									<div class="side-head">Big 5 Emotion</div>
-									<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
-								</div>
-								<div class="col-md-3 dashbox d4" id="position_four" style="width:22%; min-height:200px;">
-									<div class="side-head">Positive/Negative</div>
-									<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
+								<div id="dom_sent" style="display:block;">
+									<div class="side-head-visible" style="margin-bottom:15px;">Overall Sentiment</div>
+									<div id="dom_sentiment" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:2px; display:block;"></div>
+									<div id="sparkline" class="clear-visible" style="text-align:center; width:100%; height:90px; display:block;"></div>
+									<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
 								</div>
 							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
-									<div class="side-head">Timeline - Records By Year</div><br>
-									<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
-									<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
+							<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-3 dashbox d4" id="position_one" style="width:22%; min-height:200px;">
+										<div class="side-head">Grade Level</div>
+										<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_two" style="width:23%; min-height:200px;">
+										<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
+										<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
+										<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
+										
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_three" style="width:23%; min-height:200px;">
+										<div class="side-head">Big 5 Emotion</div>
+										<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_four" style="width:22%; min-height:200px;">
+										<div class="side-head">Positive/Negative</div>
+										<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
+									</div>
 								</div>
-							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
-									<div class="side-head">Top Related Topics</div>
-									<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
+										<div class="side-head">Timeline - Records By Year</div><br>
+										<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
+										<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
+									</div>
 								</div>
-								<div class="col-md-6 dashbox d6" id="position_seven" style="width:46%; min-height:250px;">
-									<div class="side-head">Twitter By Date/Time</div>
-									<div id="twitterheatmap" class="clear-sidebar"style="width:100%; min-height:200px; margin:0;"></div>
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
+										<div class="side-head">Top Related Topics</div>
+										<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
+									</div>
+									<div class="col-md-6 dashbox d6" id="position_seven" style="width:46%; min-height:250px;">
+										<div class="side-head">Twitter By Date/Time</div>
+										<div id="twitterheatmap" class="clear-sidebar"style="width:100%; min-height:200px; margin:0;"></div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -599,7 +602,7 @@ function createSidebar(){
 
 $(document).ready(function() {
 
-	createSidebar();
+	// createSidebar();
 
 	console.log("reload");
 	console.log("ok");
@@ -610,7 +613,7 @@ $(document).ready(function() {
 	var mwidth = $(window).width();
 
 	$(".sidenav").css('height',mainheight);
-	console.log(mwidth);
+	console.log(mwidth);;
 
 	var topicpage = "search";
 	$("#search").focus();
@@ -1882,7 +1885,7 @@ $(document).ready(function() {
 	   	if (sidebarstate == "closed") {
 			$(function() {
 
-	    	    $("#sidebar").css({"width": $(window).width() - 144, "left": "60px"});
+	    	    $("#sidebar").css({"width": $(window).width() - 144});
 
 				$("#big5wordcloud").empty();
 				$("#topicswordcloud").empty();
@@ -1915,10 +1918,6 @@ $(document).ready(function() {
 				$(".sidebarfade").hide();
 	    	    $("body").css("overflow", "scroll");
 
-	    	    $("#sidebar").css("left", $(window).width()-447);
-	    	    $("#sidebar").css("width", "350px");
-
-	    	    $("#sidebarWrapper").animate({left:'25px'},{duration: 1000, queue: false}); 	    
 	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
 			    	$(".rotate").toggleClass("down");
 					sidebarstate = "closed"; 

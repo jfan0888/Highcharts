@@ -9,3 +9,13 @@
 - 'data' assign value fomally '1501411059'
 - tabarrow button was inserted in the navsidebar(overflow:visisble) 351
 - animation effect tabarrow remove
+
+3. Modified Part
+
+- 48, 	<?php include( '/usr/home/frisch/public_html/fact/includes/scripts.inc'); ?>
+- 1647, <?php include( '/usr/home/frisch/public_html/fact/includes/header-footer-highlight-js.inc'); ?>
+- 49 	<link rel="stylesheet" href="/css/wordcloud.css" />
+- src="img        -->       src="/img"
+-202 	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
+
+

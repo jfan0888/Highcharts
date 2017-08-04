@@ -39,7 +39,6 @@
 	
 	<!-- // JSON-LD markup -->
 
-
 	<?php include( 'includes/scripts.inc'); ?>
 	<link rel="stylesheet" href="css/wordcloud.css" />
 	<style>
@@ -97,6 +96,7 @@
 
 		.sidenav {
 		    min-height: 600px;
+		    width: 100%;
 		    z-index: 1;
 		    top: 0;
 		    right:0;
@@ -104,6 +104,7 @@
 		    border: 1px solid #cfcfcf;
 		    border-radius: 4px;
 		    color:#fff;
+		    padding-left: 42px;
 		    overflow-x: hidden;
 		    transition: 0.5s;
 		    padding-top: 0px;
@@ -305,85 +306,86 @@
 					</div>
 				</div>
 			</div>
+
 				</div>
 			</div>
 			<div class="row-fluid resultsblock" id="mainbar">
 
 				<div class="col-lg-9" id="results-block">
-					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img/loading.svg" width=50></div>
+					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="/img/loading.svg" width=50></div>
 					<div class="total-matches show-1200"></div>
 
 					<div class="row infinite" id="results" style="padding-top:20px; margin-left:-20px;"></div>
-					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="img/loading.svg" width=40></div>
+					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="/img/loading.svg" width=40></div>
 				</div>
 
 				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
-				<div class="col-lg-3 hide-1200" id="sidebar" style="min-height:600px; height:100%; /* width:300px; */ padding-top:0px; /*margin-left: 20px;*/ padding-left:20px; z-index:inherit;">
-	
+				<div class="col-lg-3 hide-1200" id="sidebar" style="min-height:600px; height:100%; padding-top:0px; padding-left:20px; z-index:inherit;">
+				
+					<!-- Fixing Tabarrow -->		
+
 				<div id= "sidebarWrapper" class="col-lg-3 hide-1200" style="position:absolute; width:auto; hight:100%; display:block; right:0;">
 
-					<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
-
-					<div id="mySidenav" class="sidenav col-lg-3 hide-1200" style="margin-top:20px; z-index:inherit;">
-
-						<div class="pull-left" style="min-width:280px;">
-							<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
-							<div id="categorychart" class="clear-visible"></div><p>
-							<div id="dom_emo" style="display:block;">
-								<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>
-								<div id="dom_emotion" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:30px;"></div>
-								
-							</div>
-							<div id="dom_sent" style="display:block;">
-								<div class="side-head-visible" style="margin-bottom:15px;">Overall Sentiment</div>
-								<div id="dom_sentiment" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:2px; display:block;"></div>
-								<div id="sparkline" class="clear-visible" style="text-align:center; width:100%; height:90px; display:block;"></div>
-								<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
-							</div>
-							
-						</div>
-						<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-3 dashbox d4" id="position_one" style="width:22%; min-height:200px;">
-									<div class="side-head">Grade Level</div>
-									<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
-								</div>
-								<div class="col-md-3 dashbox d4" id="position_two" style="width:23%; min-height:200px;">
-									<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
-									<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
-									<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
+						<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
+						<div id="mySidenav" class="sidenav col-lg-3 hide-1200" style="margin-top:20px; z-index:inherit; ">
+							<div class="pull-left" style="min-width:280px;">
+								<div class="total-matches" style="padding-left:15px; padding-top:15px;"></div>
+								<div id="categorychart" class="clear-visible"></div><p>
+								<div id="dom_emo" style="display:block;">
+									<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>
+						 			<div id="dom_emotion" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:30px;"></div>
 									
 								</div>
-								<div class="col-md-3 dashbox d4" id="position_three" style="width:23%; min-height:200px;">
-									<div class="side-head">Big 5 Emotion</div>
-									<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
+								<div id="dom_sent" style="display:block;">
+									<div class="side-head-visible" style="margin-bottom:15px;">Overall Sentiment</div>
+									<div id="dom_sentiment" class="side-chart-stretch clear-visible" style="text-align:center; width:100%; margin-bottom:2px; display:block;"></div>
+									<div id="sparkline" class="clear-visible" style="text-align:center; width:100%; height:90px; display:block;"></div>
+									<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
 								</div>
-								<div class="col-md-3 dashbox d4" id="position_four" style="width:22%; min-height:200px;">
-									<div class="side-head">Positive/Negative</div>
-									<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
-								</div>
+								
 							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
-									<div class="side-head">Timeline - Records By Year</div><br>
-									<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
-									<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
+							<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-3 dashbox d4" id="position_one" style="width:22%; min-height:200px;">
+										<div class="side-head">Grade Level</div>
+										<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_two" style="width:23%; min-height:200px;">
+										<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
+										<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
+										<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
+										
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_three" style="width:23%; min-height:200px;">
+										<div class="side-head">Big 5 Emotion</div>
+										<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
+									</div>
+									<div class="col-md-3 dashbox d4" id="position_four" style="width:22%; min-height:200px;">
+										<div class="side-head">Positive/Negative</div>
+										<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
+									</div>
 								</div>
-							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
-									<div class="side-head">Top Related Topics</div>
-									<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
+										<div class="side-head">Timeline - Records By Year</div><br>
+										<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
+										<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
+									</div>
 								</div>
-								<div class="col-md-6 dashbox d6" id="position_seven" style="width:46%; min-height:250px;">
-									<div class="side-head">Twitter By Date/Time</div>
-									<div id="twitterheatmap" class="clear-sidebar"style="width:100%; min-height:200px; margin:0;"></div>
+								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+									<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
+										<div class="side-head">Top Related Topics</div>
+										<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
+									</div>
+									<div class="col-md-6 dashbox d6" id="position_seven" style="width:46%; min-height:250px;">
+										<div class="side-head">Twitter By Date/Time</div>
+										<div id="twitterheatmap" class="clear-sidebar"style="width:100%; min-height:200px; margin:0;"></div>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>				
 				</div>
-			</div>
 			</div>
 		</div>
 	</div>
@@ -396,7 +398,7 @@
 						</button>
 					</div>
 					<div class="modal-body center-block text-center">
-						<div id="tweetmodalspinner"><img align=center src="img/loading.svg" width=50>
+						<div id="tweetmodalspinner"><img align=center src="/img/loading.svg" width=50>
 							<br>
 						</div>
 						<div id="tweetpop"></div>
@@ -442,6 +444,7 @@ var current_year = getnewyear.getYear();
 
 // Prepopulate on first load
 var firstpage = 1; 
+
 
 // Scrap
 function placeholder_one() {
@@ -528,7 +531,8 @@ function youtubeIframe() {
 	this.parentNode.replaceChild(iframe, this);
 };
 function renderyoutube() {
-	var div, n, v = document.getElementsByClassName("youtube-large");
+	var div, n,
+		v = document.getElementsByClassName("youtube-large");
 	for (n = 0; n < v.length; n++) {
 		div = document.createElement("div");
 		div.setAttribute("data-id", v[n].dataset.id);
@@ -585,12 +589,9 @@ function renderdailymotion() {
 // Now the Doc Read Part
 $(document).ready(function() {
 
-	console.log("reload");
-	console.log("ok");
 	// Handle Show/Hide of Dashboard
-	var mainheight = $(window).height() - 235;
+	var mainheight = $(window).height()-235;
 	$("#mySidenav").css("height", mainheight+"px");
-
 	var topicpage = "search";
 	$("#search").focus();
 
@@ -615,8 +616,7 @@ $(document).ready(function() {
 
 	// Populate the Last Tweet Time Timer
 	function lasttweettime() {
-		console.log(Date.now());
-		$.get("https://factba.se/json/json?mr=1", function(data) {
+		$.get('/json/json?mr=1', function(data) {
 			Number(data);
 			var rightnow = Math.round(Date.now() / 1000);
 			timesince = rightnow - data;
@@ -624,14 +624,12 @@ $(document).ready(function() {
 		});
 	};
 	function daBounce(element, times, distance, speed) {
-		console.log("in daBounce");
 		for (i = 0; i < times; i++) {
 			element.animate({marginTop: '-='+distance},speed)
 			.animate({marginTop: '+='+distance},speed);
 		}
 	}
 	function update() {
-		console.log("in update");
 		timesince = timesince + 1;
 		timesincemobile = timesincemobile + 1;
 		$('.counter').html('Last Tweet: ' + moment.duration(timesince, 'seconds').format("h [hrs], m [min], s [sec]"));
@@ -672,33 +670,30 @@ $(document).ready(function() {
 		//if (sidebarstate == "open") {
 		//	$("#tabarrow").trigger("click");
 		//}
-		console.log(value);
-		console.log("search on");
-		console.log("case1");
+		
+		// Fixing Sidebar - When new search with no query, the sidebar should display nothing.
 
-   	
+		if(sidebarstate == "open") {
+	    	
 	    	q = $("#search").val();
 
 	    	if(q.length == 0){
-				$('.pull-left').css('display', 'none');
+				$('.pull-left').empty();
 				$("#full-dashboard").css('display','none');				    	
 	    		console.log("remove function called");
 	    	}
 	    	else{
-				if(sidebarstate == "open"){
-					$('.pull-left').css('display', 'block');
-					$("#full-dashboard").show();
-					$("#full-dashboard").css('display','inline-block');				    	
-	    			$("#full-dashboard").css('width', resultswidth+"px")
-	    		}
+
+				$("#full-dashboard").show();
+				$("#full-dashboard").css('display','inline-block');				    	
+    			$("#full-dashboard").css('width', resultswidth+"px")
 	    	}
 	    	console.log("In openning search function called");
+		}
 
 		$('.spinner').show();
 		window.clearTimeout($(this).data("timeout"));
 		$(this).data("timeout", setTimeout(function() {
-			console.log("timeout on");
-			console.log("case2");			
 			q = $('#search').val();
 			q = q.trim();
 			var qsplit = q.replace(/"/g,"");
@@ -724,24 +719,18 @@ $(document).ready(function() {
 			if (firstload != 0) {
 				$('.clear-visible').empty();
 				$('.clear-sidebar').empty();
-				console.log("firstload");
-				console.log("case3");
 			};
 			firstload = 1;	
 			if (!t) {
 				t = 'se';
 			}
 			lastq = q;
-			var jsonurl = "https://factba.se/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
-
-			console.log('after-json call');
+			var jsonurl = "/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
 
 			// Analytics on query
 			var tclean = q.replace("+", "%20"); tclean = decodeURIComponent(tclean);
 			if (newload == 1) {	newload = 0; ga('send', 'event', 'search', 'searchpage', tclean, 1, {'NonInteraction': 0}); }
 			else {  ga('send', 'event', 'search', 'searchbox', tclean, 1, {'NonInteraction': 0}); }
-
-			console.log('after-newload condition');
 
 			// On Mobile close menu
 			$('.filters-dropdown').hide();
@@ -763,19 +752,13 @@ $(document).ready(function() {
 			}
 			
 
-			console.log('after-configuration');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////			
 			// Getch the JSON and parse
-
-			// console.log(jsonurl);
-			// console.log("outside json call");
-
 			$.getJSON(jsonurl + p, function(json) {
-				console.log(jsonurl);
-				console.log("in json call");
-
+				$('.mediatypes').empty();
+				$('.recordtypes').empty();
 				$('.yeartypes').empty();
 				if (p == 1) {
 					firstpage = 1;
@@ -987,7 +970,7 @@ $(document).ready(function() {
 				//Sidebar aggregations
 				//Record Type Counts
 				// Find out where on reload it's clearing
-				if (firstpage == 1) {
+				if (firstpage == 1) {	
 					var recordcounts = "";
 					var typeall = 0;
 					$('.z').empty();
@@ -1169,6 +1152,8 @@ $(document).ready(function() {
 				
 					if(sidebarstate == "open") {
 				    	
+				    	// Fixing Sidebar - When the sidebar open in no query, the sidebar should show nothing.
+
 				    	q = $("#search").val();
 
 				    	if(q.length == 0){
@@ -1181,7 +1166,6 @@ $(document).ready(function() {
 
 					    	sidebarCharts();
 				    	}
-				    	console.log("In openning search function called");
 					}
 				};
 				
@@ -1216,7 +1200,6 @@ $(document).ready(function() {
 				//Hide Video Embed until clicked. Show in modal for text click
 				var trigger = $("body").find('[class="videomodal"]');
 				trigger.click(function() {
-					console.log('trigger in 1208');
 					var themodal = $(this).data("target"),
 						videosrc = $(this).attr("data-video"),
 						videosrcauto = videosrc + "&autoplay=1";
@@ -1230,7 +1213,7 @@ $(document).ready(function() {
 
 
 				firstpage = "";
-				// $('#lazyload').hide();
+				$('#lazyload').hide();
 
 			});
 		}, 500));
@@ -1274,8 +1257,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1267'); 
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 
 	}});
@@ -1289,8 +1271,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1282');			  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Social
@@ -1303,8 +1284,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1296');			  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// All
@@ -1318,7 +1298,6 @@ $(document).ready(function() {
 		$('.spinner').show();
 		$('#lazyload').hide(); // Show Spinner, Hide More Spinner
 		$('#search').trigger('input'); // Rerun filter
-		console.log('trigger in 1310');
 	}});
 
 
@@ -1337,8 +1316,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1330');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Debate
@@ -1351,8 +1329,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1344');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Deposition
@@ -1365,8 +1342,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1357');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Interview
@@ -1379,8 +1355,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1372');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Position Paper
@@ -1406,8 +1381,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1399');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Remarks
@@ -1420,8 +1394,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1414');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Speech
@@ -1434,8 +1407,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1427');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Twitter
@@ -1448,8 +1420,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1441');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Deleted Tweets
@@ -1462,8 +1433,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1455');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// All
@@ -1477,7 +1447,6 @@ $(document).ready(function() {
 		$('.spinner').show();
 		$('#lazyload').hide(); // Show Spinner, Hide More Spinner
 		$('#search').trigger('input'); // Rerun filter
-		console.log('trigger in 1469');
 	}});
 
 
@@ -1493,8 +1462,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1486');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	$(".sort-newest").on('click', function() {
@@ -1506,8 +1474,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1499');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 	$(".sort-relevant").on('click', function() {
@@ -1519,8 +1486,7 @@ $(document).ready(function() {
 			$('#results').empty(); p = 1; // Clear text and reset pagecount
 			$('.spinner').show();
 			$('#lazyload').hide(); 
-			$('#search').trigger('input');
-			console.log('trigger in 1512');  
+			$('#search').trigger('input');  
 		} // Rerun filter, but only if there is a query
 	}});
 
@@ -1562,17 +1528,15 @@ $(document).ready(function() {
 			$(this).text(text);
 		});  					
 
-		$('.datefilter').on('apply.daterangepicker', function(ev, picker) {
+    			$('.datefilter').on('apply.daterangepicker', function(ev, picker) {
 			startdate = picker.startDate.format('YYYY-MM-DD');
-				enddate = picker.endDate.format('YYYY-MM-DD');
+  					enddate = picker.endDate.format('YYYY-MM-DD');
 			if (q.length > 0) { 
 				$('#results').empty(); p = 1; // Clear text and reset pagecount
 				$('.spinner').show();
 				$('#lazyload').hide(); 
-				$('#search').trigger('input');
-				console.log('trigger in 1563');  
-			}
-			// Rerun filter, but only if there is a query
+				$('#search').trigger('input');  
+			} // Rerun filter, but only if there is a query
       		$(".datefilter span").each(function() {
 				var text = $(this).text();
 				text = text.replace("1946-06-14 - 2017-06-12", "All Dates");
@@ -1593,7 +1557,6 @@ $(document).ready(function() {
 			if (p > maxpage || p == 1) {} else {
 				$('#lazyload').show();
 				$('#search').trigger('input');
-				console.log('trigger in 1584');
 				ga('send', 'event', 'internal', 'search', 'lazyload', 1, {'NonInteraction': 0});
 			}
 		}
@@ -1618,9 +1581,12 @@ $(document).ready(function() {
 		ga('send', 'event', 'internal', 'header', 'navbartoggle', 1, {'NonInteraction': 0});
 		$(this).toggleClass("active");
 	});
-	////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
 	// Navbar
-	<?php include( 'includes/header-footer-highlights-js.inc'); ?>
+	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer-highlight-js.inc'); ?>
 
 	$('#searchbox').prop( "disabled", true );
 	$('#searchbox').attr("placeholder", "↙ Use the search box below");
@@ -1630,145 +1596,205 @@ $(document).ready(function() {
 
 	sidebarstate = "closed";
 	var marginadjust = 26;
-	var resultswidth = ($("#results-block").outerWidth())+25;
-	var sidewidth = $("#mySidenav").outerWidth();
+	var resultswidth = ($("#results-block").outerWidth())+20;
+	var sidewidth = $(".sidenav").outerWidth();
 	var mainwidth = ($("#results-block").width()+75)+sidewidth;
 	// var arrowoffset = $('#tabarrow').css('margin-left');
-	// arrowoffset = arrowoffset.replace("px", "");
-	// arrowoffset = (Number(arrowoffset));
+	// 	arrowoffset = arrowoffset.replace("px", "");
+	// 	arrowoffset = (Number(arrowoffset));
 	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
+	function openCloseNav() {
 
-		function sidebarCharts() {
+		q = $('#search').val();
 
-			console.log("sidebarcharts function called");
+        if (sidebarstate == "closed") {
+			$(function() {
+				$("html, body").animate({ scrollTop: 0 }, "slow");
 
-		//Charts
-			// Large Timeline
-			chart_timeline_chart = Highcharts.chart('timelinechart', {
-				chart: { 	
-					events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
-					backgroundColor:null,
-					width: 800
-				},
-				title: { text: null }, 
-				legend: { enabled: false },
-				tooltip: { shared: true },
-				xAxis: [{
-					categories: timechart_categories,
-					tickAmount: 11,
-					labels: { rotation: -90, step: 1, x: 3, y: 30 }
-		    	}],
-				yAxis: [{ 	
-					type: 'logarithmic',
-					enabled: false,
-					title: null,
-					labels: { enabled: false },
-					gridLineWidth: 0
-					
-				}],
-				// plotOptions: { series: { connectNulls: true } },
-				series: [{
-					type: 'column',
-					turboThreshold: 0, 
-					data: timechart_count,
-					tooltip: {
-						valueSuffix: ' matches'
-		        	}
-				}]
-			});	
-		
-			// Heatmap
-			chart_twitter_heatmap = Highcharts.chart('twitterheatmap', {
-				chart: { type: 'heatmap', backgroundColor:null  },
-			        data: { csv: twitter_heatmap_data },
-			    boost: { useGPUTranslations: true },
-			    title: { text: null },
-			    credits: { enabled: false },
-			    xAxis: {
-					type: 'datetime',
-					dateTimeLabelFormats: { day: '%a' },
-			        labels: {
-			            align: 'left',
-			            x: 5,
-			            y: 14,
-			        },
-			        tickLength: 16
-			    },
-			
-			    yAxis: {
-			        title: {
-			            text: null
-			        },
-			        labels: {
-			            format: '{value}:00'
-			        },
-			        minPadding: 0,
-			        maxPadding: 0,
-			        startOnTick: false,
-			        endOnTick: false,
-			        tickPositions: [0, 6, 12, 18, 24],
-			        tickWidth: 1,
-			        min: 0,
-			        max: 23,
-			        reversed: true
-			    },
-			
-			    colorAxis: {
-					stops: [
-						[0, '#eeeeee'],
-						[0.1, '#225ea8'],
-						[0.2, '#1d91c0'],
-						[0.3, '#41b6c4'],
-						[0.4, '#c7e9b4'],
-						[0.5, '#fffbbc'],
-						[0.6, '#fed976'],
-						[0.7, '#fd8d3c'],
-						[0.8, '#e31a1c'],
-						[0.9, '#bd0026'],
-						[1, '#800026']
-					],
-			        min: min_heatmap,
-			        max: max_heatmap,
-			        startOnTick: false,
-			        endOnTick: false
-			        
-			    },
-			    legend: { enabled: false },
-			
-			    series: [{
-			        boostThreshold: 100,
-			        borderWidth: 0,
-			        nullColor: '#EFEFEF',
-			        colsize: 24 * 36e5, // one day
-			        tooltip: {
-			            headerFormat: 'Tweets by Hour and Day<br/>',
-			            pointFormat: '{point.x:%A} {point.y}:00: <b>{point.value} tweets</b>'
-			        },
-			        turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
-			    }]
-			});
-			// Grade Level
-			chart_gauge_gradelevel = Highcharts.chart('gradelevelgauge', {
-				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150
-					//events: { render: function () { $("tspan:contains('0')").text("K");	} }
-				 },
-				title: null,
-				pane: {
-					center: ['40%', '70%'],
-					size: '140%',
-					startAngle: -90,
-					endAngle: 90,
-					background: {
-						backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-						innerRadius: '60%',
-						outerRadius: '100%',
-						shape: 'arc'
+    	    	// Fixing Sidebar - When the sidebar is opened in no search query.
+
+				if(q.length > 0){
+					$("#full-dashboard").show();
+					$("#full-dashboard").css('display','inline-block');
+				}
+
+				$(".sidebarfade").fadeIn();
+	    	    $("body").css("overflow", "hidden");
+
+	    	    // Fixing Tabarrow - Rotate Behaviour
+
+	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
+
+	    	    	// Fixing Sidebar - When the sidebar is opened in no search query.
+
+		    		if(q.length > 0){
+		    			$("#full-dashboard").css('display', 'flexbox');
+		    			$("#full-dashboard").css('width', resultswidth+"px");
+				    	sidebarCharts();
 					}
-				},
-				tooltip: { enabled: false },
-				credits: { enabled: false},
-				plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
-				yAxis: {
+
+					$(".rotate").toggleClass("down");
+	    			sidebarstate = "open";
+				}});
+			});
+	    } else if (sidebarstate == "open") {
+			$(function() {
+				$("#big5wordcloud").empty(); // Fixing Rewriting
+				$("#topicswordcloud").empty(); // Fixing Rewriting
+				$("#full-dashboard").hide()
+				$(".sidebarfade").hide();
+	    	    $("body").css("overflow", "scroll");
+
+	    	    // Rotate Behaviour
+
+	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 200, queue: false, complete: function(){
+			    	$(".rotate").toggleClass("down");
+					sidebarstate = "closed"; 
+				}});
+			});
+		}
+	};
+	$("#tabarrow").on('click', function() {
+		openCloseNav();	
+	});
+
+
+	////////////////////////////////////////////////////////////////////////////////////////
+	// When sidebar open, drawing chart function is enabled.
+
+	function sidebarCharts() {
+		
+		//Charts
+		// Large Timeline
+		
+		chart_timeline_chart = Highcharts.chart('timelinechart', {
+			chart: { 	
+				events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
+				backgroundColor:null,
+				width: 800
+			},
+	
+			title: { text: null }, 
+			legend: { enabled: false },
+			tooltip: { shared: true },
+			xAxis: [{
+				categories: timechart_categories,
+				tickAmount: 11,
+				labels: { rotation: -90, step: 1, x: 3, y: 30 }
+	    	}],
+			yAxis: [{ 	
+				type: 'logarithmic',
+				enabled: false,
+				title: null,
+				labels: { enabled: false },
+				gridLineWidth: 0
+				
+			}],
+			// plotOptions: { series: { connectNulls: true } },
+			series: [{
+				type: 'column',
+				turboThreshold: 0, 
+				data: timechart_count,
+				tooltip: {
+					valueSuffix: ' matches'
+	        	}
+			}]
+		});	
+	
+		// Heatmap
+		chart_twitter_heatmap = Highcharts.chart('twitterheatmap', {
+			chart: { type: 'heatmap', backgroundColor:null  },
+		        data: { csv: twitter_heatmap_data },
+		    boost: { useGPUTranslations: true },
+		    title: { text: null },
+		    credits: { enabled: false },
+		    xAxis: {
+				type: 'datetime',
+				dateTimeLabelFormats: { day: '%a' },
+		        labels: {
+		            align: 'left',
+		            x: 5,
+		            y: 14,
+		        },
+		        tickLength: 16
+		    },
+		
+		    yAxis: {
+		        title: {
+		            text: null
+		        },
+		        labels: {
+		            format: '{value}:00'
+		        },
+		        minPadding: 0,
+		        maxPadding: 0,
+		        startOnTick: false,
+		        endOnTick: false,
+		        tickPositions: [0, 6, 12, 18, 24],
+		        tickWidth: 1,
+		        min: 0,
+		        max: 23,
+		        reversed: true
+		    },
+		
+		    colorAxis: {
+				stops: [
+					[0, '#eeeeee'],
+					[0.1, '#225ea8'],
+					[0.2, '#1d91c0'],
+					[0.3, '#41b6c4'],
+					[0.4, '#c7e9b4'],
+					[0.5, '#fffbbc'],
+					[0.6, '#fed976'],
+					[0.7, '#fd8d3c'],
+					[0.8, '#e31a1c'],
+					[0.9, '#bd0026'],
+					[1, '#800026']
+				],
+		        min: min_heatmap,
+		        max: max_heatmap,
+		        startOnTick: false,
+		        endOnTick: false
+		        
+		    },
+		    legend: { enabled: false },
+		
+		    series: [{
+		        boostThreshold: 100,
+		        borderWidth: 0,
+		        nullColor: '#EFEFEF',
+		        colsize: 24 * 36e5, // one day
+		        tooltip: {
+		            headerFormat: 'Tweets by Hour and Day<br/>',
+		            pointFormat: '{point.x:%A} {point.y}:00: <b>{point.value} tweets</b>'
+		        },
+		        turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
+		    }]
+		});
+		
+		// Grade Level
+		
+		chart_gauge_gradelevel = Highcharts.chart('gradelevelgauge', {
+			chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150
+				//events: { render: function () { $("tspan:contains('0')").text("K");	} }
+			 },
+			title: null,
+			pane: {
+				center: ['40%', '70%'],
+				size: '140%',
+				startAngle: -90,
+				endAngle: 90,
+				background: {
+					backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+					innerRadius: '60%',
+					outerRadius: '100%',
+					shape: 'arc'
+				}
+			},
+			tooltip: { enabled: false },
+			credits: { enabled: false},
+			plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
+			yAxis: {
 				stops: [
 					[0.1, '#55BF3B'], // green
 					[0.5, '#DDDF0D'], // yellow
@@ -1782,120 +1808,77 @@ $(document).ready(function() {
 			    min: 0,
 			    max: 12
 			},
-				series: [{
-					name: 'Grade Level',
-					data: [gradelevel_gauge_data],
-					dataLabels: {
-					format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
-								((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-								'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
-					},
-				}]
-		 	});
-		 		
-			
-			// Positive/Negative
-			chart_gauge_posneg = Highcharts.chart('posneggauge', {
-				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150 },
-				title: null,
-				pane: {
-					center: ['40%', '70%'],
-					size: '140%',
-					startAngle: -90,
-					endAngle: 90,
-					background: {
-						backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-						innerRadius: '60%',
-						outerRadius: '100%',
-						shape: 'arc'
-					}
-				},
-				tooltip: { enabled: false },
-				credits: { enabled: false},
-				plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
-				yAxis: {
-					stops: [
-						[0.1, '#55BF3B'], // green
-						[0.5, '#DDDF0D'], // yellow
-						[0.9, '#DF5353'] // red
-					],
-					lineWidth: 0,
-					minorTickInterval: null,
-					tickAmount: 2,
-					title: {  y: -70 },
-					labels: { y: 16 },
-				    min: -1,
-			    	max: 1
-					},
-				series: [{
-					name: 'Polarity',
-					data: [sentiment_gauge_data],
-					dataLabels: {
-					format: '<div style="text-align:center; margin-top:-40px;"><span style="font-size:20px;color:' +
+			series: [{
+				name: 'Grade Level',
+				data: [gradelevel_gauge_data],
+				dataLabels: {
+				format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
 							((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-							'<span style="font-size:11px;color:silver">Leans Positive</span></div>'
-					},
-				}]
-			});	
-			// Wordcloud - Topics
-			chart_topic_wordcloud = $("#topicswordcloud").jQCloud(topics_wordcloud_data, { 
-				autoResize: true,
-				shape: 'rectangular',
-				afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
-			});
+							'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
+				},
+			}]
+		});
+	 		
 		
-			// Wordcloud - Emotion
-			chart_big5_wordcloud = $("#big5wordcloud").jQCloud(big5_wordcloud_data, { 
-				autoResize: true,
-				shape: 'rectangular',
-				afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
-			});
-						
-		};
-
-	function openCloseNav() {
-	////////////////////////////////////////////////////////////////////////////////////////
-		q = $('#search').val();
-		console.log(q.length);
-				
-	   	if (sidebarstate == "closed") {
-			$(function() {
-				$("#big5wordcloud").empty();
-				$("#topicswordcloud").empty();
-				$("html, body").animate({ scrollTop: 0 }, "slow");
-				if(q.length > 0){
-					$("#full-dashboard").show();
-					$("#full-dashboard").css('display','inline-block');
+		// Positive/Negative
+		
+		chart_gauge_posneg = Highcharts.chart('posneggauge', {
+			chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150 },
+			title: null,
+			pane: {
+				center: ['40%', '70%'],
+				size: '140%',
+				startAngle: -90,
+				endAngle: 90,
+				background: {
+					backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+					innerRadius: '60%',
+					outerRadius: '100%',
+					shape: 'arc'
 				}
-				$(".sidebarfade").fadeIn();
-	    	    $("body").css("overflow", "hidden");
-	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 1000, queue: false, complete: function(){
-		    		if(q.length > 0){
-		    			$("#full-dashboard").css('display', 'flexbox')
-		    			$("#full-dashboard").css('width', resultswidth+"px")
-				    	sidebarCharts();
-					}
-					$(".rotate").toggleClass("down");
-	    			sidebarstate = "open";
-				}});
-			});
-	    } else if (sidebarstate == "open") {
-			$(function() {
-				$("#big5wordcloud").empty();
-				$("#topicswordcloud").empty();
-				$("#full-dashboard").hide()
-				$(".sidebarfade").hide();
-	    	    $("body").css("overflow", "scroll");
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
-			    	$(".rotate").toggleClass("down");
-					sidebarstate = "closed"; 
-				}});
-			});
-		}
+			},
+			tooltip: { enabled: false },
+			credits: { enabled: false},
+			plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
+			yAxis: {
+				stops: [
+					[0.1, '#55BF3B'], // green
+					[0.5, '#DDDF0D'], // yellow
+					[0.9, '#DF5353'] // red
+				],
+				lineWidth: 0,
+				minorTickInterval: null,
+				tickAmount: 2,
+				title: {  y: -70 },
+				labels: { y: 16 },
+			    min: -1,
+		    	max: 1
+				},
+			series: [{
+				name: 'Polarity',
+				data: [sentiment_gauge_data],
+				dataLabels: {
+				format: '<div style="text-align:center; margin-top:-40px;"><span style="font-size:20px;color:' +
+						((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+						'<span style="font-size:11px;color:silver">Leans Positive</span></div>'
+				},
+			}]
+		});	
+		// Wordcloud - Topics
+		chart_topic_wordcloud = $("#topicswordcloud").jQCloud(topics_wordcloud_data, { 
+			autoResize: true,
+			shape: 'rectangular',
+			afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
+		});
+	
+		// Wordcloud - Emotion
+		chart_big5_wordcloud = $("#big5wordcloud").jQCloud(big5_wordcloud_data, { 
+			autoResize: true,
+			shape: 'rectangular',
+			afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
+		});
+					
 	};
-	$("#tabarrow").on('click', function() {
-		openCloseNav();	
-	});
 	
 ////////////////////////////////////////////////////////////////////////////////////////
 	// Hand page load with parametersLoad With Parameter
@@ -1911,17 +1894,16 @@ $(document).ready(function() {
 		$('#search').attr('placeholder', qclean);
 		$('#search').val(qclean);
 		$('#search').trigger('input');
-		console.log('trigger in 1898');
 
 	};
 	window.onhashchange = function() {
 		q = getURLParameter('q');
-		console.log(q);
 		if (!q) {
 			q = window.location.hash.substr(1);
 		}
-		console.log(q);
+		
 		// New Search
+
 		if (q) {
 			qclean = q.replace("+", "%20");
 			qclean = decodeURIComponent(qclean);
@@ -1929,11 +1911,11 @@ $(document).ready(function() {
 			qclean = qclean.trim();
 			$('#search').attr('placeholder', qclean);
 			$('#search').val(qclean);
+
 			// Fixing the first issue
 			// $('#search').trigger('input');
-			console.log('trigger in 1915');
+		
 			if (sidebarstate == "open") {
-				console.log("When search in open, hashchange function callled");
 				chart_twitter_heatmap.destroy();
 				chart_timeline_chart.destroy();
 				chart_gauge_gradelevel.destroy();
@@ -1949,8 +1931,6 @@ $(document).ready(function() {
 	
 	
 });	
-
-
 
 </script>
 </body></html>
