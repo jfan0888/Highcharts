@@ -45,7 +45,7 @@
 	
 	<!-- // JSON-LD markup -->
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    	<?php include( 'includes/scripts.inc'); ?>
+	<?php include( 'includes/scripts.inc'); ?>	
 	<link rel="stylesheet" href="css/wordcloud.css" />
 	<style>
 		body {
@@ -199,9 +199,9 @@
 			-o-transform: scale(1, 2); /* Opera */
 		}
 		.sidebar_slide {
+			width: auto;
 			position: absolute;
 			right: 0px;
-			width: auto;
 		}
 	</style>
 </head>
@@ -445,6 +445,7 @@ var mid_heatmap = 0;
 $(function(){Highcharts.setOptions({lang:{ thousandsSep:','}})});
 
 // Check for Ad Blocker - It Messes Up Search
+
 window.addEventListener('load', function() {
 	if(window.ga && ga.create) { console.log('GA Loaded'); }
 	else {
@@ -1057,7 +1058,7 @@ $(document).ready(function() {
 						if (sso >= -0.2 && sso < -0.1)	{ sso_label = "Leans Negative"; };
 						if (sso >= -0.1 && sso < 0.1) 	{ sso_label = "Neutral"; };
 						if (!sso) 						{ sso_label = "Unknown"; };
-						if (sso >= 0.1 && sso < 0.2)		{ sso_label = "Leans Positive"; };
+						if (sso >= 0.1 && sso < 0.2)	{ sso_label = "Leans Positive"; };
 						if (sso >= 0.2 && sso < 0.3)	{ sso_label = "Slightly Positive"; };
 						if (sso >= 0.3 && sso < 0.4)	{ sso_label = "Somewhat Positive"; };
 						if (sso >= 0.4 && sso < 0.5)	{ sso_label = "Positive"; };
@@ -1667,10 +1668,10 @@ $(document).ready(function() {
 	var resultswidth = ($("#results-block").outerWidth())+20;
 	var sidewidth = $("#mySidenav").outerWidth();
 	var mainwidth = ($("#results-block").width()+75)+sidewidth;
-	var arrowoffset = $('#tabarrow').css('margin-left');
-	arrowoffset = arrowoffset.replace("px", "");
-	arrowoffset = (Number(arrowoffset));
-	var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
+	// var arrowoffset = $('#tabarrow').css('margin-left');
+	// arrowoffset = arrowoffset.replace("px", "");
+	// arrowoffset = (Number(arrowoffset));
+	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 
 		function sidebarCharts() {
 
@@ -1895,22 +1896,29 @@ $(document).ready(function() {
 	   	if (sidebarstate == "closed") {
 			$(function() {
 				$("html, body").animate({ scrollTop: 0 }, "slow");
+				
+				if(q.length > 0){
 					$("#full-dashboard").show();
 					$("#full-dashboard").css('display','inline-block');
-					
-					$("#big5wordcloud").empty();
-					$("#topicswordcloud").empty();
-					
-					$(".sidebarfade").fadeIn();
-		    	    $("body").css("overflow", "hidden");
-		    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
-		    			$("#full-dashboard").css('display', 'flexbox')
-		    			$("#full-dashboard").css('width', resultswidth+"px")
-						$(".rotate").toggleClass("down");
-				    	sidebarCharts();
-		    			sidebarstate = "open";
-					}});
-				});
+				}
+
+				$("#big5wordcloud").empty();
+				$("#topicswordcloud").empty();
+				
+				$(".sidebarfade").fadeIn();
+	    	    $("body").css("overflow", "hidden");
+	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
+	    			if(q.length > 0){
+	    				$("#full-dashboard").css('display', 'flexbox')
+	    				$("#full-dashboard").css('width', resultswidth+"px")
+	    			}
+					$(".rotate").toggleClass("down");
+			    	setTimeout(function(){
+			    		sidebarCharts();
+			    	},3000);
+	    			sidebarstate = "open";
+				}});
+			});
 	    }else if (sidebarstate == "open") {
 			$(function() {
 				$("#big5wordcloud").empty();
