@@ -39,8 +39,8 @@
 	
 	<!-- // JSON-LD markup -->
 
-	<?php include( 'includes/scripts.inc'); ?>	
-	<link rel="stylesheet" href="css/wordcloud.css" />
+	<?php include( '/usr/home/frisch/public_html/fact/includes/scripts.inc'); ?>
+	<link rel="stylesheet" href="/css/wordcloud.css" />
 	<style>
 
 		html,
@@ -1658,8 +1658,7 @@
 
 <body>
 
-	<?php include( 'includes/header-footer.inc'); ?>
-
+	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
 
 
 	<div class="sidebarfade"></div>
@@ -1782,11 +1781,11 @@
 			<div class="row-fluid resultsblock" id="mainbar">
 
 				<div class="col-lg-9" id="results-block">
-					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img"/loading.svg" width=50></div>
+					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="/img/loading.svg" width=50></div>
 					<div class="total-matches show-1200"></div>
 
 					<div class="row infinite" id="results" style="padding-top:20px; margin-left:-20px;"></div>
-					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="img"/loading.svg" width=40></div>
+					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="/img/loading.svg" width=40></div>
 				</div>
 				
 				
@@ -1871,7 +1870,7 @@
 						</button>
 					</div>
 					<div class="modal-body center-block text-center">
-						<div id="tweetmodalspinner"><img align=center src="img"/loading.svg" width=50>
+						<div id="tweetmodalspinner"><img align=center src="/img/loading.svg" width=50>
 							<br>
 						</div>
 						<div id="tweetpop"></div>
@@ -2089,7 +2088,7 @@ $(document).ready(function() {
 
 	// Populate the Last Tweet Time Timer
 	function lasttweettime() {
-		$.get('https://factba.se/json/json?mr=1', function(data) {
+		$.get('/json/json?mr=1', function(data) {
 			Number(data);
 			var rightnow = Math.round(Date.now() / 1000);
 			timesince = rightnow - data;
@@ -2144,7 +2143,9 @@ $(document).ready(function() {
 		//if (sidebarstate == "open") {
 		//	$("#tabarrow").trigger("click");
 		//}
+
 		$('.spinner').show();
+		
 		window.clearTimeout($(this).data("timeout"));
 		$(this).data("timeout", setTimeout(function() {
 			q = $('#search').val();
@@ -2178,7 +2179,7 @@ $(document).ready(function() {
 				t = 'se';
 			}
 			lastq = q;
-			var jsonurl = "https://factba.se/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
+			var jsonurl = "/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
 
 			// Analytics on query
 			console.log("newload" + newload);
@@ -2360,7 +2361,7 @@ $(document).ready(function() {
 						record_title = val['record_title'];
 						source = val['source'];
 						link_url = val['url'];
-						bl = '<div class="item"><div class="well"><div class="row"><div class="col-lg-12"><div style="display:inline-block;"><h3><i class="fa fa-file-text"></i> Official Document</h3></div><div style="float:right;"></div></div><div class="col-lg-3 mediaside"><img src="img"/document.png" class="interviewthumb searchimage"></div><div class="col-lg-9"><span><h4>'+record_title+'</h4><br>"...' + text + '..."</span><div style="display:inline-block; width:100%;"><div style="float:left;"><h4>' + date + '</h4></div><div style="float:right;"><h4><small><a href="'+link_url+'" target=_blank onClick="ga(\'send\', \'event\', \'external\', \'officialdoc\', link_url, 1, {\'NonInteraction\': 0});">' + source + '</a></small></h4></div></div></div></div></div></div>';
+						bl = '<div class="item"><div class="well"><div class="row"><div class="col-lg-12"><div style="display:inline-block;"><h3><i class="fa fa-file-text"></i> Official Document</h3></div><div style="float:right;"></div></div><div class="col-lg-3 mediaside"><img src="/img/document.png" class="interviewthumb searchimage"></div><div class="col-lg-9"><span><h4>'+record_title+'</h4><br>"...' + text + '..."</span><div style="display:inline-block; width:100%;"><div style="float:left;"><h4>' + date + '</h4></div><div style="float:right;"><h4><small><a href="'+link_url+'" target=_blank onClick="ga(\'send\', \'event\', \'external\', \'officialdoc\', link_url, 1, {\'NonInteraction\': 0});">' + source + '</a></small></h4></div></div></div></div></div></div>';
 
 
 					// If Block is just text
@@ -2599,9 +2600,12 @@ $(document).ready(function() {
 					$('#sparktrend').text(sparktrend);
 					sentiment_spark(spark_data);
 				
-				if(sidebarstate == "open") {
-			    	sidebarCharts();
-				}
+					
+					if(sidebarstate == "open") {
+				    
+
+				    	sidebarCharts();
+					}
 				
 				};
 				
@@ -2992,7 +2996,10 @@ $(document).ready(function() {
 	win.scroll(function() {
 		if ($(document).height() - win.height() == win.scrollTop()) {
 			if (p > maxpage || p == 1) {} else {
-				$('#lazyload').show();
+
+				// Fixing the first issue.
+				// $('#lazyload').show();
+
 				$('#search').trigger('input');
 				ga('send', 'event', 'internal', 'search', 'lazyload', 1, {'NonInteraction': 0});
 			}
@@ -3026,19 +3033,11 @@ $(document).ready(function() {
 
 ////////////////////////////////////////////////////////////////////////////////////////
 	// Navbar
-	<?php include( 'includes/header-footer-highlights-js.inc'); ?>
+	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer-highlight-js.inc'); ?>
 
 	$('#searchbox').prop( "disabled", true );
 	$('#searchbox').attr("placeholder", "↙ Use the search box below");
 	$('.factsearch').css("opacity", "0.4");
-
-
-
-
-
-
-
-
 
 // Handle Sidebar Open and Close + Make Charts
 	sidebarstate = "closed";
@@ -3051,14 +3050,29 @@ $(document).ready(function() {
 		arrowoffset = (Number(arrowoffset));
 	var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 	function openCloseNav() {
+
+	   var qstring = $("#search").val();
+
 	   if (sidebarstate == "closed") {
 			$(function() {
 				$("html, body").animate({ scrollTop: 0 }, "slow");
 				$("#full-dashboard").show();
 				$("#full-dashboard").css('display','inline-block');
 				$(".sidebarfade").fadeIn();
-	    	    $("body").css("overflow", "hidden");
+	    	    $("body").css("overflow", "scroll");
+				
+				// If search query is empty, there will be no informations and it'll be empty.	    	    
 	    	    // $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false});
+	    	    
+	    		if(qstring.length == 0) {
+	    			 $("#full-dashboard").hide();
+	    			 $(".pull-left").hide();
+	    		}
+	    		else{
+	    			 $("#full-dashboard").show();
+	    			 $(".pull-left").show();	    			
+	    		}
+
 	    		$("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
 	    			$("#full-dashboard").css('display', 'flexbox')
 	    			$("#full-dashboard").css('width', resultswidth+"px")
@@ -3072,8 +3086,7 @@ $(document).ready(function() {
 				$("#full-dashboard").hide()
 				$(".sidebarfade").hide();
 	    	    $("body").css("overflow", "scroll");
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 200, queue: false});
-	    		$("#tabarrow").animate({left: (arrowoffset*-1)-marginadjust+"px"}, {duration: 500, queue: false, complete: function(){
+	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 200, queue: false, complete: function(){
 			    	$(".rotate").toggleClass("down");
 					sidebarstate = "closed"; 
 				}});
@@ -3309,7 +3322,7 @@ $(document).ready(function() {
 		qclean = qclean.trim();
 		$('#search').attr('placeholder', qclean);
 		$('#search').val(qclean);
-		$('#search').trigger('input');
+		// $('#search').trigger('input');
 
 	};
 	window.onhashchange = function() {

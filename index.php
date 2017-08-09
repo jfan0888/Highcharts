@@ -61,6 +61,7 @@
 		    top: 10px;
 		    right: 50px;
 		}
+
 		.topic-mobile-header { display:none; }
 
 
@@ -1557,7 +1558,7 @@
 
 		.sidenav {
 		    width: 300px;
-		    min-height: 600px;
+		    min-height: 400px;
 		    position: absolute;
 		    z-index: 1;
 		    top: 0;
@@ -1782,11 +1783,11 @@
 			<div class="row-fluid resultsblock" id="mainbar">
 
 				<div class="col-lg-9" id="results-block">
-					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img"/loading.svg" width=50></div>
+					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img/loading.svg" width=50></div>
 					<div class="total-matches show-1200"></div>
 
 					<div class="row infinite" id="results" style="padding-top:20px; margin-left:-20px;"></div>
-					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="img"/loading.svg" width=40></div>
+					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="img/loading.svg" width=40></div>
 				</div>
 				
 				
@@ -1865,7 +1866,7 @@
 						</button>
 					</div>
 					<div class="modal-body center-block text-center">
-						<div id="tweetmodalspinner"><img align=center src="img"/loading.svg" width=50>
+						<div id="tweetmodalspinner"><img align=center src="img/loading.svg" width=50>
 							<br>
 						</div>
 						<div id="tweetpop"></div>
@@ -2055,6 +2056,219 @@ function renderdailymotion() {
 ////////////////////////////////////////////////////////////////////////////////////////
 // Now the Doc Read Part
 $(document).ready(function() {
+
+
+		function sidebarCharts() {
+		//Charts
+			// Large Timeline
+			chart_timeline_chart = Highcharts.chart('timelinechart', {
+				chart: { 	
+					events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
+					backgroundColor:null,
+					width: 800
+				},
+				title: { text: null }, 
+				legend: { enabled: false },
+				tooltip: { shared: true },
+				xAxis: [{
+					categories: timechart_categories,
+					tickAmount: 11,
+					labels: { rotation: -90, step: 1, x: 3, y: 30 }
+		    	}],
+				yAxis: [{ 	
+					type: 'logarithmic',
+					enabled: false,
+					title: null,
+					labels: { enabled: false },
+					gridLineWidth: 0
+					
+				}],
+				// plotOptions: { series: { connectNulls: true } },
+				series: [{
+					type: 'column',
+					turboThreshold: 0, 
+					data: timechart_count,
+					tooltip: {
+						valueSuffix: ' matches'
+		        	}
+				}]
+			});	
+		
+			// Heatmap
+			chart_twitter_heatmap = Highcharts.chart('twitterheatmap', {
+				chart: { type: 'heatmap', backgroundColor:null  },
+			        data: { csv: twitter_heatmap_data },
+			    boost: { useGPUTranslations: true },
+			    title: { text: null },
+			    credits: { enabled: false },
+			    xAxis: {
+					type: 'datetime',
+					dateTimeLabelFormats: { day: '%a' },
+			        labels: {
+			            align: 'left',
+			            x: 5,
+			            y: 14,
+			        },
+			        tickLength: 16
+			    },
+			
+			    yAxis: {
+			        title: {
+			            text: null
+			        },
+			        labels: {
+			            format: '{value}:00'
+			        },
+			        minPadding: 0,
+			        maxPadding: 0,
+			        startOnTick: false,
+			        endOnTick: false,
+			        tickPositions: [0, 6, 12, 18, 24],
+			        tickWidth: 1,
+			        min: 0,
+			        max: 23,
+			        reversed: true
+			    },
+			
+			    colorAxis: {
+					stops: [
+						[0, '#eeeeee'],
+						[0.1, '#225ea8'],
+						[0.2, '#1d91c0'],
+						[0.3, '#41b6c4'],
+						[0.4, '#c7e9b4'],
+						[0.5, '#fffbbc'],
+						[0.6, '#fed976'],
+						[0.7, '#fd8d3c'],
+						[0.8, '#e31a1c'],
+						[0.9, '#bd0026'],
+						[1, '#800026']
+					],
+			        min: min_heatmap,
+			        max: max_heatmap,
+			        startOnTick: false,
+			        endOnTick: false
+			        
+			    },
+			    legend: { enabled: false },
+			
+			    series: [{
+			        boostThreshold: 100,
+			        borderWidth: 0,
+			        nullColor: '#EFEFEF',
+			        colsize: 24 * 36e5, // one day
+			        tooltip: {
+			            headerFormat: 'Tweets by Hour and Day<br/>',
+			            pointFormat: '{point.x:%A} {point.y}:00: <b>{point.value} tweets</b>'
+			        },
+			        turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
+			    }]
+						});
+			// Grade Level
+			chart_gauge_gradelevel = Highcharts.chart('gradelevelgauge', {
+				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150
+					//events: { render: function () { $("tspan:contains('0')").text("K");	} }
+				 },
+				title: null,
+				pane: {
+					center: ['40%', '70%'],
+					size: '140%',
+					startAngle: -90,
+					endAngle: 90,
+					background: {
+						backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+						innerRadius: '60%',
+						outerRadius: '100%',
+						shape: 'arc'
+					}
+				},
+				tooltip: { enabled: false },
+				credits: { enabled: false},
+				plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
+				yAxis: {
+				stops: [
+					[0.1, '#55BF3B'], // green
+					[0.5, '#DDDF0D'], // yellow
+					[0.9, '#DF5353'] // red
+				],
+				lineWidth: 0,
+				minorTickInterval: null,
+				tickAmount: 2,
+				title: {  y: -70 },
+				labels: { y: 16 },
+			    min: 0,
+			    max: 12
+			},
+			series: [{
+				name: 'Grade Level',
+				data: [gradelevel_gauge_data],
+				dataLabels: {
+				format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
+							((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+							'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
+				},
+			}]
+		 });
+		 		
+			
+			// Positive/Negative
+			chart_gauge_posneg = Highcharts.chart('posneggauge', {
+				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150 },
+				title: null,
+				pane: {
+					center: ['40%', '70%'],
+					size: '140%',
+					startAngle: -90,
+					endAngle: 90,
+					background: {
+						backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+						innerRadius: '60%',
+						outerRadius: '100%',
+						shape: 'arc'
+					}
+				},
+				tooltip: { enabled: false },
+				credits: { enabled: false},
+				plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
+				yAxis: {
+					stops: [
+						[0.1, '#55BF3B'], // green
+						[0.5, '#DDDF0D'], // yellow
+						[0.9, '#DF5353'] // red
+					],
+					lineWidth: 0,
+					minorTickInterval: null,
+					tickAmount: 2,
+					title: {  y: -70 },
+					labels: { y: 16 },
+				    min: -1,
+			    	max: 1
+					},
+				series: [{
+					name: 'Polarity',
+					data: [sentiment_gauge_data],
+					dataLabels: {
+					format: '<div style="text-align:center; margin-top:-40px;"><span style="font-size:20px;color:' +
+							((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
+							'<span style="font-size:11px;color:silver">Leans Positive</span></div>'
+					},
+				}]
+			});	
+			// Wordcloud - Topics
+			chart_topic_wordcloud = $("#topicswordcloud").jQCloud(topics_wordcloud_data, { 
+				autoResize: true,
+				shape: 'rectangular',
+				afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
+			});
+		
+			// Wordcloud - Emotion
+			chart_big5_wordcloud = $("#big5wordcloud").jQCloud(big5_wordcloud_data, { 
+				autoResize: true,
+				shape: 'rectangular',
+				afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
+			});
+		};
+
 
 	// Handle Show/Hide of Dashboard
 	var mainheight = $(window).height()-205;
@@ -2354,7 +2568,7 @@ $(document).ready(function() {
 						record_title = val['record_title'];
 						source = val['source'];
 						link_url = val['url'];
-						bl = '<div class="item"><div class="well"><div class="row"><div class="col-lg-12"><div style="display:inline-block;"><h3><i class="fa fa-file-text"></i> Official Document</h3></div><div style="float:right;"></div></div><div class="col-lg-3 mediaside"><img src="img"/document.png" class="interviewthumb searchimage"></div><div class="col-lg-9"><span><h4>'+record_title+'</h4><br>"...' + text + '..."</span><div style="display:inline-block; width:100%;"><div style="float:left;"><h4>' + date + '</h4></div><div style="float:right;"><h4><small><a href="'+link_url+'" target=_blank onClick="ga(\'send\', \'event\', \'external\', \'officialdoc\', link_url, 1, {\'NonInteraction\': 0});">' + source + '</a></small></h4></div></div></div></div></div></div>';
+						bl = '<div class="item"><div class="well"><div class="row"><div class="col-lg-12"><div style="display:inline-block;"><h3><i class="fa fa-file-text"></i> Official Document</h3></div><div style="float:right;"></div></div><div class="col-lg-3 mediaside"><img src="img/document.png" class="interviewthumb searchimage"></div><div class="col-lg-9"><span><h4>'+record_title+'</h4><br>"...' + text + '..."</span><div style="display:inline-block; width:100%;"><div style="float:left;"><h4>' + date + '</h4></div><div style="float:right;"><h4><small><a href="'+link_url+'" target=_blank onClick="ga(\'send\', \'event\', \'external\', \'officialdoc\', link_url, 1, {\'NonInteraction\': 0});">' + source + '</a></small></h4></div></div></div></div></div></div>';
 
 
 					// If Block is just text
@@ -2593,9 +2807,25 @@ $(document).ready(function() {
 					$('#sparktrend').text(sparktrend);
 					sentiment_spark(spark_data);
 				
-				if(sidebarstate == "open") {
-			    	sidebarCharts();
-				}
+					if(sidebarstate == "open") {
+				    	
+				    	q = $("#search").val();
+
+				    	if(q.length == 0){
+							$('.pull-left').empty();
+							$("#full-dashboard").css('display','none');				    	
+				    		console.log("remove function called");
+				    	}
+				    	else{
+
+							$("#full-dashboard").show();
+							$("#full-dashboard").css('display','inline-block');				    	
+							console.log("function called in open state.");
+
+					    	sidebarCharts();
+				    	}
+				    	console.log("In openning search function called");
+					}
 				
 				};
 				
@@ -3026,15 +3256,7 @@ $(document).ready(function() {
 	$('#searchbox').attr("placeholder", "↙ Use the search box below");
 	$('.factsearch').css("opacity", "0.4");
 
-
-
-
-
-
-
-
-
-// Handle Sidebar Open and Close + Make Charts
+	// Handle Sidebar Open and Close + Make Charts
 	sidebarstate = "closed";
 	var marginadjust = 26;
 	var resultswidth = ($("#results-block").outerWidth())+20;
@@ -3045,14 +3267,29 @@ $(document).ready(function() {
 		arrowoffset = (Number(arrowoffset));
 	var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 	function openCloseNav() {
+	   
+	   var qstring = $("#search").val();
+
 	   if (sidebarstate == "closed") {
 			$(function() {
 				$("html, body").animate({ scrollTop: 0 }, "slow");
 				$("#full-dashboard").show();
 				$("#full-dashboard").css('display','inline-block');
 				$(".sidebarfade").fadeIn();
-	    	    $("body").css("overflow", "hidden");
+	    	    $("body").css("overflow", "scroll");
+
+
+				// If search query is empty, there will be no informations and it'll be empty.	    	    
 	    	    // $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false});
+	    		if(qstring.length == 0) {
+	    			 $("#full-dashboard").hide();
+	    			 $(".pull-left").hide();
+	    		}
+	    		else{
+	    			 $("#full-dashboard").show();
+	    			 $(".pull-left").show();	    			
+	    		}
+
 	    		$("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
 	    			$("#full-dashboard").css('display', 'flexbox')
 	    			$("#full-dashboard").css('width', resultswidth+"px")
@@ -3063,228 +3300,21 @@ $(document).ready(function() {
 			});
 	    } else if (sidebarstate == "open") {
 			$(function() {
+
+				$("#big5wordcloud").empty();
+				$("#topicswordcloud").empty();
+
 				$("#full-dashboard").hide()
 				$(".sidebarfade").hide();
+	   
 	    	    $("body").css("overflow", "scroll");
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 200, queue: false});
-	    		$("#tabarrow").animate({left: (arrowoffset*-1)-marginadjust+"px"}, {duration: 500, queue: false, complete: function(){
+	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 200, queue: false, complete: function(){
 			    	$(".rotate").toggleClass("down");
 					sidebarstate = "closed"; 
 				}});
 			});
 		}
 	////////////////////////////////////////////////////////////////////////////////////////
-		function sidebarCharts() {
-		//Charts
-			// Large Timeline
-			chart_timeline_chart = Highcharts.chart('timelinechart', {
-				chart: { 	
-					events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
-					backgroundColor:null,
-					width: 800
-				},
-				title: { text: null }, 
-				legend: { enabled: false },
-				tooltip: { shared: true },
-				xAxis: [{
-					categories: timechart_categories,
-					tickAmount: 11,
-					labels: { rotation: -90, step: 1, x: 3, y: 30 }
-		    	}],
-				yAxis: [{ 	
-					type: 'logarithmic',
-					enabled: false,
-					title: null,
-					labels: { enabled: false },
-					gridLineWidth: 0
-					
-				}],
-				// plotOptions: { series: { connectNulls: true } },
-				series: [{
-					type: 'column',
-					turboThreshold: 0, 
-					data: timechart_count,
-					tooltip: {
-						valueSuffix: ' matches'
-		        	}
-				}]
-			});	
-		
-			// Heatmap
-			chart_twitter_heatmap = Highcharts.chart('twitterheatmap', {
-				chart: { type: 'heatmap', backgroundColor:null  },
-			        data: { csv: twitter_heatmap_data },
-			    boost: { useGPUTranslations: true },
-			    title: { text: null },
-			    credits: { enabled: false },
-			    xAxis: {
-					type: 'datetime',
-					dateTimeLabelFormats: { day: '%a' },
-			        labels: {
-			            align: 'left',
-			            x: 5,
-			            y: 14,
-			        },
-			        tickLength: 16
-			    },
-			
-			    yAxis: {
-			        title: {
-			            text: null
-			        },
-			        labels: {
-			            format: '{value}:00'
-			        },
-			        minPadding: 0,
-			        maxPadding: 0,
-			        startOnTick: false,
-			        endOnTick: false,
-			        tickPositions: [0, 6, 12, 18, 24],
-			        tickWidth: 1,
-			        min: 0,
-			        max: 23,
-			        reversed: true
-			    },
-			
-			    colorAxis: {
-					stops: [
-						[0, '#eeeeee'],
-						[0.1, '#225ea8'],
-						[0.2, '#1d91c0'],
-						[0.3, '#41b6c4'],
-						[0.4, '#c7e9b4'],
-						[0.5, '#fffbbc'],
-						[0.6, '#fed976'],
-						[0.7, '#fd8d3c'],
-						[0.8, '#e31a1c'],
-						[0.9, '#bd0026'],
-						[1, '#800026']
-					],
-			        min: min_heatmap,
-			        max: max_heatmap,
-			        startOnTick: false,
-			        endOnTick: false
-			        
-			    },
-			    legend: { enabled: false },
-			
-			    series: [{
-			        boostThreshold: 100,
-			        borderWidth: 0,
-			        nullColor: '#EFEFEF',
-			        colsize: 24 * 36e5, // one day
-			        tooltip: {
-			            headerFormat: 'Tweets by Hour and Day<br/>',
-			            pointFormat: '{point.x:%A} {point.y}:00: <b>{point.value} tweets</b>'
-			        },
-			        turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
-			    }]
-						});
-			// Grade Level
-			chart_gauge_gradelevel = Highcharts.chart('gradelevelgauge', {
-				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150
-					//events: { render: function () { $("tspan:contains('0')").text("K");	} }
-				 },
-				title: null,
-				pane: {
-					center: ['40%', '70%'],
-					size: '140%',
-					startAngle: -90,
-					endAngle: 90,
-					background: {
-						backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-						innerRadius: '60%',
-						outerRadius: '100%',
-						shape: 'arc'
-					}
-				},
-				tooltip: { enabled: false },
-				credits: { enabled: false},
-				plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
-				yAxis: {
-				stops: [
-					[0.1, '#55BF3B'], // green
-					[0.5, '#DDDF0D'], // yellow
-					[0.9, '#DF5353'] // red
-				],
-				lineWidth: 0,
-				minorTickInterval: null,
-				tickAmount: 2,
-				title: {  y: -70 },
-				labels: { y: 16 },
-			    min: 0,
-			    max: 12
-			},
-			series: [{
-				name: 'Grade Level',
-				data: [gradelevel_gauge_data],
-				dataLabels: {
-				format: '<div style="text-align:center;margin-top:-40px;"><span style="font-size:20px;color:' +
-							((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-							'<span style="font-size:12px;color:silver">Flesch Kincaid<br>Grade Level</span></div>'
-				},
-			}]
-		 });
-		 		
-			
-			// Positive/Negative
-			chart_gauge_posneg = Highcharts.chart('posneggauge', {
-				chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150 },
-				title: null,
-				pane: {
-					center: ['40%', '70%'],
-					size: '140%',
-					startAngle: -90,
-					endAngle: 90,
-					background: {
-						backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
-						innerRadius: '60%',
-						outerRadius: '100%',
-						shape: 'arc'
-					}
-				},
-				tooltip: { enabled: false },
-				credits: { enabled: false},
-				plotOptions: { solidgauge: { dataLabels: { y: 5, borderWidth: 0, useHTML: true } } },
-				yAxis: {
-					stops: [
-						[0.1, '#55BF3B'], // green
-						[0.5, '#DDDF0D'], // yellow
-						[0.9, '#DF5353'] // red
-					],
-					lineWidth: 0,
-					minorTickInterval: null,
-					tickAmount: 2,
-					title: {  y: -70 },
-					labels: { y: 16 },
-				    min: -1,
-			    	max: 1
-					},
-				series: [{
-					name: 'Polarity',
-					data: [sentiment_gauge_data],
-					dataLabels: {
-					format: '<div style="text-align:center; margin-top:-40px;"><span style="font-size:20px;color:' +
-							((Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black') + '">{y}</span><br/>' +
-							'<span style="font-size:11px;color:silver">Leans Positive</span></div>'
-					},
-				}]
-			});	
-			// Wordcloud - Topics
-			chart_topic_wordcloud = $("#topicswordcloud").jQCloud(topics_wordcloud_data, { 
-				autoResize: true,
-				shape: 'rectangular',
-				afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
-			});
-		
-			// Wordcloud - Emotion
-			chart_big5_wordcloud = $("#big5wordcloud").jQCloud(big5_wordcloud_data, { 
-				autoResize: true,
-				shape: 'rectangular',
-				afterCloudRender : $(function () { $('[data-toggle="tooltip"]').tooltip(); })
-			});
-						
-		};
 	};
 	$("#tabarrow").on('click', function() {
 		openCloseNav();	
@@ -3332,6 +3362,7 @@ $(document).ready(function() {
 				$("#topicswordcloud").empty();
 				chart_category_pie.destroy();
 				chart_sentiment_sparkline.destroy();
+				// sidebarCharts();
 			}	
 		};
 	};

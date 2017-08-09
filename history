@@ -14,10 +14,10 @@
 
 - 48, 	<?php include( '/usr/home/frisch/public_html/fact/includes/scripts.inc'); ?>
 - 49,	<link rel="stylesheet" href="/css/wordcloud.css" />
-- 3027, <?php include( '/usr/home/frisch/public_html/fact/includes/scripts.inc'); ?>
-- 1659, <?php include( '/usr/home/frisch/public_html/fact/includes/header-footer-highlight-js.inc'); ?>
-- src="img        -->       src="/img"
+- 3023, <?php include( '/usr/home/frisch/public_html/fact/includes/header-footer-highlight-js.inc'); ?>
 - 1661 	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
+- src="img        -->       src="/img"
+- 3028 	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
 - 2093 		$.get('/json/json?mr=1', function(data) {
 - 2182 20170717
 
