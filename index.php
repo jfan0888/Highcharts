@@ -2065,7 +2065,7 @@ $(document).ready(function() {
 				chart: { 	
 					events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
 					backgroundColor:null,
-					width: 800
+					width: 500
 				},
 				title: { text: null }, 
 				legend: { enabled: false },

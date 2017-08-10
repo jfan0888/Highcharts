@@ -700,7 +700,7 @@ $(document).ready(function() {
 
 ////////////////////////////////////////////////////////////////////////////////////////	
 	// Now handle the search stuff
-	$('#search').on('input', function(value) {
+	$("#search").on('input', function(value) {
 		// Clear data from arrays
 		//if (sidebarstate == "open") {
 		//	$("#tabarrow").trigger("click");
@@ -708,26 +708,6 @@ $(document).ready(function() {
 		console.log(value);
 		console.log("search on");
 		console.log("case1");
-
-		if(sidebarstate == "open") {
-	    	
-	    	q = $("#search").val();
-
-	    	if(q.length == 0){
-				$('.pull-left').empty();
-				$("#full-dashboard").css('display','none');				    	
-	    		console.log("remove function called");
-	    	}
-	    	else{
-
-				$("#full-dashboard").show();
-				$("#full-dashboard").css('display','inline-block');				    	
-    			$("#full-dashboard").css('width', resultswidth+"px")
-
-		    	sidebarCharts();
-	    	}
-	    	console.log("In openning search function called");
-		}
 
 		$('.spinner').show();
 		window.clearTimeout($(this).data("timeout"));
@@ -1626,7 +1606,7 @@ $(document).ready(function() {
 	win.scroll(function() {
 		if ($(document).height() - win.height() == win.scrollTop()) {
 			if (p > maxpage || p == 1) {} else {
-				$('#lazyload').show();
+				// $('#lazyload').show();
 				$('#search').trigger('input');
 				console.log('trigger in 1584');
 				ga('send', 'event', 'internal', 'search', 'lazyload', 1, {'NonInteraction': 0});
