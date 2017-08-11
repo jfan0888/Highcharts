@@ -3320,7 +3320,7 @@ $(document).ready(function() {
 				$("#full-dashboard").show();
 				$("#full-dashboard").css('display','inline-block');
 				$(".sidebarfade").fadeIn();
-	    	    $("body").css("overflow", "scroll");
+	    	    $("body").css("overflow", "hide");
 				
 				// If search query is empty, there will be no informations and it'll be empty.	    	    
 	    	    // $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false});
@@ -3340,7 +3340,7 @@ $(document).ready(function() {
 
 		    	    $(".sidenav").css("height", $("#full-dashboard").height() + 20);
 		    	    $(".sidebarfade").css("height", $("#full-dashboard").height() + 20);
-	    			
+
 					$(".rotate").toggleClass("down");
 			    	sidebarCharts();
 	    			sidebarstate = "open";
@@ -3348,8 +3348,12 @@ $(document).ready(function() {
 			});
 	    } else if (sidebarstate == "open") {
 			$(function() {
+				$("#big5wordcloud").empty();
+				$("#topicswordcloud").empty();
+
 				$("#full-dashboard").hide()
 				$(".sidebarfade").hide();
+	    	    
 	    	    $("body").css("overflow", "scroll");
 	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 200, queue: false, complete: function(){
 			    	$(".rotate").toggleClass("down");

@@ -3301,7 +3301,7 @@ $(document).ready(function() {
 				$("#full-dashboard").show();
 				$("#full-dashboard").css('display','inline-block');
 				$(".sidebarfade").fadeIn();
-	    	    $("body").css("overflow", "scroll");
+	    	    $("body").css("overflow", "hide");
 
 				// If search query is empty, there will be no informations and it'll be empty.	    	    
 	    	    // $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false});
