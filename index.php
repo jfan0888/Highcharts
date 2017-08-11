@@ -1549,6 +1549,7 @@
 
 		.sidenav {
 		    width: 300px;
+		    min-height: 600px;
 		    position: absolute;
 		    z-index: 1;
 		    top: 0;
