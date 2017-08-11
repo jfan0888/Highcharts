@@ -1549,7 +1549,6 @@
 
 		.sidenav {
 		    width: 300px;
-		    min-height: 400px;
 		    position: absolute;
 		    z-index: 1;
 		    top: 0;
@@ -1629,7 +1628,7 @@
     margin: 5px 10px 10px 10px;
     padding-top:8px;
 }
-.sidebarfade { width:100%; height:100%; position:absolute; margin-top:0px; margin-left:0px; background-color:#7f7f7f; opacity:0.25; display:none; }
+.sidebarfade { top:180px;width:100%; height:100%; position:absolute; margin-top:0px; margin-left:0px; background-color:#7f7f7f; opacity:0.25; display:none; }
 .resultsblock { padding-top:160px; }
 .side-head, .side-head-visible { font-family:"Univers LT 65", sans-serif; font-size:1.5em; font-weight:bold; color: #222; display:inline-block; display:block; font-variant:small-caps; }
 .side-head-visible { display:none; }
@@ -2051,7 +2050,7 @@ function timelinechart_module(){
 		chart: { 	
 			events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
 			backgroundColor:null,
-			width: 500
+			width: 800
 		},
 		title: { text: null }, 
 		legend: { enabled: false },
@@ -2276,6 +2275,9 @@ function emotion_module(){
 // Now the Doc Read Part
 
 $(document).ready(function() {
+
+	var mainheight = $(window).height()-235;
+	$(".sidenav").css("height", mainheight+"px");
 
 	function sidebarCharts() {
 
@@ -3237,7 +3239,9 @@ $(document).ready(function() {
 	win.scroll(function() {
 		if ($(document).height() - win.height() == win.scrollTop()) {
 			if (p > maxpage || p == 1) {} else {
-				$('#lazyload').show();
+				var searchquery = $("#searchbox").val();
+				if(searchquery.length) $('#lazyload').show();
+				else return;
 				$('#search').trigger('input');
 				ga('send', 'event', 'internal', 'search', 'lazyload', 1, {'NonInteraction': 0});
 			}
@@ -3299,7 +3303,6 @@ $(document).ready(function() {
 				$(".sidebarfade").fadeIn();
 	    	    $("body").css("overflow", "scroll");
 
-
 				// If search query is empty, there will be no informations and it'll be empty.	    	    
 	    	    // $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false});
 	    		if(qstring.length == 0) {
@@ -3314,6 +3317,9 @@ $(document).ready(function() {
 	    		$("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
 	    			$("#full-dashboard").css('display', 'flexbox')
 	    			$("#full-dashboard").css('width', resultswidth+"px")
+		    	    $(".sidenav").css("height", $("#full-dashboard").height() + 20);
+		    	    $(".sidebarfade").css("height", $("#full-dashboard").height() + 20);
+
 					$(".rotate").toggleClass("down");
 			    	sidebarCharts();
 	    			sidebarstate = "open";

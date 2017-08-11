@@ -1558,6 +1558,7 @@
 		.sidenav {
 		    width: 300px;
 		    min-height: 600px;
+		    height: calc(100%-200px);
 		    position: absolute;
 		    z-index: 1;
 		    top: 0;
@@ -1637,7 +1638,7 @@
     margin: 5px 10px 10px 10px;
     padding-top:8px;
 }
-.sidebarfade { width:100%; height:100%; position:absolute; margin-top:0px; margin-left:0px; background-color:#7f7f7f; opacity:0.25; display:none; }
+.sidebarfade { top:180px; width:100%; height:100%; position:absolute; margin-top:0px; margin-left:0px; background-color:#7f7f7f; opacity:0.25; display:none; }
 .resultsblock { padding-top:160px; }
 .side-head, .side-head-visible { font-family:"Univers LT 65", sans-serif; font-size:1.5em; font-weight:bold; color: #222; display:inline-block; display:block; font-variant:small-caps; }
 .side-head-visible { display:none; }
@@ -2285,6 +2286,9 @@ function emotion_module(){
 // Now the Doc Read Part
 
 $(document).ready(function() {
+
+	var mainheight = $(window).height()-235;
+	$(".sidenav").css("height", mainheight+"px");
 
 	function sidebarCharts() {
 
@@ -3250,9 +3254,13 @@ $(document).ready(function() {
 		if ($(document).height() - win.height() == win.scrollTop()) {
 			if (p > maxpage || p == 1) {} else {
 
-				// Fixing the first issue.
-				// $('#lazyload').show();
+				// When query is empty, the trigger shouldn't work.
 
+				var searchquery = $("#searchbox").val();
+				if(searchquery.length) $('#lazyload').show();
+				else return;
+
+				$('#lazyload').show();
 				$('#search').trigger('input');
 				ga('send', 'event', 'internal', 'search', 'lazyload', 1, {'NonInteraction': 0});
 			}
@@ -3327,8 +3335,12 @@ $(document).ready(function() {
 	    		}
 
 	    		$("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
-	    			$("#full-dashboard").css('display', 'flexbox')
-	    			$("#full-dashboard").css('width', resultswidth+"px")
+	    			$("#full-dashboard").css('display', 'flexbox');
+	    			$("#full-dashboard").css('width', resultswidth+"px");
+
+		    	    $(".sidenav").css("height", $("#full-dashboard").height() + 20);
+		    	    $(".sidebarfade").css("height", $("#full-dashboard").height() + 20);
+	    			
 					$(".rotate").toggleClass("down");
 			    	sidebarCharts();
 	    			sidebarstate = "open";
