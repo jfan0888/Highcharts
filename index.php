@@ -1805,34 +1805,34 @@
 							
 						</div>
 						<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-								<div class="col-md-3 dashbox d4" id="position_one" style="width:22%; min-height:200px;">
+							<div class="row" style="margin-left:auto; margin-right:auto;">
+								<div class="col-md-3 dashbox d4" id="position_one" style="min-height:200px;">
 									<div class="side-head">Grade Level</div>
 									<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
 								</div>
-								<div class="col-md-3 dashbox d4" id="position_two" style="width:23%; min-height:200px;">
+								<div class="col-md-3 dashbox d4" id="position_two" style="min-height:200px;">
 									<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
 									<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
 									<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
 									
 								</div>
-								<div class="col-md-3 dashbox d4" id="position_three" style="width:23%; min-height:200px;">
+								<div class="col-md-3 dashbox d4" id="position_three" style="min-height:200px;">
 									<div class="side-head">Big 5 Emotion</div>
 									<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
 								</div>
-								<div class="col-md-3 dashbox d4" id="position_four" style="width:22%; min-height:200px;">
+								<div class="col-md-3 dashbox d4" id="position_four" style="min-height:200px;">
 									<div class="side-head">Positive/Negative</div>
 									<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
 								</div>
 							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+							<div class="row" style="margin-left:auto; margin-right:auto;">
 								<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
 									<div class="side-head">Timeline - Records By Year</div><br>
 									<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
 									<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
 								</div>
 							</div>
-							<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
+							<div class="row" style="margin-left:auto; margin-right:auto;">
 								<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
 									<div class="side-head">Top Related Topics</div>
 									<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
@@ -2043,6 +2043,9 @@ function renderdailymotion() {
 		v[n].appendChild(div);
 	}
 };
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////// Declaration Modules ////////////////////////////////////////////////////
 
 // Timelinechart Module
 
