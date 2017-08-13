@@ -1657,7 +1657,7 @@
 	<div class="sidebarfade"></div>
 	<div class="fixedwhitebox" style="margin-top:40px;"></div>
 		<div class="container" style="padding-left:20px; padding-right:20px; width:90vw;">
-			<div class="row-fluid" style="display:block; position: fixed; z-index:1; width:95vw; z-index:2;">
+			<div class="row" style="display:block; position: fixed; z-index:1; width:95vw; z-index:2;">
 				<div class="col-lg-12" style="margin-top:50px; padding-right:120px;">
 					<input id="search" type="search" placeholder="Search..." autocomplete="off" />
 					<br>
@@ -1771,7 +1771,7 @@
 
 				</div>
 			</div>
-			<div class="row-fluid resultsblock" id="mainbar">
+			<div class="row resultsblock" id="mainbar">
 
 				<div class="col-lg-9" id="results-block">
 					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img/loading.svg" width=50></div>
