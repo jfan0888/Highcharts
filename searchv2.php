@@ -2061,7 +2061,7 @@ function timelinechart_module(){
 		chart: { 	
 			events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
 			backgroundColor:null,
-			width: 500
+			width: 800
 		},
 		title: { text: null }, 
 		legend: { enabled: false },
