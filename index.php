@@ -2458,11 +2458,12 @@ $(document).ready(function() {
 				records = numeral(json.combo.records).format('0,0');
 				filtered = json.combo.filtered;
 				fallback = json.combo.fallback;
-				if (filtered == 0) {
+				if (filtered < 10) {
 					$('#lazyload').hide();
 					$('.spinner').hide();
 					$('#results').empty();
-					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">Apologies, your search didn\'t match any records. Please try again.</div></div>');
+					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;"> Not Enough Data </div></div>');
+					return;
 				}
 				winwidth = Number($(window).width());
 
@@ -3283,15 +3284,13 @@ $(document).ready(function() {
 	$('.factsearch').css("opacity", "0.4");
 
 	// Handle Sidebar Open and Close + Make Charts
+	
 	sidebarstate = "closed";
 	var marginadjust = 26;
 	var resultswidth = ($("#results-block").outerWidth())+20;
 	var sidewidth = $("#mySidenav").outerWidth();
 	var mainwidth = ($("#results-block").width()+75)+sidewidth;
-	var arrowoffset = $('#tabarrow').css('margin-left');
-		arrowoffset = arrowoffset.replace("px", "");
-		arrowoffset = (Number(arrowoffset));
-	var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
+
 	function openCloseNav() {
 	   
 	   var qstring = $("#search").val();

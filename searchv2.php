@@ -2470,11 +2470,12 @@ $(document).ready(function() {
 				records = numeral(json.combo.records).format('0,0');
 				filtered = json.combo.filtered;
 				fallback = json.combo.fallback;
-				if (filtered == 0) {
+				if (filtered < 10) {
 					$('#lazyload').hide();
 					$('.spinner').hide();
 					$('#results').empty();
-					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">Apologies, your search didn\'t match any records. Please try again.</div></div>');
+					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;"> Not Enough Data </div></div>');
+					return;
 				}
 				winwidth = Number($(window).width());
 
