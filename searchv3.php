@@ -27,7 +27,7 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Donald Trump Complete - Search Tweets, Speeches, Policies">
 	<meta name="twitter:description" content="The searchable collection of Donald Trump interviews, speeches, tweets -- including deleted tweets -- and more. Bias-free. https://factba.se/search">
-	<meta name="twitter:image" content="https://factba.se/img/social/index-tw-image.jpg?1">
+	<meta name="twitter:image" content="https://factba.se//img/social/index-tw-image.jpg?1">
 	<meta name="twitter:site" content="@wxbase">
 	<meta name="twitter:creator" content="@wxbase">
 	
@@ -38,14 +38,14 @@
 		"@type" : "Article",
 		"name" : "Donald Trump",
 		"author" : { "@type" : "Person", "name" : "Jennifer Canty" },
-		"image" : "https://factba.se/img/social/index-fb-image.jpg?1",
+		"image" : "https://factba.se//img/social/index-fb-image.jpg?1",
 		"url" : "https://factba.se/",
 		"publisher" : { "@type" : "Organization", "name" : "CantyMedia" } }
 	</script>
 	
 	<!-- // JSON-LD markup -->
 
-	<?php include( 'includes/scripts.inc'); ?>	
+	<?php include( '/usr/home/frisch/public_html/fact/includes/scripts.inc'); ?>	
 	<link rel="stylesheet" href="css/wordcloud.css" />
 	<style>
 		body {
@@ -87,12 +87,12 @@
 		.ddtype { min-width:240px; }
 		.highcharts-title { font-family: 'Univers LT 65', Arial, sans-serif; font-size:1.1em; }
 		li.mr { padding-left:30px; cursor:pointer; }
-		li.ck { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important;}
+		li.ck { background-image:url("//img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important;}
 		.z { display:inline-block; }
 		.ranges ul { padding-top:5px; padding-bottom:5px; margin-top:2px;  }
 		.ranges li { font-size:14px; color: #222222; 'Univers LT 45', Arial, sans-serif; background-color:#fff; border:none; border-radius:0px; margin:0px; padding:0px; margin-left:30px; }
 		.ranges li:hover { color: #777777; background-color:#fff; border:none; border-radius:0px; }
-		.ranges li.active { background-image:url("/img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important; background-color:#fff; color:#222222; border:0px; }
+		.ranges li.active { background-image:url("//img/checkmark.png"); background-position:left center; background-repeat:no-repeat; margin-left:10px; padding-left:20px !important; font-weight:bold; cursor:default !important; background-color:#fff; color:#222222; border:0px; }
 		.range_inputs { display:none; }
 		.daterangepicker { margin-top:3px; margin-left:10px; border-radius:0px; box-shadow: 0 2px 4px rgba(0,0,0,0.16); border: 1px solid #d6d6d6; }
 		.daterangepicker::before { display:none; }
@@ -208,7 +208,7 @@
 
 <body>
 
-	<?php include( 'includes/header-footer.inc'); ?>
+	<?php <?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
 
 	<div class="sidebarfade"></div>
 	<div class="fixedwhitebox" style="margin-top:40px;"></div>
@@ -328,11 +328,11 @@
 		<div class="container" style="">
 			<div class="row-fluid resultsblock" id="mainbar">
 				<div class="col-lg-9" id="results-block">
-					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img/loading.svg" width=50></div>
+					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="/img/loading.svg" width=50></div>
 					<div class="total-matches show-1200"></div>
 
 					<div class="infinite" id="results" style=""></div>
-					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="img/loading.svg" width=40></div>
+					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="/img/loading.svg" width=40></div>
 				</div>
 
 				<!-- Convert to This https://jsfiddle.net/KyleMit/S9hhP/ -->
@@ -412,7 +412,7 @@
 						</button>
 					</div>
 					<div class="modal-body center-block text-center">
-						<div id="tweetmodalspinner"><img align=center src="img/loading.svg" width=50>
+						<div id="tweetmodalspinner"><img align=center src="/img/loading.svg" width=50>
 							<br>
 						</div>
 						<div id="tweetpop"></div>
@@ -530,7 +530,7 @@ function getURLParameter(param) {
 
 //YouTube - Show Thumb
 function youtubeThumb(id, seq) {
-	var thumb = '<img src="https://factba.se/img/thumbs/video/IDDIRECTORY/IDJPG-SEQUENCE.jpg">',
+	var thumb = '<img src="/img/thumbs/video/IDDIRECTORY/IDJPG-SEQUENCE.jpg">',
 		play = '<div class="youtube-large-play"></div>';
 		thumb = thumb.replace("IDDIRECTORY", id);
 		thumb = thumb.replace("IDJPG", id);
@@ -560,7 +560,7 @@ function renderyoutube() {
 
 //DailyMotion - Show Thumb
 function dailymotionThumb(tid, seq) {
-	var thumb = '<img src="https://factba.se/img/thumbs/video/IDDIRECTORY/IDJPG-SEQUENCE.jpg">',
+	var thumb = '<img src="/img/thumbs/video/IDDIRECTORY/IDJPG-SEQUENCE.jpg">',
 		play = '<div class="dailymotion-large-play"></div>';
 		thumb = thumb.replace("IDDIRECTORY", tid);
 		thumb = thumb.replace("IDJPG", tid);
@@ -613,18 +613,12 @@ function createSidebar(){
 
 $(document).ready(function() {
 
-	// createSidebar();
-
-	console.log("reload");
-	console.log("ok");
-	
 	// Handle Show/Hide of Dashboard
 	
-	var mainheight = $(window).height() - 235;
+	var mainheight = $(window).height() - 205;
 	var mwidth = $(window).width();
 
 	$(".sidenav").css('height',mainheight);
-	console.log(mwidth);;
 
 	var topicpage = "search";
 	$("#search").focus();
@@ -650,8 +644,7 @@ $(document).ready(function() {
 
 	// Populate the Last Tweet Time Timer
 	function lasttweettime() {
-		console.log(Date.now());
-		$.get("https://factba.se/json/json?mr=1", function(data) {
+		$.get("/json/json?mr=1", function(data) {
 			Number(data);
 			var rightnow = Math.round(Date.now() / 1000);
 			timesince = rightnow - data;
@@ -659,14 +652,12 @@ $(document).ready(function() {
 		});
 	};
 	function daBounce(element, times, distance, speed) {
-		console.log("in daBounce");
 		for (i = 0; i < times; i++) {
 			element.animate({marginTop: '-='+distance},speed)
 			.animate({marginTop: '+='+distance},speed);
 		}
 	}
 	function update() {
-		console.log("in update");
 		timesince = timesince + 1;
 		timesincemobile = timesincemobile + 1;
 		$('.counter').html('Last Tweet: ' + moment.duration(timesince, 'seconds').format("h [hrs], m [min], s [sec]"));
@@ -705,15 +696,9 @@ $(document).ready(function() {
 		//if (sidebarstate == "open") {
 		//	$("#tabarrow").trigger("click");
 		//}
-		console.log(value);
-		console.log("search on");
-		console.log("case1");
-
 		$('.spinner').show();
 		window.clearTimeout($(this).data("timeout"));
 		$(this).data("timeout", setTimeout(function() {
-			console.log("timeout on");
-			console.log("case2");			
 			q = $('#search').val();
 			q = q.trim();
 			var qsplit = q.replace(/"/g,"");
@@ -739,24 +724,19 @@ $(document).ready(function() {
 			if (firstload != 0) {
 				$('.clear-visible').empty();
 				$('.clear-sidebar').empty();
-				console.log("firstload");
-				console.log("case3");
 			};
 			firstload = 1;	
 			if (!t) {
 				t = 'se';
 			}
 			lastq = q;
-			var jsonurl = "https://factba.se/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
-
-			console.log('after-json call');
+			var jsonurl = "/json/json-20170717.php?q=" + q + "&media=" + fmedia + "&type=" + ftype + "&startdate=" + startdate + "&enddate=" + enddate + "&sort=" + ssort + "&f=" + f + "&t=" + t + "&l=" + l + "&p=";
 
 			// Analytics on query
 			var tclean = q.replace("+", "%20"); tclean = decodeURIComponent(tclean);
 			if (newload == 1) {	newload = 0; ga('send', 'event', 'search', 'searchpage', tclean, 1, {'NonInteraction': 0}); }
 			else {  ga('send', 'event', 'search', 'searchbox', tclean, 1, {'NonInteraction': 0}); }
 
-			console.log('after-newload condition');
 
 			// On Mobile close menu
 			$('.filters-dropdown').hide();
@@ -778,18 +758,10 @@ $(document).ready(function() {
 			}
 			
 
-			console.log('after-configuration');
-
-
 ////////////////////////////////////////////////////////////////////////////////////////			
 			// Getch the JSON and parse
 
-			// console.log(jsonurl);
-			// console.log("outside json call");
-
 			$.getJSON(jsonurl + p, function(json) {
-				console.log(jsonurl);
-				console.log("in json call");
 
 				$('.yeartypes').empty();
 				if (p == 1) {
@@ -938,7 +910,7 @@ $(document).ready(function() {
 						record_title = val['record_title'];
 						source = val['source'];
 						link_url = val['url'];
-						bl = '<div class="item"><div class="well"><div class="row"><div class="col-lg-12"><div style="display:inline-block;"><h3><i class="fa fa-file-text"></i> Official Document</h3></div><div style="float:right;"></div></div><div class="col-lg-3 mediaside"><img src="/img/document.png" class="interviewthumb searchimage"></div><div class="col-lg-9"><span><h4>'+record_title+'</h4><br>"...' + text + '..."</span><div style="display:inline-block; width:100%;"><div style="float:left;"><h4>' + date + '</h4></div><div style="float:right;"><h4><small><a href="'+link_url+'" target=_blank onClick="ga(\'send\', \'event\', \'external\', \'officialdoc\', link_url, 1, {\'NonInteraction\': 0});">' + source + '</a></small></h4></div></div></div></div></div></div>';
+						bl = '<div class="item"><div class="well"><div class="row"><div class="col-lg-12"><div style="display:inline-block;"><h3><i class="fa fa-file-text"></i> Official Document</h3></div><div style="float:right;"></div></div><div class="col-lg-3 mediaside"><img src="//img/document.png" class="interviewthumb searchimage"></div><div class="col-lg-9"><span><h4>'+record_title+'</h4><br>"...' + text + '..."</span><div style="display:inline-block; width:100%;"><div style="float:left;"><h4>' + date + '</h4></div><div style="float:right;"><h4><small><a href="'+link_url+'" target=_blank onClick="ga(\'send\', \'event\', \'external\', \'officialdoc\', link_url, 1, {\'NonInteraction\': 0});">' + source + '</a></small></h4></div></div></div></div></div></div>';
 
 
 					// If Block is just text
@@ -1196,7 +1168,6 @@ $(document).ready(function() {
 
 					    	sidebarCharts();
 				    	}
-				    	console.log("In openning search function called");
 					}
 				};
 				
@@ -1231,7 +1202,6 @@ $(document).ready(function() {
 				//Hide Video Embed until clicked. Show in modal for text click
 				var trigger = $("body").find('[class="videomodal"]');
 				trigger.click(function() {
-					console.log('trigger in 1208');
 					var themodal = $(this).data("target"),
 						videosrc = $(this).attr("data-video"),
 						videosrcauto = videosrc + "&autoplay=1";
@@ -1290,7 +1260,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1267'); 
 		} // Rerun filter, but only if there is a query
 
 	}});
@@ -1305,7 +1274,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1282');			  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Social
@@ -1319,7 +1287,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1296');			  
 		} // Rerun filter, but only if there is a query
 	}});
 	// All
@@ -1333,7 +1300,6 @@ $(document).ready(function() {
 		$('.spinner').show();
 		$('#lazyload').hide(); // Show Spinner, Hide More Spinner
 		$('#search').trigger('input'); // Rerun filter
-		console.log('trigger in 1310');
 	}});
 
 
@@ -1353,7 +1319,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1330');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Debate
@@ -1367,7 +1332,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1344');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Deposition
@@ -1381,7 +1345,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1357');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Interview
@@ -1395,7 +1358,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1372');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Position Paper
@@ -1422,7 +1384,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1399');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Remarks
@@ -1436,7 +1397,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1414');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Speech
@@ -1450,7 +1410,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1427');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Twitter
@@ -1464,7 +1423,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1441');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// Deleted Tweets
@@ -1478,7 +1436,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1455');  
 		} // Rerun filter, but only if there is a query
 	}});
 	// All
@@ -1492,7 +1449,6 @@ $(document).ready(function() {
 		$('.spinner').show();
 		$('#lazyload').hide(); // Show Spinner, Hide More Spinner
 		$('#search').trigger('input'); // Rerun filter
-		console.log('trigger in 1469');
 	}});
 
 
@@ -1509,7 +1465,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1486');  
 		} // Rerun filter, but only if there is a query
 	}});
 	$(".sort-newest").on('click', function() {
@@ -1522,7 +1477,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1499');  
 		} // Rerun filter, but only if there is a query
 	}});
 	$(".sort-relevant").on('click', function() {
@@ -1535,7 +1489,6 @@ $(document).ready(function() {
 			$('.spinner').show();
 			$('#lazyload').hide(); 
 			$('#search').trigger('input');
-			console.log('trigger in 1512');  
 		} // Rerun filter, but only if there is a query
 	}});
 
@@ -1585,7 +1538,6 @@ $(document).ready(function() {
 				$('.spinner').show();
 				$('#lazyload').hide(); 
 				$('#search').trigger('input');
-				console.log('trigger in 1563');  
 			}
 			// Rerun filter, but only if there is a query
       		$(".datefilter span").each(function() {
@@ -1608,7 +1560,6 @@ $(document).ready(function() {
 			if (p > maxpage || p == 1) {} else {
 				// $('#lazyload').show();
 				$('#search').trigger('input');
-				console.log('trigger in 1584');
 				ga('send', 'event', 'internal', 'search', 'lazyload', 1, {'NonInteraction': 0});
 			}
 		}
@@ -1635,7 +1586,7 @@ $(document).ready(function() {
 	});
 	////////////////////////////////////////////////////////////////////////////////////////
 	// Navbar
-	<?php include( 'includes/header-footer-highlights-js.inc'); ?>
+	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer-highlight-js.inc'); ?>
 
 	$('#searchbox').prop( "disabled", true );
 	$('#searchbox').attr("placeholder", "↙ Use the search box below");
@@ -1654,8 +1605,6 @@ $(document).ready(function() {
 	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 
 		function sidebarCharts() {
-
-			console.log("sidebarcharts function called");
 
 			//Charts
 			// Large Timeline
@@ -1871,7 +1820,6 @@ $(document).ready(function() {
 	function openCloseNav() {
 	////////////////////////////////////////////////////////////////////////////////////////
 		q = $('#search').val();
-		console.log(q.length);
 				
 	   	if (sidebarstate == "closed") {
 			$(function() {
@@ -1932,16 +1880,13 @@ $(document).ready(function() {
 		$('#search').attr('placeholder', qclean);
 		$('#search').val(qclean);
 		$('#search').trigger('input');
-		console.log('trigger in 1898');
 
 	};
 	window.onhashchange = function() {
 		q = getURLParameter('q');
-		console.log(q);
 		if (!q) {
 			q = window.location.hash.substr(1);
 		}
-		console.log(q);
 		// New Search
 		if (q) {
 			qclean = q.replace("+", "%20");
@@ -1952,9 +1897,7 @@ $(document).ready(function() {
 			$('#search').val(qclean);
 			// Fixing the first issue
 			// $('#search').trigger('input');
-			console.log('trigger in 1915');
 			if (sidebarstate == "open") {
-				console.log("When search in open, hashchange function callled");
 				chart_twitter_heatmap.destroy();
 				chart_timeline_chart.destroy();
 				chart_gauge_gradelevel.destroy();

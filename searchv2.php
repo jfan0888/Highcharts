@@ -1616,7 +1616,7 @@
 @media screen and (max-width: 768px) { }
 @media screen and (max-width: 640px) { }
 
-#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-44px; }
+#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-41px; }
 #tabarrow-glyph { opacity:0.5; }
 #tabarrow-glyph:hover { opacity:1; }
 .rotate{
@@ -2064,7 +2064,7 @@ function timelinechart_module(){
 		chart: { 	
 			events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
 			backgroundColor:null,
-			width: 800
+			width: 950
 		},
 		title: { text: null }, 
 		legend: { enabled: false },
@@ -2290,7 +2290,7 @@ function emotion_module(){
 
 $(document).ready(function() {
 
-	var mainheight = $(window).height()-235;
+	var mainheight = $(window).height()-205;
 	$(".sidenav").css("height", mainheight+"px");
 
 	function sidebarCharts() {
