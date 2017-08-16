@@ -105,7 +105,7 @@
 
 		.sidenav {
 		    min-height: 600px;
-		    min-width: 300px;
+		    width: 300px;
 		    padding-left: 10px;
 		    padding-right: 10px;
 		    z-index: 1;
@@ -593,17 +593,6 @@ function renderdailymotion() {
 		v[n].appendChild(div);
 	}
 };
-
-// Style sidebar area
-
-function createSidebar(){
-	
-	var sidebar = $("#sidebar");
-	var resultswidth = ($("#results-block").outerWidth())+20;
-
-	sidebar.css({"transition-timing-function": "linear", "overflow":"hidden","position": "absolute","min-height": "600px","height": "100%","width": "350px","padding-top":"0px","padding-left":"25px", "left":$(window).width()-443,"transition": "width 2s, left 2s"});
-
-}
 
 // CLEAN UP, CONSOLIDATE CONCEPT OF NEW SEARCH. ONLY TRIGGER DATA ON NEW SEARCH, LEAVE ALL ELSE ALONE
 
@@ -1895,8 +1884,10 @@ $(document).ready(function() {
 			qclean = qclean.trim();
 			$('#search').attr('placeholder', qclean);
 			$('#search').val(qclean);
+
 			// Fixing the first issue
 			// $('#search').trigger('input');
+
 			if (sidebarstate == "open") {
 				chart_twitter_heatmap.destroy();
 				chart_timeline_chart.destroy();

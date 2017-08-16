@@ -105,7 +105,7 @@
 
 		.sidenav {
 		    min-height: 600px;
-		    min-width: 300px;
+		    width: 300px;
 		    padding-left: 10px;
 		    padding-right: 10px;
 		    z-index: 1;
