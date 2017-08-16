@@ -447,10 +447,17 @@ $(function(){Highcharts.setOptions({lang:{ thousandsSep:','}})});
 // Check for Ad Blocker - It Messes Up Search
 
 window.addEventListener('load', function() {
-	if(window.ga && ga.create) { console.log('GA Loaded'); }
+	if(window.ga && ga.create) {
+		console.log('GA Loaded');
+		$("pull-left").show();
+
+	}
 	else {
-	$('#filterline').empty();
-	$('#filterline').html("<span style='background-color:#fff; font-size:0.8em; color:red; font-weight:bold;';><b>Apologies. Search won't work for you. You are running uBlock, Ghostery or something that blocks our Javascript. Please turn it off to use search.</b></span>"); console.log('GA Not Loaded'); }
+		$("pull-left").hide();
+		$('#filterline').empty();
+		$('#filterline').html("<span style='background-color:#fff; font-size:0.8em; color:red; font-weight:bold;';><b>Apologies. Search won't work for you. You are running uBlock, Ghostery or something that blocks our Javascript. Please turn it off to use search.</b></span>");
+		console.log('GA Not Loaded');
+	}
 });
 
 // Get Year for Chart Series
@@ -681,12 +688,18 @@ $(document).ready(function() {
 ////////////////////////////////////////////////////////////////////////////////////////	
 	// Now handle the search stuff
 	$("#search").on('input', function(value) {
-		// Clear data from arrays
-		//if (sidebarstate == "open") {
-		//	$("#tabarrow").trigger("click");
-		//}
+
 		$('.spinner').show();
+		
+		var searchQuery = $('#search').val();
+
+		// Fixing the 8th issue
+
+		if (searchQuery.length == 0) $("pull-left").hide();
+		else $("pull-left").show();
+
 		window.clearTimeout($(this).data("timeout"));
+
 		$(this).data("timeout", setTimeout(function() {
 			q = $('#search').val();
 			q = q.trim();
@@ -761,12 +774,14 @@ $(document).ready(function() {
 				records = numeral(json.combo.records).format('0,0');
 				filtered = json.combo.filtered;
 				fallback = json.combo.fallback;
-				if (filtered == 0) {
+				if (filtered < 10) {
 					$('#lazyload').hide();
 					$('.spinner').hide();
 					$('#results').empty();
-					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">Apologies, your search didn\'t match any records. Please try again.</div></div>');
+					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">No Enough Data.</div></div>');
+					if (sidebarstate == "open") closeSidebar();
 				}
+
 				winwidth = Number($(window).width());
 				if(winwidth < 1024) { rbh = 165; rbhn = 140; fwb = 130; fwbn = 100; } else { rbh = 205; rbhn = 180; fwb = 165; fwbn = 140; }
 				if (fallback == 1) {
@@ -1837,23 +1852,29 @@ $(document).ready(function() {
 				}});
 			});
 	    }else if (sidebarstate == "open") {
-			$(function() {
-				$("#big5wordcloud").empty();
-				$("#topicswordcloud").empty();
-				$("#full-dashboard").hide()
-				$(".sidebarfade").hide();
-	    	    $("body").css("overflow", "scroll");
-
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
-			    	$(".rotate").toggleClass("down");
-					sidebarstate = "closed"; 
-				}});
-			});
+	    	closeSidebar();
 		}
 	};
 	$("#tabarrow").on('click', function() {
 		openCloseNav();	
 	});
+
+////////////////////////// Fixing the 8th issue //////////////////////////////////////
+
+function closeSidebar() {
+	$(function() {
+		$("#big5wordcloud").empty();
+		$("#topicswordcloud").empty();
+		$("#full-dashboard").hide()
+		$(".sidebarfade").hide();
+	    $("body").css("overflow", "scroll");
+
+	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
+	    	$(".rotate").toggleClass("down");
+			sidebarstate = "closed"; 
+		}});
+	});
+}
 	
 ////////////////////////////////////////////////////////////////////////////////////////
 	// Hand page load with parametersLoad With Parameter
