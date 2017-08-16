@@ -201,7 +201,7 @@
 		.sidebar_slide {
 			width: auto;
 			position: absolute;
-			right: -40px;
+			right: -20px;
 		}
 	</style>
 </head>
@@ -342,7 +342,7 @@
 
 						<div id="tabarrow"><div id="tabarrow-glyph" class="thearrow fa fa-arrow-left rotate" style="padding:3px;"></div></div>
 
-						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit; width: 100%;">
+						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit;">
 
 							<div class="pull-left" style="min-width:280px;">
 								<div class="total-matches" style="padding-top:15px; margin-left: 0px;"></div>
