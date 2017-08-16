@@ -27,7 +27,7 @@
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Donald Trump Complete - Search Tweets, Speeches, Policies">
 	<meta name="twitter:description" content="The searchable collection of Donald Trump interviews, speeches, tweets -- including deleted tweets -- and more. Bias-free. https://factba.se/search">
-	<meta name="twitter:image" content="https://factba.se//img/social/index-tw-image.jpg?1">
+	<meta name="twitter:image" content="https://factba.se/img/social/index-tw-image.jpg?1">
 	<meta name="twitter:site" content="@wxbase">
 	<meta name="twitter:creator" content="@wxbase">
 	
@@ -38,7 +38,7 @@
 		"@type" : "Article",
 		"name" : "Donald Trump",
 		"author" : { "@type" : "Person", "name" : "Jennifer Canty" },
-		"image" : "https://factba.se//img/social/index-fb-image.jpg?1",
+		"image" : "https://factba.se/img/social/index-fb-image.jpg?1",
 		"url" : "https://factba.se/",
 		"publisher" : { "@type" : "Organization", "name" : "CantyMedia" } }
 	</script>
@@ -208,7 +208,7 @@
 
 <body>
 
-	<?php <?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
+	<?php include( '/usr/home/frisch/public_html/fact/includes/header-footer.inc'); ?>
 
 	<div class="sidebarfade"></div>
 	<div class="fixedwhitebox" style="margin-top:40px;"></div>
@@ -326,10 +326,10 @@
 			</div>
 		</div>
 		<div class="container" style="">
-			<div class="row-fluid resultsblock" id="mainbar">
+			<div class="row-fluid resultsblock" style="padding-top: 0px;" id="mainbar">
 				<div class="col-lg-9" id="results-block">
 					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="/img/loading.svg" width=50></div>
-					<div class="total-matches show-1200"></div>
+					<div class="total-matches show-1200" style="margin-left: 0px;"></div>
 
 					<div class="infinite" id="results" style=""></div>
 					<div id="lazyload" style="width:100%; text-align:center; display:none; padding:20px;"><img src="/img/loading.svg" width=40></div>
@@ -345,7 +345,7 @@
 						<div id="mySidenav" class="sidenav" style="margin-top:20px; z-index:inherit; width: 100%;">
 
 							<div class="pull-left" style="min-width:280px;">
-								<div class="total-matches" style="padding-top:15px;"></div>
+								<div class="total-matches" style="padding-top:15px; margin-left: 0px;"></div>
 								<div id="categorychart" class="clear-visible"></div><p>
 								<div id="dom_emo" style="display:block;">
 									<div class="side-head-visible" style="margin-bottom:15px;">Dominant Emotion</div><br>
