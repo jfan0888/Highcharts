@@ -604,7 +604,7 @@ $(document).ready(function() {
 
 	// Handle Show/Hide of Dashboard
 	
-	var mainheight = $(window).height() - 205;
+	var mainheight = $(window).height() - 200;
 	var mwidth = $(window).width();
 
 	$(".sidenav").css('height',mainheight);
@@ -1832,7 +1832,7 @@ $(document).ready(function() {
 					$(".rotate").toggleClass("down");
 			    	setTimeout(function(){
 			    		sidebarCharts();
-			    	},3000);
+			    	},2000);
 	    			sidebarstate = "open";
 				}});
 			});

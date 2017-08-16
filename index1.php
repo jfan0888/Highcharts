@@ -447,10 +447,17 @@ $(function(){Highcharts.setOptions({lang:{ thousandsSep:','}})});
 // Check for Ad Blocker - It Messes Up Search
 
 window.addEventListener('load', function() {
-	if(window.ga && ga.create) { console.log('GA Loaded'); }
+	if(window.ga && ga.create) {
+		console.log('GA Loaded');
+		$("pull-left").show();
+
+	}
 	else {
-	$('#filterline').empty();
-	$('#filterline').html("<span style='background-color:#fff; font-size:0.8em; color:red; font-weight:bold;';><b>Apologies. Search won't work for you. You are running uBlock, Ghostery or something that blocks our Javascript. Please turn it off to use search.</b></span>"); console.log('GA Not Loaded'); }
+		$("pull-left").hide();
+		$('#filterline').empty();
+		$('#filterline').html("<span style='background-color:#fff; font-size:0.8em; color:red; font-weight:bold;';><b>Apologies. Search won't work for you. You are running uBlock, Ghostery or something that blocks our Javascript. Please turn it off to use search.</b></span>");
+		console.log('GA Not Loaded');
+	}
 });
 
 // Get Year for Chart Series
@@ -620,7 +627,7 @@ $(document).ready(function() {
 	
 	// Handle Show/Hide of Dashboard
 	
-	var mainheight = $(window).height() - 235;
+	var mainheight = $(window).height() - 200;
 	var mwidth = $(window).width();
 
 	$(".sidenav").css('height',mainheight);
@@ -710,6 +717,14 @@ $(document).ready(function() {
 		console.log("case1");
 
 		$('.spinner').show();
+		
+		var searchQuery = $('#search').val();
+
+		// Fixing the 8th issue
+
+		if (searchQuery.length == 0) $("pull-left").hide();
+		else $("pull-left").show();
+
 		window.clearTimeout($(this).data("timeout"));
 		$(this).data("timeout", setTimeout(function() {
 			console.log("timeout on");
@@ -797,14 +812,18 @@ $(document).ready(function() {
 				} else {
 					firstpage = "";
 				}
+
+				// Fixing the 8th issue.
+
 				records = numeral(json.combo.records).format('0,0');
 				filtered = json.combo.filtered;
 				fallback = json.combo.fallback;
-				if (filtered == 0) {
+				if (filtered < 10) {
 					$('#lazyload').hide();
 					$('.spinner').hide();
 					$('#results').empty();
-					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">Apologies, your search didn\'t match any records. Please try again.</div></div>');
+					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">No Enough Data</div></div>');
+					if(sidebarstate == 'open') closeSidebar();
 				}
 				winwidth = Number($(window).width());
 				if(winwidth < 1024) { rbh = 165; rbhn = 140; fwb = 130; fwbn = 100; } else { rbh = 205; rbhn = 180; fwb = 165; fwbn = 140; }
@@ -830,6 +849,12 @@ $(document).ready(function() {
 				};
 				maxpage = Math.ceil(filtered / l);
 				filtered = numeral(json.combo.filtered).format('0,0');
+
+				// Fixing the 8th issue
+
+				if (filtered < 10) {
+
+				}
 				$('.total-matches').empty();
 				$('.total-matches').html('<div style="font-size:1.2em; font-family: \'Univers LT 65\', Arial, sans-serif; font-variant:small-caps; font-weight:bold; color:#222; transform: scale(1, 1.25);"> References: ' + filtered + '</div>');
 				ms = numeral(json.combo.milliseconds).format('0,0');
@@ -1248,7 +1273,7 @@ $(document).ready(function() {
 				// $('#lazyload').hide();
 
 			});
-		}, 5000));
+		}, 2000));
 	});
 
 
@@ -1645,7 +1670,7 @@ $(document).ready(function() {
 
 	sidebarstate = "closed";
 	var marginadjust = 26;
-	var resultswidth = ($("#results-block").outerWidth())+20;
+	var resultswidth = ($("#results-block").outerWidth())+30;
 	var sidewidth = $("#mySidenav").outerWidth();
 	var mainwidth = ($("#results-block").width()+75)+sidewidth;
 	// var arrowoffset = $('#tabarrow').css('margin-left');
@@ -1874,6 +1899,12 @@ $(document).ready(function() {
 		console.log(q.length);
 				
 	   	if (sidebarstate == "closed") {
+
+	   		if (filtered < 10) {
+				$("pull-left").hide();
+				$('#results').empty();
+				$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">No Enough Data. Please try to search again.</div></div>');   			return;
+	   		}
 			$(function() {
 				$("html, body").animate({ scrollTop: 0 }, "slow");
 				
@@ -1888,35 +1919,46 @@ $(document).ready(function() {
 				$(".sidebarfade").fadeIn();
 	    	    $("body").css("overflow", "hidden");
 	    	    $("#mySidenav").animate({width: mainwidth+"px"}, {duration: 200, queue: false, complete: function(){
-	    			if(q.length > 0){
+	    			if (q.length > 0) {
+						$("pull-left").show();
 	    				$("#full-dashboard").css('display', 'flexbox')
 	    				$("#full-dashboard").css('width', resultswidth+"px")
 	    			}
+	    			else
+	    			{
+						$("pull-left").hide();
+					}
 					$(".rotate").toggleClass("down");
-			    	// setTimeout(function(){
-			    	// 	sidebarCharts();
-			    	// },3000);
+			    	setTimeout(function(){
+			    		sidebarCharts();
+			    	},2000);
 	    			sidebarstate = "open";
 				}});
 			});
 	    }else if (sidebarstate == "open") {
-			$(function() {
-				$("#big5wordcloud").empty();
-				$("#topicswordcloud").empty();
-				$("#full-dashboard").hide()
-				$(".sidebarfade").hide();
-	    	    $("body").css("overflow", "scroll");
-
-	    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
-			    	$(".rotate").toggleClass("down");
-					sidebarstate = "closed"; 
-				}});
-			});
+	    	closeSidebar();
 		}
 	};
 	$("#tabarrow").on('click', function() {
 		openCloseNav();	
 	});
+
+	// Open to Close function
+
+	function closeSidebar(){
+		$(function() {
+			$("#big5wordcloud").empty();
+			$("#topicswordcloud").empty();
+			$("#full-dashboard").hide()
+			$(".sidebarfade").hide();
+    	    $("body").css("overflow", "scroll");
+
+    	    $("#mySidenav").animate({width: sidewidth+"px"}, {duration: 600, queue: false, complete: function(){
+		    	$(".rotate").toggleClass("down");
+				sidebarstate = "closed"; 
+			}});
+		});		
+	}
 	
 ////////////////////////////////////////////////////////////////////////////////////////
 	// Hand page load with parametersLoad With Parameter
