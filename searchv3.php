@@ -159,7 +159,13 @@
 			.hide-1200 { display:none; }
 			.show-1200 {display:inline-block; margin-top:15px; }
 		}
-		@media screen and (max-width: 1024px) { }
+		@media screen and (max-width: 1024px) { 
+			#search {
+				height: 50px;
+				margin-left: 0px;
+				margin-top: 10px;
+			}
+		}
 		@media screen and (max-width: 768px) { }
 		@media screen and (max-width: 640px) { }
 
@@ -222,7 +228,7 @@
 						<div id="filterline" style="width:100%; display:table; padding-top:3px;">
 							<div style="display:table-row;">
 								<div style="display:table-cell; text-align:left;">
-									<div id="mobilemenu"><i class="fa fa-filter fa-border"></i>
+									<div id="mobilemenu" style="margin-left: 0px;"><i class="fa fa-filter fa-border"></i>
 									</div>
 									<!-- Mobile -->
 									<div class="filters-dropdown">
@@ -271,7 +277,7 @@
 
 									</div>
 								
-									<div style="float:right;"><div class="countermobile"></div></div>
+									<div style="float:right;"><div class="countermobile" style="margin-right: 0px;"></div></div>
 								</div>
 								<!-- Desktop -->
 								<div style="display:table-cell; text-align:left;">
