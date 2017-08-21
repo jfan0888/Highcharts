@@ -1614,21 +1614,21 @@ $(document).ready(function() {
 	// arrowoffset = (Number(arrowoffset));
 	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 
-	function timelinechart_Module() {
+	function timelinechart_Module(tWidth, tMount, lDirection, lStep, lPosX, lPosY) {
 			// Large Timeline
 		chart_timeline_chart = Highcharts.chart('timelinechart', {
 			chart: { 	
 				events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
 				backgroundColor:null,
-				width: 800
+				width: tWidth
 			},
 			title: { text: null }, 
 			legend: { enabled: false },
 			tooltip: { shared: true },
 			xAxis: [{
 				categories: timechart_categories,
-				tickAmount: 11,
-				labels: { rotation: -90, step: 1, x: 3, y: 30 }
+				tickAmount : tMount,
+				labels: { rotation: lDirection, step: lStep, x: lPosX, y: lPosY }
 	    	}],
 			yAxis: [{ 	
 				type: 'logarithmic',
@@ -1840,7 +1840,7 @@ $(document).ready(function() {
 
 		//Charts
 
-		timelinechart_Module();
+		timelinechart_Module(800, 11, -90, 1, 0, 30);
 		heatmap_Module();	
 		gradelevel_Module();
 		pos_neg_Module();

@@ -1684,7 +1684,7 @@ $(document).ready(function() {
 	// arrowoffset = (Number(arrowoffset));
 	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 
-	function timelinechart_Module(tWidth, labelDirection) {
+	function timelinechart_Module(tWidth, tMount, lDirection, lStep, lPosX, lPosY) {
 			// Large Timeline
 		chart_timeline_chart = Highcharts.chart('timelinechart', {
 			chart: { 	
@@ -1697,8 +1697,8 @@ $(document).ready(function() {
 			tooltip: { shared: true },
 			xAxis: [{
 				categories: timechart_categories,
-				tickAmount : 11,
-				labels: { rotation: labelDirection, step: 1, x: 0, y: 30 }
+				tickAmount : tMount,
+				labels: { rotation: lDirection, step: lStep, x: lPosX, y: lPosY }
 	    	}],
 			yAxis: [{ 	
 				type: 'logarithmic',
@@ -1912,7 +1912,7 @@ $(document).ready(function() {
 
 		//Charts
 
-		timelinechart_Module(800,-90);
+		timelinechart_Module(800, 11, -90, 1, 0, 30);
 		heatmap_Module();	
 		gradelevel_Module();
 		pos_neg_Module();
