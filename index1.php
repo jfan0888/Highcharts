@@ -1051,7 +1051,6 @@ $(document).ready(function() {
 					big5_wordcloud_data = [];
 					category_data = [];
 					timechart_polarity = [];
-					timechart_count = [];
 					timechart_categories = [];
 					twitter_heatmap_data = "";
 					spark_data = [];
@@ -1684,9 +1683,9 @@ $(document).ready(function() {
 	// arrowoffset = (Number(arrowoffset));
 	// var marginleftarrow = ((mainwidth-sidewidth)*-1)-(arrowoffset+marginadjust); // remove sidebar width from screen width for offset plus five
 
-	function timelinechart_Module(tWidth, tMount, lDirection, lStep, lPosX, lPosY) {
+	function timelinechart_Module(element, tWidth, tMount, lDirection, lStep, lPosX, lPosY) {
 			// Large Timeline
-		chart_timeline_chart = Highcharts.chart('timelinechart', {
+		chart_timeline_chart = Highcharts.chart(element, {
 			chart: { 	
 				events: { render: function () { $("tspan:contains('2020')").css("display", "none");	} },
 				backgroundColor:null,
@@ -1720,9 +1719,10 @@ $(document).ready(function() {
 		});			
 	}
 
-	function heatmap_Module(){
+	function heatmap_Module(element, lAlign, lPosX, lPosY, tickLength){
 		// Heatmap
-		chart_twitter_heatmap = Highcharts.chart('twitterheatmap', {
+		
+		chart_twitter_heatmap = Highcharts.chart(element, {
 			chart: { type: 'heatmap', backgroundColor:null  },
 		        data: { csv: twitter_heatmap_data },
 		    boost: { useGPUTranslations: true },
@@ -1732,11 +1732,11 @@ $(document).ready(function() {
 				type: 'datetime',
 				dateTimeLabelFormats: { day: '%a' },
 		        labels: {
-		            align: 'left',
-		            x: 5,
-		            y: 14,
+		            align: lAlign,
+		            x: lPosX,
+		            y: lPosY,
 		        },
-		        tickLength: 16
+		        tickLength: tickLength
 		    },
 		
 		    yAxis: {
@@ -1912,8 +1912,8 @@ $(document).ready(function() {
 
 		//Charts
 
-		timelinechart_Module(800, 11, -90, 1, 0, 30);
-		heatmap_Module();	
+		timelinechart_Module('timelinechart', 800, 11, -90, 1, 0, 30);
+		heatmap_Module('twitterheatmap', 'left', 5, 14, 16);
 		gradelevel_Module();
 		pos_neg_Module();
 		topics_Module();		 		
