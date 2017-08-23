@@ -1775,9 +1775,9 @@ $(document).ready(function() {
 	 	});		
 	}
 
-	function pos_neg_Module(){
+	function pos_neg_Module(element){
 		// Positive/Negative
-		chart_gauge_posneg = Highcharts.chart('posneggauge', {
+		chart_gauge_posneg = Highcharts.chart( element, {
 			chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150 },
 			title: null,
 			pane: {
@@ -1847,7 +1847,7 @@ $(document).ready(function() {
 		timelinechart_Module('timelinechart', 800, 11, -90, 1, 0, 30);
 		heatmap_Module('twitterheatmap', 'left', 5, 14, 16);
 		gradelevel_Module('gradelevelgauge');
-		pos_neg_Module();
+		pos_neg_Module('posneggauge');
 		topics_Module();		 		
 		emotion_Module();			
 	};
