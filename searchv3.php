@@ -378,11 +378,11 @@
 										<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
 										
 									</div>
-									<div class="col-md-3 dashbox d4" id="position_three" style="width:21%; min-height:200px;">
+									<div class="col-md-3 dashbox d4" id="position_three" style="width:22%; min-height:200px;">
 										<div class="side-head">Big 5 Emotion</div>
-										<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px; margin-left:-20px;"></div>
+										<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px;"></div>
 									</div>
-									<div class="col-md-3 dashbox d4" id="position_four" style="width:25%; min-height:200px;">
+									<div class="col-md-3 dashbox d4" id="position_four" style="width:24%; min-height:200px;">
 										<div class="side-head">Positive/Negative</div>
 										<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
 									</div>
@@ -1778,10 +1778,10 @@ $(document).ready(function() {
 	function pos_neg_Module(element){
 		// Positive/Negative
 		chart_gauge_posneg = Highcharts.chart( element, {
-			chart: { type: 'solidgauge', backgroundColor: null, width: 250, height:150 },
+			chart: { type: 'solidgauge', backgroundColor: null, width: $('#'+element).outerWidth() + 20, height:150 },
 			title: null,
 			pane: {
-				center: ['35%', '70%'],
+				center: ['45%', '70%'],
 				size: '110%',
 				startAngle: -90,
 				endAngle: 90,
