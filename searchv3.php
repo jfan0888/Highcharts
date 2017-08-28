@@ -136,7 +136,8 @@
     	}
 
 		@media (min-width: 1200px) {
-			.mediaside { max-width:280px; }
+			.mediaside { max-width:280px; text-align: center;}
+			.sidebar_slide {right: -20px;}
 		}
 		@media screen and (max-width: 800px) {
 			.z { display: inline-block !important; }
@@ -148,23 +149,36 @@
 		
 		.searchimage { width:200px; float:none; margin: 0 auto; }
 		.socialicon { width:200px; color:#4099FF; width:250px; float:none; margin: 0 auto; }
-		.youtube-large, .dailymotion-large { background-color:transparent; max-width:300px; }
+		.youtube-large, .dailymotion-large {margin: auto; background-color:transparent; max-width:300px; }
 		@media screen and (max-width: 13677px) { 
 			.searchimage { width:175px; }
 			.socialicon { width:175px; }
-
-		}
-		@media screen and (max-width: 1200px) { 
-			.youtube-large, .dailymotion-large, .mediaside { margin-left:auto; margin-right:auto; text-align:center; }
-			.hide-1200 { display:none; }
-			.show-1200 {display:inline-block; margin-top:15px; }
+			.sidebar_slide {right: -20px;}
 		}
 		@media screen and (max-width: 1024px) { 
 			#search {
-				height: 50px;
 				margin-left: 0px;
+				height: 50px;
 				margin-top: 10px;
+			}		
+		}
+		@media screen and (min-width: 1024px) { 
+			#results-block,.sidebar_slide {
+				margin-top: 20px;
 			}
+			#results-block {
+				margin-left: -15px;
+			}
+			.sidebar_slide {right: -20px;}
+		}
+		@media screen and (min-width: 1025px) and (max-width: 1199px) { 
+			.youtube-large, .dailymotion-large, .mediaside { text-align:center; }
+			.hide-1200 { display:none; }
+			.show-1200 { display:none; margin-top:15px; }
+			#results-block {
+				margin-left: -35px;
+			}
+			.sidebar_slide {right: -35px;}			
 		}
 		@media screen and (max-width: 768px) { }
 		@media screen and (max-width: 640px) { }
@@ -335,7 +349,7 @@
 		</div>
 		<div class="container" style="">
 			<div class="row-fluid resultsblock" style="padding-top: 0px;" id="mainbar">
-				<div class="col-lg-9" id="results-block">
+				<div class="col-lg-9 col-md-9" id="results-block">
 					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="/img/loading.svg" width=50></div>
 					<div class="total-matches show-1200" style="margin-left: 0px;"></div>
 

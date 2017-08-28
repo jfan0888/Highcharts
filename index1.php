@@ -136,7 +136,7 @@
     	}
 
 		@media (min-width: 1200px) {
-			.mediaside { max-width:280px; }
+			.mediaside { max-width:280px; text-align: center;}
 			.sidebar_slide {right: -20px;}
 		}
 		@media screen and (max-width: 800px) {
@@ -149,7 +149,7 @@
 		
 		.searchimage { width:200px; float:none; margin: 0 auto; }
 		.socialicon { width:200px; color:#4099FF; width:250px; float:none; margin: 0 auto; }
-		.youtube-large, .dailymotion-large { background-color:transparent; max-width:300px; }
+		.youtube-large, .dailymotion-large { margin: auto;background-color:transparent; max-width:300px; }
 		@media screen and (max-width: 13677px) { 
 			.searchimage { width:175px; }
 			.socialicon { width:175px; }
