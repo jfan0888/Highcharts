@@ -788,7 +788,9 @@ $(document).ready(function() {
 					$('#results').empty();
 					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">No Enough Data.</div></div>');
 					if (sidebarstate == "open") closeSidebar();
+					$('.pull-left').hide();
 				}
+				else $('.pull-left').show();
 
 				winwidth = Number($(window).width());
 				if(winwidth < 1024) { rbh = 165; rbhn = 140; fwb = 130; fwbn = 100; } else { rbh = 205; rbhn = 180; fwb = 165; fwbn = 140; }

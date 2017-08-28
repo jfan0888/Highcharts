@@ -157,13 +157,22 @@
 		@media screen and (max-width: 1200px) { 
 			.youtube-large, .dailymotion-large, .mediaside { margin-left:auto; margin-right:auto; text-align:center; }
 			.hide-1200 { display:none; }
-			.show-1200 {display:inline-block; margin-top:15px; }
+			.show-1200 { display:none; margin-top:15px; }
 		}
 		@media screen and (max-width: 1024px) { 
 			#search {
 				margin-left: 0px;
 				height: 50px;
 				margin-top: 10px;
+			}
+			.fixedwhitebox {
+				height: 100px;
+			}
+			#results-block,.sidebar_slide {
+				margin-top: 20px;
+			}
+			#results-block {
+				margin-left: -15px;
 			}
 		}
 		@media screen and (max-width: 768px) { }
@@ -335,7 +344,7 @@
 		</div>
 		<div class="container" style="">
 			<div class="row-fluid resultsblock" id="mainbar">
-				<div class="col-lg-9" id="results-block">
+				<div class="col-lg-9 col-md-9" id="results-block">
 					<div class="spinner" style="margin-top:20px; width:100%; text-align:center;"><img align=center src="img/loading.svg" width=50></div>
 					<div class="total-matches show-1200"></div>
 
@@ -832,6 +841,10 @@ $(document).ready(function() {
 					$('#results').empty();
 					$('#results').html('<div class="item" style="border:0; box-shadow: 0;"><div class="well" style="padding:20px; background:transparent; border:0; box-shadow: 0;">No Enough Data</div></div>');
 					if(sidebarstate == 'open') closeSidebar();
+					$('.pull-left').hide();
+				}
+				else {
+					$('.pull-left').show();
 				}
 				winwidth = Number($(window).width());
 				if(winwidth < 1024) { rbh = 165; rbhn = 140; fwb = 130; fwbn = 100; } else { rbh = 205; rbhn = 180; fwb = 165; fwbn = 140; }
