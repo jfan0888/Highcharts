@@ -137,6 +137,7 @@
 
 		@media (min-width: 1200px) {
 			.mediaside { max-width:280px; }
+			.sidebar_slide {right: -20px;}
 		}
 		@media screen and (max-width: 800px) {
 			.z { display: inline-block !important; }
@@ -152,28 +153,32 @@
 		@media screen and (max-width: 13677px) { 
 			.searchimage { width:175px; }
 			.socialicon { width:175px; }
-
-		}
-		@media screen and (max-width: 1200px) { 
-			.youtube-large, .dailymotion-large, .mediaside { margin-left:auto; margin-right:auto; text-align:center; }
-			.hide-1200 { display:none; }
-			.show-1200 { display:none; margin-top:15px; }
+			.sidebar_slide {right: -20px;}
 		}
 		@media screen and (max-width: 1024px) { 
 			#search {
 				margin-left: 0px;
 				height: 50px;
 				margin-top: 10px;
-			}
-			.fixedwhitebox {
-				height: 100px;
-			}
+			}		
+		}
+		@media screen and (min-width: 1024px) { 
 			#results-block,.sidebar_slide {
 				margin-top: 20px;
 			}
 			#results-block {
 				margin-left: -15px;
 			}
+			.sidebar_slide {right: -20px;}
+		}
+		@media screen and (min-width: 1025px) and (max-width: 1199px) { 
+			.youtube-large, .dailymotion-large, .mediaside { text-align:center; }
+			.hide-1200 { display:none; }
+			.show-1200 { display:none; margin-top:15px; }
+			#results-block {
+				margin-left: -35px;
+			}
+			.sidebar_slide {right: -35px;}			
 		}
 		@media screen and (max-width: 768px) { }
 		@media screen and (max-width: 640px) { }
@@ -218,7 +223,6 @@
 		.sidebar_slide {
 			width: auto;
 			position: absolute;
-			right: -20px;
 		}
 	</style>
 </head>
@@ -618,17 +622,6 @@ function renderdailymotion() {
 	}
 };
 
-// Style sidebar area
-
-function createSidebar(){
-	
-	var sidebar = $("#sidebar");
-	var resultswidth = ($("#results-block").outerWidth())+20;
-
-	sidebar.css({"transition-timing-function": "linear", "overflow":"hidden","position": "absolute","min-height": "600px","height": "100%","width": "350px","padding-top":"0px","padding-left":"25px", "left":$(window).width()-443,"transition": "width 2s, left 2s"});
-
-}
-
 // CLEAN UP, CONSOLIDATE CONCEPT OF NEW SEARCH. ONLY TRIGGER DATA ON NEW SEARCH, LEAVE ALL ELSE ALONE
 
 
@@ -636,8 +629,6 @@ function createSidebar(){
 // Now the Doc Read Part
 
 $(document).ready(function() {
-
-	// createSidebar();
 
 	console.log("reload");
 	console.log("ok");
