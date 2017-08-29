@@ -139,6 +139,48 @@
 			.mediaside { max-width:280px; text-align: center;}
 			.sidebar_slide {right: -20px;}
 		}
+
+		@media (max-width: 1300px) {
+			.dashbox {
+				width: 48%;
+				min-height: 200px;
+			}
+			#position_five {
+				min-width: 97%
+			}
+			#position_six {
+				width:48%;				
+			}
+			#position_seven {
+				width:48%;				
+			}			
+		}
+
+		@media screen and (min-width: 1300px) {
+			#position_one {
+				width: 23%;
+			}
+			#position_two {
+				width: 26%;
+			}
+			#position_three {
+				width: 22%;
+			}
+			#position_four {
+				width: 24%;
+			}
+			#position_five {
+				width: 98.5%
+			}
+			.sidebar_slide {right: -20px;}
+			#position_six {
+				width:48.5%;				
+			}
+			#position_seven {
+				width:48.5%;				
+			}
+		}
+
 		@media screen and (max-width: 800px) {
 			.z { display: inline-block !important; }
 			.datefilter { margin-left:0px; }
@@ -160,9 +202,10 @@
 				margin-left: 0px;
 				height: 50px;
 				margin-top: 10px;
-			}		
-		}
-		@media screen and (min-width: 1024px) { 
+			}
+			.mediaside {
+				text-align: center;
+			}
 			#results-block,.sidebar_slide {
 				margin-top: 20px;
 			}
@@ -176,14 +219,14 @@
 			.hide-1200 { display:none; }
 			.show-1200 { display:none; margin-top:15px; }
 			#results-block {
-				margin-left: -35px;
+				margin-left: -20px;
 			}
-			.sidebar_slide {right: -35px;}			
+			.sidebar_slide {right: -40px;}			
 		}
 		@media screen and (max-width: 768px) { }
 		@media screen and (max-width: 640px) { }
 
-		#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-25px; }
+		#tabarrow { background-color:#f0f0f0; cursor:pointer; position:absolute; margin-top:50px;  color:#222; padding-top:2px; border: 1px solid #cfcfcf; border-right:0px; border-radius: 4px; z-index:2; font-size:1.5em; margin-left:-22px; }
 		#tabarrow-glyph { opacity:0.5; }
 		#tabarrow-glyph:hover { opacity:1; }
 		.rotate{
@@ -379,40 +422,40 @@
 									<div id="sparktrend" class="side-chart-gray clear-visible" style="text-align:center; width:100%; margin-bottom:20px; display:block;"></div>
 								</div>
 							</div>
-							<div class="container-fluid" id="full-dashboard" style="padding:10px; padding-left:20px;">
+							<div class="container-fluid" id="full-dashboard" style="padding: 0px;padding-top:10px;">
 								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-									<div class="col-md-3 dashbox d4" id="position_one" style="width:23%; min-height:200px;">
+									<div class="col-md-3 dashbox d4" id="position_one" style="min-height:200px;">
 										<div class="side-head">Grade Level</div>
 										<div id="gradelevelgauge" class="clear-sidebar" style="width:100%;"></div>
 									</div>
-									<div class="col-md-3 dashbox d4" id="position_two" style="width:26%; min-height:200px;">
+									<div class="col-md-3 dashbox d4" id="position_two" style="min-height:200px;">
 										<div class="side-head">Words&nbsp;Per&nbsp;Minute</div>
 										<div id="wpmblock" class="side-chart-stretch clear-sidebar" style="text-align:center; width:100%; margin-top:30px; display:block;"></div>
 										<div class="side-chart-gray clear-sidebar" style="text-align:center; position:absolute; bottom:0; margin-bottom:10px; width:100%; display:block;">Average Rate of Speech<br>in U.S.: 150-160 wpm</div>
 										
 									</div>
-									<div class="col-md-3 dashbox d4" id="position_three" style="width:22%; min-height:200px;">
+									<div class="col-md-3 dashbox d4" id="position_three" style="min-height:200px;">
 										<div class="side-head">Big 5 Emotion</div>
 										<div id="big5wordcloud" class="clear-sidebar "style="width:100%; min-height:150px;"></div>
 									</div>
-									<div class="col-md-3 dashbox d4" id="position_four" style="width:24%; min-height:200px;">
+									<div class="col-md-3 dashbox d4" id="position_four" style="min-height:200px;">
 										<div class="side-head">Positive/Negative</div>
 										<div id="posneggauge" class="clear-sidebar" style="width:100%;"></div>
 									</div>
 								</div>
 								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-									<div class="col-md-12 dashbox d12" id="position_five" style="width:97%; min-height:250px;">
+									<div class="col-md-12 dashbox d12" id="position_five" style="min-height:250px;">
 										<div class="side-head">Timeline - Records By Year</div><br>
 										<div class="side-chart-gray">Color indicates a positive or negative use of words overall.</div>
 										<div id="timelinechart" class="clear-sidebar" style="width:100%; height:200px; margin:0;"></div>
 									</div>
 								</div>
 								<div class="row-fluid" style="margin-left:auto; margin-right:auto;">
-									<div class="col-md-6 dashbox d6" id="position_six" style="width:46%; min-height:250px;">
+									<div class="col-md-6 dashbox d6" id="position_six" style="min-height:250px;">
 										<div class="side-head">Top Related Topics</div>
 										<div id="topicswordcloud" class="clear-sidebar "style="width:100%; height:200px; margin-left:-20px;"></div>
 									</div>
-									<div class="col-md-6 dashbox d6" id="position_seven" style="width:46%; min-height:250px;">
+									<div class="col-md-6 dashbox d6" id="position_seven" style="min-height:250px;">
 										<div class="side-head">Twitter By Date/Time</div>
 										<div id="twitterheatmap" class="clear-sidebar"style="width:100%; min-height:200px; margin:0;"></div>
 									</div>
@@ -1680,10 +1723,27 @@ $(document).ready(function() {
 // Handle Sidebar Open and Close + Make Charts
 
 	sidebarstate = "closed";
-	var marginadjust = 26;
-	var resultswidth = ($("#results-block").outerWidth())+30;
-	var sidewidth = $("#mySidenav").outerWidth();
-	var mainwidth = ($("#results-block").width()+75)+sidewidth;
+
+	if ($(window).width() < 1300) {
+		if ($(window).width() < 1025) {
+			var resultswidth = $("#results-block").outerWidth()-30;
+		}
+		else {
+			var resultswidth = $("#results-block").outerWidth();
+		}
+
+		var sidewidth = $("#mySidenav").outerWidth();
+		var mainwidth = resultswidth+sidewidth+ 3;
+
+	}
+	else {
+
+		var resultswidth = $("#results-block").outerWidth() - 20;
+		var sidewidth = $("#mySidenav").outerWidth();
+		var mainwidth = resultswidth+sidewidth + 25;
+
+	}
+
 	// var arrowoffset = $('#tabarrow').css('margin-left');
 	// arrowoffset = arrowoffset.replace("px", "");
 	// arrowoffset = (Number(arrowoffset));
@@ -1918,7 +1978,9 @@ $(document).ready(function() {
 
 		//Charts
 
-		timelinechart_Module('timelinechart', 800, 11, -90, 1, 0, 30);
+		tWidth = $('#position_five').width();
+
+		timelinechart_Module('timelinechart', tWidth, 11, -90, 1, 0, 30);
 		heatmap_Module('twitterheatmap', 'left', 5, 14, 16);
 		gradelevel_Module('gradelevelgauge');
 		pos_neg_Module('posneggauge');
@@ -1955,7 +2017,7 @@ $(document).ready(function() {
 	    			if (q.length > 0) {
 						$("pull-left").show();
 	    				$("#full-dashboard").css('display', 'flexbox')
-	    				$("#full-dashboard").css('width', resultswidth+"px")
+	    				$("#full-dashboard").css('width', resultswidth + "px")
 	    			}
 	    			else
 	    			{
